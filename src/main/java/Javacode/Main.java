@@ -1,4 +1,4 @@
-package JavaCode;
+package Javacode;
 
 public class Main {
     public static void main(String[] args) {
