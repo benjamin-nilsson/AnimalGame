@@ -1,4 +1,4 @@
-package Javacode;
+package javacode;
 
 public class Player {
 }
