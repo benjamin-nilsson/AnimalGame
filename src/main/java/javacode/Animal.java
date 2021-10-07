@@ -78,4 +78,5 @@ public abstract class Animal {
         return gender;
     }
 
+    public abstract int getValue();
 }

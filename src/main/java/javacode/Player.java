@@ -44,4 +44,8 @@ public class Player {
     public void setMyName(String myName) {
         this.myName = myName;
     }
+
+    public void addAnimal(Animal animal) {
+        this.myAnimals.add(animal);
+    }
 }
