@@ -7,4 +7,8 @@ public class Store {
         player.setMyMoney(player.getMyMoney() - animal.getValue());
     }
 
+    public void buyFood(Player player, Food food){
+        player.addFood(food);
+        player.setMyMoney(player.getMyMoney() - food.getValue());
+    }
 }

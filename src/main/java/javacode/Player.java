@@ -48,4 +48,14 @@ public class Player {
     public void addAnimal(Animal animal) {
         this.myAnimals.add(animal);
     }
+
+    public void addFood(Food food) {
+        //Om samma typ av mat redan finns i myFood, öka mängden i stället för att lägga till ett nytt element
+        String foodName = food.getMyName();
+        for (Food foodInList:this.myFood) {
+            if(foodName.equals(foodInList.getMyName())){
+                foodInList.setMyWeight(foodInList.getMyWeight() + food.getMyWeight());
+            }
+        }
+    }
 }

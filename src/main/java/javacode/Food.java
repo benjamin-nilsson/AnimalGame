@@ -15,4 +15,6 @@ public abstract class Food {
     public abstract int getMyWeight();
 
     public abstract void setMyWeight(int myWeight);
-    }
+
+    public abstract int getValue();
+}
