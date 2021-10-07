@@ -1,8 +1,16 @@
 package javacode;
 
-public abstract class Pig extends Animal {
+public class Pig extends Animal {
 
-    public Pig (String name, Gender gender) { // constructor stores name & gender
+
+    public Pig(String name, Gender gender) {
         super(name, gender);
     }
+
+    @Override
+    public int getValue() {
+        return 0;
+    }
+
+
 }
