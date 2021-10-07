@@ -20,4 +20,12 @@ public abstract class Food {
     public abstract void setFavoriteFood();
 
     public abstract void getFavoriteFood();
+
+    /**
+     * Returns the value for the amount and type of food in this object
+     * @return
+     */
+    public int getValue(){
+        return myValue * myWeight;
+    }
     }
