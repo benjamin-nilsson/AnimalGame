@@ -45,7 +45,7 @@ public abstract class Animal {
      * The animal may die.
      */
     public void endOfTurn() {
-        this.health -= (int) 20 * Math.random() + 11;
+        this.health -= (int) (20 * Math.random() + 11);
         this.age++;
         if(this.age > this.maxAge){
             this.dies();
@@ -55,11 +55,12 @@ public abstract class Animal {
     /**
      * checks if this animal can eat the food proposed.
      * @param food
-     * @return
+     * @return boolean
      */
     public boolean canEat(Food food){
         return this.foods.contains(food.getMyName());
     }
+
     /**
      * When an animal dies, it is removed from its owners animals.
      */
