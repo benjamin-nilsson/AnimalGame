@@ -8,20 +8,58 @@ enum Gender {
 public abstract class Animal {
     private String name;
     private int age;
-    private int health;
     private Gender gender;
     private int hunger; //Health
+    private Animal animalType;
+    private String favoriteFood;
 
-    public Animal(String name, int age, Gender gender) {
+
+    public Animal(String name, Gender gender) {
         this.name = name;
-        this.age = age;
         this.gender = gender;
-        this.hunger = hunger;
-        hunger = 0; //Sets the hunger to 0.
+        this.hunger = 0; //Sets the hunger to 0 = 100 health.
+        this.age = 0; //Sets the start age to 0.
     }
 
-    public void roundPassed(){
+    public void roundPassed() {
         hunger++; //Adds 1 hunger after every round.
+        age++; //Adds 1 age after every round.
+    }
+
+
+    public double mateWith(Animal animal) {
+
+        if (!animal.getClass().equals(animal.getClass()))   //Animals are of different kind, no chance.
+            return 0;
+
+        if (!animal.getAnimalType().equals(animal.getAnimalType()))  //Animals have different types, no chance.
+            return 0;
+
+        if (animal.getGender().equals(animal.getGender()))  //Animals have the same gender, no chance.
+            return 0;
+
+        if (!animal.getGender().equals(animal.getGender()))  //Animals of different gender have 50% chance of breeding.
+            return 0.5;
+    }
+
+
+    public void feedAnimal (Animal animal, Food food) {
+        if (animal.getFavoriteFood().equals(food.getMyName())) {
+            animal.setHunger(animal.getHunger() + -1);
+        }
+    }
+
+    private Animal getAnimalType() {
+        return animalType;
+    }
+
+
+    public String getFavoriteFood(){
+        return favoriteFood;
+    }
+
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
     }
 
     private int getHunger(){
@@ -32,16 +70,12 @@ public abstract class Animal {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public Gender getGender() {
+        return gender;
     }
 
 }
