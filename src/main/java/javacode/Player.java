@@ -13,20 +13,27 @@ public class Player {
         this.myName = myName;
     }
 
+    /**
+     * Add food to player. If the same type of food already is in myFood, just add upp the weights.
+     * @param food
+     */
+    public void addFood(Food food) {
+        //Om samma typ av mat redan finns i myFood, öka mängden i stället för att lägga till ett nytt element
+        String foodName = food.getMyName();
+        for (Food foodInList:this.myFood) {
+            if(foodName.equals(foodInList.getMyName())){
+                foodInList.setMyWeight(foodInList.getMyWeight() + food.getMyWeight());
+            }
+        }
+    }
+
     public ArrayList<Animal> getMyAnimals() {
         return myAnimals;
     }
 
-    public void setMyAnimals(ArrayList<Animal> myAnimals) {
-        this.myAnimals = myAnimals;
-    }
 
     public ArrayList<Food> getMyFood() {
         return myFood;
-    }
-
-    public void setMyFood(ArrayList<Food> myFood) {
-        this.myFood = myFood;
     }
 
     public int getMyMoney() {
@@ -41,21 +48,10 @@ public class Player {
         return myName;
     }
 
-    public void setMyName(String myName) {
-        this.myName = myName;
-    }
 
     public void addAnimal(Animal animal) {
         this.myAnimals.add(animal);
     }
 
-    public void addFood(Food food) {
-        //Om samma typ av mat redan finns i myFood, öka mängden i stället för att lägga till ett nytt element
-        String foodName = food.getMyName();
-        for (Food foodInList:this.myFood) {
-            if(foodName.equals(foodInList.getMyName())){
-                foodInList.setMyWeight(foodInList.getMyWeight() + food.getMyWeight());
-            }
-        }
-    }
+
 }
