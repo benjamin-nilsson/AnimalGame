@@ -14,7 +14,7 @@ public class Game {
     }
 
     public void addPlayer(Player player){
-        myPlayerList.add(player);
+        this.myPlayerList.add(player);
     }
 
     public void newTurn(int turns){
