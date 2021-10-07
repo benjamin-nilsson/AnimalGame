@@ -39,7 +39,6 @@ public class Player {
         return myAnimals;
     }
 
-
     public ArrayList<Food> getMyFood() {
         return myFood;
     }
@@ -58,6 +57,7 @@ public class Player {
 
 
     public void addAnimal(Animal animal) {
+        animal.setOwner(this);
         this.myAnimals.add(animal);
     }
 
