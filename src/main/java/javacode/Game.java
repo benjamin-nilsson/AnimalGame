@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class Game {
-    private ArrayList<Player> myPlayerList = new ArrayList<>();
+    private ArrayList<Player> myPlayerList = new ArrayList<Player>();
     private int turns;
     private int maxTurns;
 
