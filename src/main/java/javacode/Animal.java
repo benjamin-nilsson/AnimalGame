@@ -15,6 +15,7 @@ public abstract class Animal {
 
 
     public Animal(String name, Gender gender) {
+        super();
         this.name = name;
         this.gender = gender;
         this.hunger = 0; //Sets the hunger to 0 = 100 health.
