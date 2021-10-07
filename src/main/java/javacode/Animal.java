@@ -13,37 +13,46 @@ enum Gender {
  * Field variables for different animal attributes.
  */
 public abstract class Animal {
+    private Player owner;
     private Gender gender;
-    private String name;
-    private int age;
-    private int hunger; //Health
-    private Animal animalType;
-    private int ageFromStore;
-    private int maxAge;
+    private String name, species;
+    private int age, health, basicValue, maxAge, litterSize;
 
 
-    /**
-     * Animal constructor that forwards the name and gender of the animals.
-     * Also sets the base hunger and age to 0.
-     * @param name of the animal.
-     * @param gender of the animal.
-     */
-    public Animal(String name, Gender gender) {
+    public Animal(String name, String species, Gender gender) {
         super();
         this.name = name;
+        this.species = species;
         this.gender = gender;
-        this.hunger = 0; //Sets the hunger to 0 = 100 health.
-        this.age = 0; //Sets the start age to 0.
+        this.health = 100;//Perfect health.
+        this.age = 0; //Newborn
     }
-
-
-
 
     /**
      * Method that uses the math.random function to randomize the age from a store bought animal, maxAge / 2.
      */
     public void ageFromStore(){
         this.age = (int) (1 + (Math.random() * this.getMaxAge() / 2));
+    }
+
+    /**
+     * Method that is called whenever a game turn ends
+     * health drops by 10-30%, age increases by 1 Turn.
+     * The animal may die.
+     */
+    public void endOfTurn() {
+        this.health -= (int) 20 * Math.random() + 11;
+        this.age++;
+        if(this.age > this.maxAge){
+            this.dies();
+        }
+    }
+
+    /**
+     * When an animal dies, it is removed from its owners animals.
+     */
+    public void dies(){
+        this.owner.removeAnimal(this);
     }
 
     public int getAge(){
@@ -53,36 +62,48 @@ public abstract class Animal {
     public int getMaxAge(){
         return this.maxAge;
     }
-/*    public void turnPassed() {
-        hunger++; //Adds 1 hunger after every round.
-        age++; //Adds 1 age after every round.
+
+    public int getValue(){
+        return (this.getBasicValue() * this.getHealth())/100;
     }
 
-    public double mateWith(Animal animal) {
-        if (!animal.getAnimalType().equals(animal.getAnimalType()))  //Animals have different types, no chance.
-            return 0;
-        if (animal.getGender().equals(animal.getGender()))  //Animals have the same gender, no chance.
-            return 0;
-        if (!animal.getGender().equals(animal.getGender()))  //Animals of different gender have 50% chance of breeding.
-            return 0.5;
+    public int getBasicValue(){
+        return this.basicValue;
     }
 
-    public void feedAnimal (Animal animal, Food food) {
-        if (food.getFavoriteFood().equals(food.getMyName())) {
-            animal.setHunger(animal.getHunger() -1);
-        }
-    }*/
+    public int getHealth(){
+        return this.health;
+    }
+
+    public String getSpecies(){
+        return this.species;
+    }
+
+    public Player getOwner() {
+        return owner;
+    }
+
+    public Gender getGender() {
+        return this.gender;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
+
+    public boolean canMateWith(Animal animal){
+        return animal.getSpecies().equals(this.species) && !(animal.getGender() == this.gender);
+    }
+
+
+
 
     /**
      * Abstract methods that the subclass animals inherit.
      * @return the value of animal attributes.
      */
 
-    public abstract int getValue();
+    public abstract void mateWith(Animal animal);
 
-    public abstract int getPrice();
 
-    public abstract Animal getAnimalType();
-
-    public abstract int getHunger(int hunger);
 }
