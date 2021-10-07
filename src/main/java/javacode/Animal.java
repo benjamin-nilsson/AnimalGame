@@ -1,19 +1,33 @@
 package javacode;
 
+/**
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
+ * This class declares the animal attributes and Enum Genders.
+ */
 
 enum Gender {
     MALE, FEMALE
 }
 
+/**
+ * Field variables for different animal attributes.
+ */
 public abstract class Animal {
+    private Gender gender;
     private String name;
     private int age;
-    private Gender gender;
     private int hunger; //Health
     private Animal animalType;
+    private int ageFromStore;
+    private int maxAge;
 
 
-
+    /**
+     * Animal constructor that forwards the name and gender of the animals.
+     * Also sets the base hunger and age to 0.
+     * @param name of the animal.
+     * @param gender of the animal.
+     */
     public Animal(String name, Gender gender) {
         super();
         this.name = name;
@@ -22,6 +36,28 @@ public abstract class Animal {
         this.age = 0; //Sets the start age to 0.
     }
 
+    /**
+     * Method gives us access to set the max age of the animal.
+     * @return the max age.
+     */
+    public int getMaxAge(){
+        return this.maxAge;
+    }
+
+    /**
+     * Method that uses the math.random function to randomize the age from a store bought animal, maxAge / 2.
+     */
+    public void ageFromStore(){
+        this.age = (int) (1 + (Math.random() * this.getMaxAge() / 2));
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 /*    public void turnPassed() {
         hunger++; //Adds 1 hunger after every round.
         age++; //Adds 1 age after every round.
@@ -42,15 +78,17 @@ public abstract class Animal {
         }
     }*/
 
+    /**
+     * Abstract methods that the subclass animals inherit.
+     * @return the value of animal attributes.
+     */
+    public abstract int getAge(int age);
+
+    public abstract int getValue();
+
+    public abstract int getPrice();
+
     public abstract Animal getAnimalType();
 
-    public abstract int setHunger(int hunger);
-
-    public abstract String setName(String name);
-
-    public abstract int setAge(int age);
-
-    public abstract Gender setGender();
-
-    public abstract int setValue();
+    public abstract int getHunger(int hunger);
 }
