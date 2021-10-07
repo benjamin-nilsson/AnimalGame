@@ -16,12 +16,11 @@ public class SceneCreator {
      * @throws Exception
      */
     public static void launchScene(String sceneName) throws Exception {
-        var createScene = new CreateScene();
         // todo: fix a class that creates the first scenebuilder and that we can save variables in. Maybe game?
-        FXMLLoader loader = new FXMLLoader(CreateScene.class.getResource(sceneName));
-        createScene.setRoot(loader.load());
-        Scene scene = new Scene(createScene.getRoot());
-        createScene.getStage().setScene(scene);
-        createScene.getStage().show();
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource(sceneName));
+        Main.setRoot(loader.load());
+        Scene scene = new Scene(Main.getRoot());
+        Main.getStage().setScene(scene);
+        Main.getStage().show();
     }
 }
