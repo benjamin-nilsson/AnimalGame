@@ -2,6 +2,7 @@ package javacode;
 
 public abstract class Food {
     private String myName;
+    private String favoriteFood;
     private int myValue, myWeight;
 
     public abstract String getMyName();
@@ -15,4 +16,8 @@ public abstract class Food {
     public abstract int getMyWeight();
 
     public abstract void setMyWeight(int myWeight);
+
+    public abstract void setFavoriteFood();
+
+    public abstract void getFavoriteFood();
     }

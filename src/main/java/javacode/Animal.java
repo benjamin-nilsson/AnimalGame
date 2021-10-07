@@ -11,7 +11,7 @@ public abstract class Animal {
     private Gender gender;
     private int hunger; //Health
     private Animal animalType;
-    private String favoriteFood;
+
 
 
     public Animal(String name, Gender gender) {
@@ -22,62 +22,35 @@ public abstract class Animal {
         this.age = 0; //Sets the start age to 0.
     }
 
-    public void roundPassed() {
+/*    public void turnPassed() {
         hunger++; //Adds 1 hunger after every round.
         age++; //Adds 1 age after every round.
     }
 
-
     public double mateWith(Animal animal) {
-
-        if (!animal.getClass().equals(animal.getClass()))   //Animals are of different kind, no chance.
-            return 0;
-
         if (!animal.getAnimalType().equals(animal.getAnimalType()))  //Animals have different types, no chance.
             return 0;
-
         if (animal.getGender().equals(animal.getGender()))  //Animals have the same gender, no chance.
             return 0;
-
         if (!animal.getGender().equals(animal.getGender()))  //Animals of different gender have 50% chance of breeding.
             return 0.5;
     }
 
-
     public void feedAnimal (Animal animal, Food food) {
-        if (animal.getFavoriteFood().equals(food.getMyName())) {
-            animal.setHunger(animal.getHunger() + -1);
+        if (food.getFavoriteFood().equals(food.getMyName())) {
+            animal.setHunger(animal.getHunger() -1);
         }
-    }
+    }*/
 
-    private Animal getAnimalType() {
-        return animalType;
-    }
+    public abstract Animal getAnimalType();
 
+    public abstract int setHunger(int hunger);
 
-    public String getFavoriteFood(){
-        return favoriteFood;
-    }
+    public abstract String setName(String name);
 
-    public void setHunger(int hunger) {
-        this.hunger = hunger;
-    }
+    public abstract int setAge(int age);
 
-    private int getHunger(){
-        return hunger;
-    }
+    public abstract Gender setGender();
 
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public abstract int getValue();
+    public abstract int setValue();
 }
