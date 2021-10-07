@@ -51,6 +51,10 @@ public abstract class Animal {
         this.age = (int) (1 + (Math.random() * this.getMaxAge() / 2));
     }
 
+    public int getAge(){
+        return this.age;
+    }
+
 /*    public void turnPassed() {
         hunger++; //Adds 1 hunger after every round.
         age++; //Adds 1 age after every round.
