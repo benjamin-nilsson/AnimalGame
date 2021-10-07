@@ -44,4 +44,5 @@ public abstract class Animal {
         this.age = age;
     }
 
+    public abstract int getValue();
 }
