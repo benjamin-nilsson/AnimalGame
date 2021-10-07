@@ -1,5 +1,7 @@
 package javacode;
 
+import java.util.ArrayList;
+
 /**
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  * This class declares the animal attributes and Enum Genders.
@@ -17,6 +19,7 @@ public abstract class Animal {
     private Gender gender;
     private String name, species;
     private int age, health, basicValue, maxAge, litterSize;
+    private ArrayList<String> foods;
 
 
     public Animal(String name, String species, Gender gender) {
@@ -26,6 +29,7 @@ public abstract class Animal {
         this.gender = gender;
         this.health = 100;//Perfect health.
         this.age = 0; //Newborn
+        this.foods = new ArrayList<>();
     }
 
     /**
@@ -48,6 +52,14 @@ public abstract class Animal {
         }
     }
 
+    /**
+     * checks if this animal can eat the food proposed.
+     * @param food
+     * @return
+     */
+    public boolean canEat(Food food){
+        return this.foods.contains(food.getMyName());
+    }
     /**
      * When an animal dies, it is removed from its owners animals.
      */

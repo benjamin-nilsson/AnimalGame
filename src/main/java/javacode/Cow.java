@@ -1,5 +1,7 @@
 package javacode;
 
+import java.util.ArrayList;
+
 /**
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  * This class extens the Animal class and holds the characteristics of the cow.
@@ -10,9 +12,10 @@ public class Cow extends Animal {
     private Gender gender;
     private String name, species;
     private int age, health, basicValue, maxAge, litterSize;
+    private ArrayList<String> foods;
 
     /**
-     * Constructor - calls the supers constructor and sets maxAge, basicValue & litterSize according
+     * Constructor - calls the supers constructor and sets maxAge, basicValue , foods & litterSize according
      * to the values for the subclass.
      * @param name
      * @param gender
@@ -22,6 +25,8 @@ public class Cow extends Animal {
         this.maxAge = 20;
         this.basicValue = 20;
         this.litterSize = 1;
+        this.foods.add("Baled Hay");
+        this.foods.add("Mixed Grain");
     }
 
     /**
