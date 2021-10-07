@@ -27,6 +27,14 @@ public class Player {
         }
     }
 
+    /**
+     * removes animal from myAnimals
+     * @param animal
+     */
+    public void removeAnimal(Animal animal) {
+        this.myAnimals.remove(animal);
+    }
+
     public ArrayList<Animal> getMyAnimals() {
         return myAnimals;
     }
@@ -52,6 +60,7 @@ public class Player {
     public void addAnimal(Animal animal) {
         this.myAnimals.add(animal);
     }
+
 
 
 }
