@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * The Store Class contains the static methods of buying and selling animals, and buying food
- * @author fredr
+ * @author grupp1
  */
 public class Store {
 

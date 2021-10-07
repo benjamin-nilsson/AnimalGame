@@ -55,6 +55,10 @@ public abstract class Animal {
         this.owner.removeAnimal(this);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getAge(){
         return this.age;
     }
