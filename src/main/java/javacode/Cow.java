@@ -1,40 +1,48 @@
 package javacode;
 
+/**
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
+ * This class extens the Animal class and holds the characteristics of the cow.
+ */
+
+/**
+ * Sets the max age of the cow.
+ */
+
 public class Cow extends Animal {
-    private Object Cow;
+    private Animal Cow;
+    private int maxAge = 20;
 
     public Cow (String name, Gender gender) { // constructor stores name & gender
         super(name, gender);
     }
 
     @Override
+    public int getAge(int age) {
+        return 0;
+    }
+
+    @Override
+    public int getValue() {
+        return 0;
+    }
+
+    @Override
+    public int getPrice() {
+        return 20;
+    }
+
+    @Override
     public Animal getAnimalType() {
-        return (Animal) Cow;
+        return Cow;
     }
 
     @Override
-    public int setHunger(int hunger) {
+    public int getHunger(int hunger) {
         return 0;
     }
-
     @Override
-    public String setName(String name) {
-        return null;  //Set later?
+    public int getMaxAge() {
+        return maxAge;
     }
-
-    @Override
-    public int setAge(int age) {
-        return 0;
-    }
-
-    @Override
-    public Gender setGender() {
-        return null;  //Set later?
-    }
-
-    @Override
-    public int setValue() {
-        return 20;  //Money?
-    }
-
 }
