@@ -36,13 +36,8 @@ public abstract class Animal {
         this.age = 0; //Sets the start age to 0.
     }
 
-    /**
-     * Method gives us access to set the max age of the animal.
-     * @return the max age.
-     */
-    public int getMaxAge(){
-        return this.maxAge;
-    }
+
+
 
     /**
      * Method that uses the math.random function to randomize the age from a store bought animal, maxAge / 2.
@@ -55,6 +50,9 @@ public abstract class Animal {
         return this.age;
     }
 
+    public int getMaxAge(){
+        return this.maxAge;
+    }
 /*    public void turnPassed() {
         hunger++; //Adds 1 hunger after every round.
         age++; //Adds 1 age after every round.
@@ -79,7 +77,6 @@ public abstract class Animal {
      * Abstract methods that the subclass animals inherit.
      * @return the value of animal attributes.
      */
-    public abstract int getAge(int age);
 
     public abstract int getValue();
 

@@ -17,10 +17,6 @@ public class Cow extends Animal {
         super(name, gender);
     }
 
-    @Override
-    public int getAge(int age) {
-        return 0;
-    }
 
     @Override
     public int getValue() {
