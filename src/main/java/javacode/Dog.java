@@ -1,49 +1,53 @@
 package javacode;
 
+import java.util.ArrayList;
+
 /**
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  * This class extens the Animal class and holds the characteristics of the dog.
  */
 
-/**
- * Sets the max age of the dog.
- */
-
 public class Dog extends Animal {
-    private Animal Dog;  // dog extends animal klass
-    private int maxAge = 10;
+    private Player owner;
+    private Gender gender;
+    private String name, species;
+    private int age, health, basicValue, maxAge, litterSize;
+    private ArrayList<String> foods;
 
-    public Dog (String name, Gender gender) { // constructor stores name & gender
-        super(name, gender);
+    /**
+     * Constructor - calls the supers constructor and sets maxAge, basicValue, foods & litterSize according
+     * to the values for the subclass.
+     * @param name
+     * @param gender
+     */
+    public Dog (String name, Gender gender) {
+        super(name, "Dog", gender);
+        this.maxAge = 10;
+        this.basicValue = 5;
+        this.litterSize = 6;
+        this.foods.add("Wellness Dry Dog Food");
+        this.foods.add("Frolic");
     }
 
-    @Override
-    public int getAge(int age) {
-        return 0;
+    /**
+     * If a player attempts to have two animals mate there is 50% chance that up to litterSize new animals will
+     * be added to the players animals.
+     * @param animal
+     */
+    public void mateWith(Animal animal){
+        if(this.canMateWith(animal) && Math.random()<0.50){
+            int litter = (int) (this.litterSize * Math.random() + 1);
+            for(int i = 0; i < litter; i++) {
+                Gender newBornsGender = Gender.FEMALE;
+                String nameEnding = "dottir";
+                if(Math.random()<0.5) {
+                    newBornsGender = Gender.MALE;
+                    nameEnding = "sson";
+                }
+                this.owner.addAnimal(new Dog(this.name + nameEnding, newBornsGender));
+            }
+        }
+
     }
 
-    @Override
-    public int getValue() {
-        return 0;
-    }
-
-    @Override
-    public int getPrice() {
-        return 10;
-    }
-
-    @Override
-    public Animal getAnimalType() {
-        return Dog;
-    }
-
-    @Override
-    public int getHunger(int hunger) {
-        return 0;
-    }
-
-    @Override
-    public int getMaxAge() {
-        return maxAge;
-    }
 }
