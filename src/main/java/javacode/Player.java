@@ -44,8 +44,10 @@ public class Player {
         for (Food foodInList:this.myFood) {
             if(foodName.equals(foodInList.getMyName())){
                 foodInList.setMyWeight(foodInList.getMyWeight() + food.getMyWeight());
+                return;
             }
         }
+        this.myFood.add(food);
     }
 
     /**
