@@ -21,10 +21,8 @@ public class Pig extends Animal {
      * @param gender
      */
     public Pig (String name, Gender gender) {
-        super(name, "Pig", gender);
-        this.maxAge = 8;
-        this.basicValue = 10;
-        this.litterSize = 7;
+        super(name, "Pig", gender, 8, 10, 7);
+        foods = new ArrayList<>();
         this.foods.add("Corn and soybeans");
         this.foods.add("Mixed Grain");
     }

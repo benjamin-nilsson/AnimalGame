@@ -21,10 +21,8 @@ public class Sheep extends Animal {
      * @param gender
      */
     public Sheep (String name, Gender gender) {
-        super(name, "Sheep", gender);
-        this.maxAge = 10;
-        this.basicValue = 10;
-        this.litterSize = 3;
+        super(name, "Sheep", gender, 10, 10, 3);
+        foods = new ArrayList<>();
         this.foods.add("Baled Hay");
         this.foods.add("Grass and weeds");
     }

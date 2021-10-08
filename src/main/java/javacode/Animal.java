@@ -22,7 +22,7 @@ public abstract class Animal {
     private ArrayList<String> foods;
 
 
-    public Animal(String name, String species, Gender gender) {
+    public Animal(String name, String species, Gender gender, int maxAge, int basicValue, int litterSize) {
         super();
         this.name = name;
         this.species = species;
@@ -30,6 +30,9 @@ public abstract class Animal {
         this.health = 100;//Perfect health.
         this.age = 0; //Newborn
         this.foods = new ArrayList<>();
+        this.maxAge = maxAge;
+        this.basicValue = basicValue;
+        this.litterSize = litterSize;
     }
 
     /**
