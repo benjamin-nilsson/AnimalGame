@@ -1,31 +1,46 @@
 package javacode;
 
+import java.util.ArrayList;
+
+/**
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
+ * The food class stores the basic attributes of the animal foods.
+ */
+
 public abstract class Food {
+
     private String myName;
-    private String favoriteFood;
-    private int myValue, myWeight;
+    private int myPrice, myWeight;
 
-    public abstract String getMyName();
 
-    public abstract void setMyName(String myName);
+    public Food(String myName, int myPrice, int myWeight) {
+        this.myName = myName;
+        this.myPrice = myPrice;
+        this.myWeight = myWeight;
+    }
 
-    public abstract int getMyValue();
+    public void setMyWeight(int myWeight) {
+        this.myWeight = myWeight;
+    }
 
-    public abstract void setMyValue(int myValue);
+    public String getMyName() {
+        return myName;
+    }
 
-    public abstract int getMyWeight();
+    public int getMyPrice() {
+        return myPrice;
+    }
 
-    public abstract void setMyWeight(int myWeight);
-
-    public abstract void setFavoriteFood();
-
-    public abstract void getFavoriteFood();
+    public int getMyWeight() {
+        return myWeight;
+    }
 
     /**
      * Returns the value for the amount and type of food in this object
      * @return
      */
-    public int getValue(){
-        return myValue * myWeight;
+    public int getValue() {
+        return this.myPrice * this.myWeight;
     }
     }
+
