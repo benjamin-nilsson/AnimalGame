@@ -36,8 +36,8 @@ public class GameController {
             }
 
             if (!createPlayersButton.isDisabled()) {
-                Game.setMyPlayerList(players);
                 Game.setTurns(numberOfTurns);
+                Game.setNumberOfPlayers(Integer.parseInt(numberOfPlayers.getText()));
                 SceneCreator.launchScene("/scenes/CreatePlayersScene.fxml");
             }
         } catch (NumberFormatException ignore) {}

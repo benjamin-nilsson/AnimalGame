@@ -24,11 +24,11 @@ public class CreatePlayersController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        var length = Game.getMyPlayerList().length;
-        if (length == 2) {
+        int size = Game.getNumberOfPlayers();
+        if (size == 2) {
             player3.setVisible(false);
             player4.setVisible(false);
-        } else if (length == 3) {
+        } else if (size == 3) {
             player4.setVisible(false);
         }
     }
@@ -39,21 +39,21 @@ public class CreatePlayersController implements Initializable {
                         .or(Bindings.isEmpty(player2.textProperty()))
         );
 
-        var length = Game.getMyPlayerList().length;
-        Game.addPlayer(new Player(player1.getText()), 0);
-        Game.addPlayer(new Player(player2.getText()), 1);
-        if (length == 3) {
+        var size = Game.getNumberOfPlayers();
+        Game.addPlayer(new Player(player1.getText()));
+        Game.addPlayer(new Player(player2.getText()));
+        if (size == 3) {
             startGameButton.disableProperty().bind(
                     Bindings.isEmpty(player3.textProperty())
             );
-            Game.addPlayer(new Player(player3.getText()), 2);
-        } else if (length == 4) {
+            Game.addPlayer(new Player(player3.getText()));
+        } else if (size == 4) {
             startGameButton.disableProperty().bind(
                     Bindings.isEmpty(player3.textProperty())
                     .or(Bindings.isEmpty(player4.textProperty()))
             );
-            Game.addPlayer(new Player(player3.getText()), 2);
-            Game.addPlayer(new Player(player4.getText()), 3);
+            Game.addPlayer(new Player(player3.getText()));
+            Game.addPlayer(new Player(player4.getText()));
         }
 
         if (startGameButton.isDisabled()) {

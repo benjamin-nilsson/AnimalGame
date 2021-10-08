@@ -6,28 +6,26 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PlayerTurnController implements Initializable {
     @FXML
-    private Text turn;
-
-    @FXML
-    private Text playerText;
+    private Text turn, playerText, moneyText;
 
     @FXML
     private Button nextPlayerOrTurnButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        var numberOfPlayers = Game.getMyPlayerList().length;
+        var numberOfPlayers = Game.getMyPlayerList().size();
 
-        Player[] myPlayerList = Game.getMyPlayerList();
-        Player lastPlayer = myPlayerList[numberOfPlayers -1];
+        ArrayList<Player> myPlayerList = Game.getMyPlayerList();
+        Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
 
         var currentPlayer = Game.getCurrentPlayer();
         if (currentPlayer == null)
-            currentPlayer = myPlayerList[0];
+            currentPlayer = myPlayerList.get(Game.getCurrentPlayerIndex());
 
         if (currentPlayer == lastPlayer) {
             nextPlayerOrTurnButton.setText("Next Turn");
@@ -42,23 +40,26 @@ public class PlayerTurnController implements Initializable {
 
     public void openTurnScene() throws Exception {
         // todo: fix the problem with it being one player to little
-        int numberOfPlayers = Game.getMyPlayerList().length;
-        Player[] myPlayerList = Game.getMyPlayerList();
-        Player lastPlayer = myPlayerList[numberOfPlayers -1];
+        int numberOfPlayers = Game.getMyPlayerList().size();
+        ArrayList<Player> myPlayerList = Game.getMyPlayerList();
+        Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
         Player currentPlayer = Game.getCurrentPlayer();
 
         if (currentPlayer == lastPlayer) {
             int currentTurn = Game.getCurrentTurn();
             Game.setCurrentTurn(++currentTurn);
-            Game.setCurrentPlayer(myPlayerList[0]);
+            Game.setCurrentPlayer(myPlayerList.get(0));
             Game.setCurrentPlayerIndex(0);
             SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
             return;
         }
+        else if (Game.getCurrentTurn() == Game.getTurns()) {
+            // launch a summery of all players wealth to see who won.
+        }
 
         var currentPlayerIndex = Game.getCurrentPlayerIndex();
         Game.setCurrentPlayerIndex(++currentPlayerIndex);
-        Game.setCurrentPlayer(myPlayerList[++currentPlayerIndex]);
+        Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
 
         SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
     }

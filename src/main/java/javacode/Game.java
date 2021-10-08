@@ -8,13 +8,14 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class Game extends Application {
-    private static Player[] myPlayerList;
+    private static ArrayList<Player> myPlayerList = new ArrayList<>();
     private static int turns;
     private static Parent root;
     private static Stage primaryStage;
     private static int currentTurn = 1;
     private static Player currentPlayer;
     private static int currentPlayerIndex = 0;
+    private static int numberOfPlayers;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -46,6 +47,14 @@ public class Game extends Application {
 
     }
 
+    public static int getNumberOfPlayers() {
+        return numberOfPlayers;
+    }
+
+    public static void setNumberOfPlayers(int numberOfPlayer) {
+        Game.numberOfPlayers = numberOfPlayer;
+    }
+
     public static int getCurrentPlayerIndex() {
         return currentPlayerIndex;
     }
@@ -70,16 +79,17 @@ public class Game extends Application {
         Game.currentTurn = currentTurn;
     }
 
-    public static void addPlayer(Player player, int index) {
-        myPlayerList[index] = player;
+    public static void addPlayer(Player player) {
+        myPlayerList.add(player);
     }
 
-    public static Player[] getMyPlayerList() {
+    public static ArrayList<Player> getMyPlayerList() {
         return myPlayerList;
     }
 
-    public static void setMyPlayerList(int players) {
-        myPlayerList = new Player[players];
+    public static void deletePlayer(Player player) {
+        if (player.getMyMoney() == 0 && player.getMyAnimals().isEmpty())
+            myPlayerList.remove(player);
     }
 
     static void setTurns(int numberOfTurns) {
