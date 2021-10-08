@@ -14,6 +14,27 @@ public class Player {
     }
 
     /**
+     * Reports the players current status in the game, as a string to be displayed to the player to
+     * allow the player make an informed decision about his move.
+     * @return
+     */
+    public String reportStatus(){
+        String statusReport = "You have: ";
+        for (Food food:this.getMyFood()) {
+            statusReport += food.getMyWeight() + " kg´s of " + food.getMyName() + ", ";
+        }
+        statusReport = "and " + this.getMyMoney() + " AnimalBucks.\n";
+        if(this.getMyAnimals().size() > 0){
+            statusReport += "The animals you own are:\n";
+            for (Animal animal:this.getMyAnimals()) {
+               statusReport +=  animal.getName() + ", a " + animal.getGender();
+               statusReport += " " + animal.getSpecies() + " of age " + animal.getAge() + ".\n";
+            }
+        }
+        return statusReport;
+    }
+
+    /**
      * Add food to player. If the same type of food already is in myFood, just add upp the weights.
      * @param food
      */
@@ -23,8 +44,10 @@ public class Player {
         for (Food foodInList:this.myFood) {
             if(foodName.equals(foodInList.getMyName())){
                 foodInList.setMyWeight(foodInList.getMyWeight() + food.getMyWeight());
+                return;
             }
         }
+        this.myFood.add(food);
     }
 
     /**
