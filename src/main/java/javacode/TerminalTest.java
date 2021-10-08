@@ -4,11 +4,16 @@ package javacode;
  * Code for testing parts of the program.
  */
 public class TerminalTest {
+    public static void main(String[] args) {
+    System.out.println("Hello, World!");
+    }
+
     static void testPlayer(){
         Player player1 = new Player("Player One");
         System.out.println("Name: " + player1.getMyName());
         System.out.println("AnimalBucks: " + player1.getMyMoney());
     }
+
     static void testCow(Cow cow1){
         System.out.println("Name: " + cow1.getName());
         System.out.println("Species: " + cow1.getSpecies());
