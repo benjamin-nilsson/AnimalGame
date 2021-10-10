@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="450.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javacode.StoreController">
+   <children>
+      <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money:" />
+      <Label layoutX="355.0" layoutY="-3.0" prefHeight="44.0" prefWidth="63.0" text="Store">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Text fx:id="moneyText" layoutX="73.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Pane fx:id="animalSpecificationWindow" layoutX="220.0" layoutY="149.0" prefHeight="177.0" prefWidth="351.0" style="visibility: false; -fx-background-color: white;">
+         <children>
+            <Text layoutX="65.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Specifications" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Text>
+            <Button fx:id="completeButton" layoutX="250.0" layoutY="110.0" mnemonicParsing="false" onAction="#openStoreAfterMoveScene" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Complete" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <CheckBox fx:id="maleBox" layoutX="50.0" layoutY="90.0" mnemonicParsing="false" text="male" />
+            <CheckBox fx:id="femaleBox" layoutX="125.0" layoutY="90.0" mnemonicParsing="false" text="female" />
+            <TextField fx:id="nameOfAnimalField" layoutX="40.0" layoutY="54.0" promptText="Name your animal" />
+            <Text fx:id="errorCheckedText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Only one option can be chosen" />
+            <Text fx:id="errorEmptyFieldText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Plase give the animal a name and gender" />
+         </children>
+      </Pane>
+      <TabPane fx:id="store" layoutY="41.0" prefHeight="412.0" prefWidth="772.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="buyAnimalsTab" text="Store | Buy Animals">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="57.0" layoutY="14.0" prefHeight="163.0" prefWidth="659.0">
+                          <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="222.0" minHeight="90.0" prefHeight="210.0" valignment="CENTER" vgrow="NEVER" />
+                            <RowConstraints maxHeight="172.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="159.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="buyPigButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="pigImage" fitHeight="110.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/95884243-cartoon-pig-play-in-mud.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="buyCowButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="cowImage" fitHeight="110.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <image>
+                                    <Image url="@../images/cow.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="buyDogButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="dogImage" fitHeight="110.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                 <image>
+                                    <Image url="@../images/dog.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="buyHorseButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="horseImage" fitHeight="110.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                 <image>
+                                    <Image url="@../images/Horse.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="buySheepButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fx:id="sheepImage" fitHeight="110.0" fitWidth="103.0" pickOnBounds="true" GridPane.columnIndex="4">
+                                 <image>
+                                    <Image url="@../images/sheep.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                        <Button fx:id="nextPlayerOrTurnButton" layoutX="611.0" layoutY="328.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Done" textFill="#b52020">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="buyFoodTab" text="Store | Buy Food">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane layoutX="-2.0" prefHeight="373.0" prefWidth="778.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="759.0">
+                                 <children>
+                                    <Pane fx:id="foodSpecificationWindow1" layoutX="204.0" layoutY="108.0" prefHeight="177.0" prefWidth="351.0" style="visibility: false; -fx-background-color: white;">
+                                       <children>
+                                          <Text layoutX="65.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Specifications" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font>
+                                          </Text>
+                                          <Button fx:id="completeButton11" layoutX="250.0" layoutY="110.0" mnemonicParsing="false" onAction="#openStoreAfterMoveScene" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Complete" textFill="WHITE">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <TextField fx:id="nameOfAnimalField11" layoutX="40.0" layoutY="54.0" promptText="Name your animal" />
+                                          <Text fx:id="errorCheckedText11" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Only one option can be chosen" />
+                                          <Text fx:id="errorEmptyFieldText11" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Plase give the animal a name and gender" />
+                                       </children>
+                                    </Pane>
+                                    <Button fx:id="nextPlayerOrTurnButton11" layoutX="604.0" layoutY="387.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Next Player" textFill="#b52020">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Button>
+                                    <GridPane layoutX="50.0" layoutY="16.0" prefHeight="157.0" prefWidth="659.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="95.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="68.0" minHeight="0.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="38.0" minHeight="0.0" prefHeight="32.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="meatImage1" fitHeight="86.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/meat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="buyMeatButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <ImageView fx:id="hayImage1" fitHeight="88.0" fitWidth="108.0" pickOnBounds="true" GridPane.columnIndex="1">
+                                             <image>
+                                                <Image url="@../images/hay.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="butHayButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <ImageView fx:id="linenImage1" fitHeight="89.0" fitWidth="109.0" pickOnBounds="true" GridPane.columnIndex="2">
+                                             <image>
+                                                <Image url="@../images/lining.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="buyLinenButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <ImageView fx:id="grassImage1" fitHeight="83.0" fitWidth="107.0" pickOnBounds="true" GridPane.columnIndex="3">
+                                             <image>
+                                                <Image url="@../images/grass.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="buyGrassButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <ImageView fx:id="weedImage1" fitHeight="85.0" fitWidth="104.0" pickOnBounds="true" GridPane.columnIndex="4">
+                                             <image>
+                                                <Image url="@../images/weed.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="buyWeedButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane layoutX="53.0" layoutY="196.0" prefHeight="163.0" prefWidth="659.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="222.0" minHeight="90.0" prefHeight="210.0" valignment="CENTER" vgrow="NEVER" />
+                                          <RowConstraints maxHeight="172.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="159.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <ImageView fx:id="weedImage12" fitHeight="86.0" fitWidth="102.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../images/weed.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Button fx:id="buyWeedButton12" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="sellAnimalsTab" text="Store | Sell">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="57.0" layoutY="14.0" prefHeight="163.0" prefWidth="659.0">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="222.0" minHeight="90.0" prefHeight="210.0" valignment="CENTER" vgrow="NEVER" />
+                              <RowConstraints maxHeight="172.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="159.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <ImageView fx:id="weedImage11" fitHeight="86.0" fitWidth="102.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../images/weed.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="buyWeedButton11" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

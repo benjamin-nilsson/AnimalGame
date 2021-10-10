@@ -1,8 +1,10 @@
 package javacode;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -14,7 +16,11 @@ public class PlayerTurnController implements Initializable {
     private Text turn, playerText, moneyText;
 
     @FXML
-    private Button nextPlayerOrTurnButton;
+    private TextArea farmInformation;
+
+    @FXML
+    private Button nextPlayerOrTurnButton, buyAnimalButton, buyFoodButton, feedAnimalsButton,
+            mateAnimalsButton, sellAnimalsButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,6 +68,33 @@ public class PlayerTurnController implements Initializable {
         Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
 
         SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
+    }
+
+    public void openStoreWithAnimalsScene() throws Exception{
+        Game.setCurrentTab("buyAnimals");
+        SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+    }
+
+    public void openStoreWithFoodScene() throws Exception {
+        Game.setCurrentTab("buyFood");
+        SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+
+    }
+
+    public void openFeedAnimalsMenuScene() throws Exception {
+        Game.setCurrentTab("sellAnimals");
+        SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+    }
+
+    public void openMatingScene() {
+
+    }
+
+    public void openSellMenuScene() {
+
+    }
+
+    public void openStoreScene(ActionEvent actionEvent) {
     }
 }
 

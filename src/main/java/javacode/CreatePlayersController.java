@@ -58,9 +58,7 @@ public class CreatePlayersController implements Initializable {
 
         if (startGameButton.isDisabled()) {
             emptyFieldError.setVisible(true);
-        }
-
-        if (!startGameButton.isDisabled()) {
+        } else {
             SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
         }
     }

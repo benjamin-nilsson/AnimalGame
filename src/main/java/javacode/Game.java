@@ -3,6 +3,7 @@ package javacode;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Tab;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Game extends Application {
     private static Player currentPlayer;
     private static int currentPlayerIndex = 0;
     private static int numberOfPlayers;
+    private static String currentTab;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -32,7 +34,6 @@ public class Game extends Application {
         }
     }
 
-
     public void newTurn(int turns){
     }
 
@@ -45,6 +46,14 @@ public class Game extends Application {
 
     public void loadGame(){
 
+    }
+
+    public static String getCurrentTab() {
+        return currentTab;
+    }
+
+    public static void setCurrentTab(String currentTab) {
+        Game.currentTab = currentTab;
     }
 
     public static int getNumberOfPlayers() {
