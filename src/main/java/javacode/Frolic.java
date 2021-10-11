@@ -8,10 +8,8 @@ public class Frolic extends Food{
     private int myPrice, myWeight;
 
     public Frolic () {
-        super("Frolic" , 5, 5); // fill in prices later
+        super("Frolic" , 5, 5);
         this.myName = myName;
-        this.myPrice = myPrice;
-        this.myWeight = myWeight;
     }
 
 }

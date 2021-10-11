@@ -10,8 +10,6 @@ public class WellnesDryDogFood extends Food{
     public WellnesDryDogFood () {
         super("Wellness Dry Dog Food " , 5, 5);
         this.myName = myName;
-        this.myPrice = myPrice;
-        this.myWeight = myWeight;
     }
 
 }

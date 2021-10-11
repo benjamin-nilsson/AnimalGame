@@ -8,10 +8,8 @@ public class BaledHay extends Food{
     private int myPrice, myWeight;
 
     public BaledHay () {
-        super("Baled Hay" , 10, 10); // fill in prices later
+        super("Baled Hay" , 10, 10);
         this.myName = myName;
-        this.myPrice = myPrice;
-        this.myWeight = myWeight;
     }
 
 }

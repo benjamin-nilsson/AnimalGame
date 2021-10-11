@@ -12,8 +12,6 @@ public class MixedGrain extends Food {
     public MixedGrain () {
         super("Mixed Grain" , 5, 5);
         this.myName = myName;
-        this.myPrice = myPrice;
-        this.myWeight = myWeight;
     }
 
 }

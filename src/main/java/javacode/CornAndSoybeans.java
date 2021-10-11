@@ -8,10 +8,8 @@ public class CornAndSoybeans extends Food{
     private int myPrice, myWeight;
 
     public CornAndSoybeans () {
-        super("Corn And Soybeans" , 5, 5); // fill in prices later
+        super("Corn And Soybeans" , 5, 5);
         this.myName = myName;
-        this.myPrice = myPrice;
-        this.myWeight = myWeight;
     }
 
 }
