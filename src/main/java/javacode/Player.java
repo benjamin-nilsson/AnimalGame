@@ -21,9 +21,14 @@ public class Player {
     public String reportStatus(){
         String statusReport = "You have: ";
         for (Food food:this.getMyFood()) {
-            statusReport += food.getMyWeight() + " kg´s of " + food.getMyName() + ", ";
+            statusReport += food.getMyWeight() + " kg´s of " + food.getMyName();
+            if(this.getMyFood().indexOf(food) < this.getMyFood().size()-1){
+                statusReport += ", ";
+            } else {
+                statusReport += ".\n";
+            }
         }
-        statusReport = "and " + this.getMyMoney() + " AnimalBucks.\n";
+
         if(this.getMyAnimals().size() > 0){
             statusReport += "The animals you own are:\n";
             for (Animal animal:this.getMyAnimals()) {
@@ -39,7 +44,6 @@ public class Player {
      * @param food
      */
     public void addFood(Food food) {
-        //Om samma typ av mat redan finns i myFood, öka mängden i stället för att lägga till ett nytt element
         String foodName = food.getMyName();
         for (Food foodInList:this.myFood) {
             if(foodName.equals(foodInList.getMyName())){
@@ -78,12 +82,9 @@ public class Player {
         return myName;
     }
 
-
     public void addAnimal(Animal animal) {
         animal.setOwner(this);
         this.myAnimals.add(animal);
     }
-
-
 
 }
