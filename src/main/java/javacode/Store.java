@@ -14,9 +14,9 @@ public class Store {
      * @param animal
      */
     public static void buyAnimal(Player player, Animal animal){
-        //set age != 0 because bought in store.
+        animal.ageFromStore();
         player.addAnimal(animal);
-       // player.setMyMoney(player.getMyMoney() - animal.getValue());
+        player.setMyMoney(player.getMyMoney() - animal.getValue());
     }
 
     /**
