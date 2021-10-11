@@ -72,7 +72,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <ImageView fx:id="cowImage" fitHeight="110.0" fitWidth="137.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                              <ImageView fx:id="cowImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                                  <image>
                                     <Image url="@../images/cow.jpg" />
                                  </image>
@@ -85,7 +85,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <ImageView fx:id="dogImage" fitHeight="110.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                              <ImageView fx:id="dogImage" fitHeight="98.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                                  <image>
                                     <Image url="@../images/dog.jpg" />
                                  </image>
@@ -98,7 +98,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <ImageView fx:id="horseImage" fitHeight="110.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                              <ImageView fx:id="horseImage" fitHeight="96.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                                  <image>
                                     <Image url="@../images/Horse.jpg" />
                                  </image>
@@ -111,7 +111,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
-                              <ImageView fx:id="sheepImage" fitHeight="110.0" fitWidth="103.0" pickOnBounds="true" GridPane.columnIndex="4">
+                              <ImageView fx:id="sheepImage" fitHeight="99.0" fitWidth="103.0" pickOnBounds="true" GridPane.columnIndex="4">
                                  <image>
                                     <Image url="@../images/sheep.jpg" />
                                  </image>
