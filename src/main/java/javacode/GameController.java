@@ -1,11 +1,17 @@
 package javacode;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
-public class GameController {
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class GameController implements Initializable {
     @FXML
     private TextField numberOfPlayers, turns;
 
@@ -15,13 +21,19 @@ public class GameController {
     @FXML
     private Button createPlayersButton;
 
-    public void openTurnScene() throws Exception {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ensureFieldsAreFilledOut();
+    }
+
+    private void ensureFieldsAreFilledOut() {
         createPlayersButton.disableProperty().bind(
                 Bindings.isEmpty(numberOfPlayers.textProperty())
                         .or(Bindings.isEmpty(turns.textProperty()))
         );
+    }
 
-
+    public void openTurnScene() throws Exception {
         if (createPlayersButton.isDisabled()) {
             emptyFieldError.setVisible(true);
         }

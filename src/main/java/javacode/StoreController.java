@@ -1,5 +1,7 @@
 package javacode;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StoreController implements Initializable {
@@ -42,16 +45,23 @@ public class StoreController implements Initializable {
     @FXML
     private Tab buyAnimalsTab, buyFoodTab, sellAnimalsTab;
 
-    //private specis animal;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        moneyText.setText(String.valueOf(Game.getCurrentPlayer().getMyMoney()) + "AB");
+        Player currentPlayer = Game.getCurrentPlayer();
+        moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
 
         selectTab();
+        buyOptions(currentPlayer);
+        ensureFieldsAreFilledOut();
 
-       // var myAnimals = Game.getCurrentPlayer().getMyAnimals();
+    }
 
+    private void ensureFieldsAreFilledOut() {
+        BooleanBinding unchekedButtons = gender.selectedToggleProperty().isNull()
+                .or(animals.selectedToggleProperty().isNull());
+        buyAnimalButton.disableProperty().bind(
+                Bindings.isEmpty(nameOfAnimalField.textProperty()).or(unchekedButtons)
+        );
     }
 
     private void selectTab() {
@@ -72,6 +82,30 @@ public class StoreController implements Initializable {
         }
     }
 
+    public void buyOptions(Player currentPlayer) {
+        if (currentPlayer.getMyMoney() < 5) {
+            horseBox.setDisable(true);
+            cowBox.setDisable(true);
+            pigBox.setDisable(true);
+            sheepBox.setDisable(true);
+            dogBox.setDisable(true);
+            buyAnimalButton.setDisable(true);
+        }
+        else if (currentPlayer.getMyMoney() < 10) {
+            horseBox.setDisable(true);
+            cowBox.setDisable(true);
+            pigBox.setDisable(true);
+            sheepBox.setDisable(true);
+        }
+        else if (currentPlayer.getMyMoney() < 20) {
+            horseBox.setDisable(true);
+            cowBox.setDisable(true);
+        }
+        else if (currentPlayer.getMyMoney() < 25) {
+            horseBox.setDisable(true);
+        }
+    }
+
 
     public void openStoreScene(ActionEvent actionEvent) throws Exception {
         //: todo: put store items in gridpanes that we then can make invisible.
@@ -81,35 +115,31 @@ public class StoreController implements Initializable {
     }
 
     public void openStoreAfterMoveScene(ActionEvent actionEvent) throws Exception {
-        if (animals.getSelectedToggle() == null || gender.getSelectedToggle() == null || nameOfAnimalField.getText().isEmpty()) {
-            errorEmptyFieldText.setVisible(true);
-            return;
-        }
 
         Player currentPlayer = Game.getCurrentPlayer();
+        String name = nameOfAnimalField.getText();
+        Animal animal = null;
         if (pigBox.isSelected()) {
-            Store.buyAnimal(currentPlayer, new Pig(nameOfAnimalField.getText(), setGender()));
-            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+            animal = new Pig(name, setGender());
         }
         else if (cowBox.isSelected()) {
-            Store.buyAnimal(currentPlayer, new Cow(nameOfAnimalField.getText(), setGender()));
-            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+            animal = new Cow(name, setGender());
         }
         else if (dogBox.isSelected()) {
-            Store.buyAnimal(currentPlayer, new Dog(nameOfAnimalField.getText(), setGender()));
-            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+            animal =  new Dog(name, setGender());
         }
         else if (horseBox.isSelected()) {
-            Store.buyAnimal(currentPlayer, new Horse(nameOfAnimalField.getText(), setGender()));
-            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+            animal = new Horse(name, setGender());
         }
         else if (sheepBox.isSelected()) {
-            Store.buyAnimal(currentPlayer, new Sheep(nameOfAnimalField.getText(), setGender()));
+            animal = new Sheep(name, setGender());
+        }
+            Store.buyAnimal(currentPlayer, animal);
+        if (buyAnimalButton.isDisabled()) {
+            errorEmptyFieldText.setVisible(true);
+        } else {
             SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
         }
-    }
-
-    private void setAnimalNameAndGender() {
     }
 
     private Gender setGender() {
@@ -123,10 +153,29 @@ public class StoreController implements Initializable {
         return gender;
     }
 
-    private Cow typeOfAnimal(String name, Gender gender) {
-        return new Cow(name, gender);
-    }
+    public void openTurnScene(ActionEvent actionEvent) throws Exception{
+        int numberOfPlayers = Game.getMyPlayerList().size();
+        ArrayList<Player> myPlayerList = Game.getMyPlayerList();
+        Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
+        Player currentPlayer = Game.getCurrentPlayer();
 
-    public void openTurnScene(ActionEvent actionEvent) {
+        if (currentPlayer == lastPlayer) {
+            if (Game.getCurrentTurn() == Game.getTurns()) {
+                Game.getStage().close();
+                return;
+            }
+            int currentTurn = Game.getCurrentTurn();
+            Game.setCurrentTurn(++currentTurn);
+            Game.setCurrentPlayer(myPlayerList.get(0));
+            Game.setCurrentPlayerIndex(0);
+            SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
+            return;
+        }
+
+        var currentPlayerIndex = Game.getCurrentPlayerIndex();
+        Game.setCurrentPlayerIndex(++currentPlayerIndex);
+        Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
+
+        SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
     }
 }

@@ -36,39 +36,49 @@ public class PlayerTurnController implements Initializable {
             currentPlayer = Game.getCurrentPlayer();
         }
 
-        availableOptions(currentPlayer);
 
-        if (currentPlayer == lastPlayer) {
+        if (Game.getCurrentTurn() == Game.getTurns() && currentPlayer == lastPlayer) {
+            nextPlayerOrTurnButton.setText("Get Result");
+        }
+        else if (currentPlayer == lastPlayer) {
             nextPlayerOrTurnButton.setText("Next Turn");
-        } else {
+        }
+        else {
             nextPlayerOrTurnButton.setText("Next Player");
         }
 
         playerText.setText(currentPlayer.getMyName());
         int currentTurn = Game.getCurrentTurn();
-        turn.setText(String.valueOf(currentTurn));
+        turn.setText(String.valueOf(currentTurn) + " of " + Game.getTurns());
         moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
         farmInformation.setText(currentPlayer.reportStatus());
+
+        availableOptions(currentPlayer);
     }
 
     private void availableOptions(Player currentPlayer) {
-        if (currentPlayer.getMyMoney() == 0) {
+        int cheapestStoreItem = 5;
+
+        if (Game.getCurrentTurn() == Game.getTurns()) {
+            buyAnimalButton.setDisable(true);
+            buyFoodButton.setDisable(true);
+            feedAnimalsButton.setDisable(true);
+            mateAnimalsButton.setDisable(true);
+        }
+
+        if (currentPlayer.getMyMoney() < cheapestStoreItem) {
             buyAnimalButton.setDisable(true);
             buyFoodButton.setDisable(true);
         }
-        else if (currentPlayer.getMyAnimals().isEmpty()) {
+
+        if (currentPlayer.getMyAnimals().isEmpty()) {
             //todo: also add if they don't have a male or female of the animal
             mateAnimalsButton.setDisable(true);
             sellAnimalsButton.setDisable(true);
             feedAnimalsButton.setDisable(true);
         }
-        else if (currentPlayer.getMyFood().isEmpty()) {
+        if (currentPlayer.getMyFood().isEmpty()) {
             feedAnimalsButton.setDisable(true);
-        } else if (Game.getCurrentTurn() == 30) {
-            buyAnimalButton.setDisable(true);
-            buyFoodButton.setDisable(true);
-            feedAnimalsButton.setDisable(true);
-            mateAnimalsButton.setDisable(true);
         }
     }
 
@@ -79,15 +89,16 @@ public class PlayerTurnController implements Initializable {
         Player currentPlayer = Game.getCurrentPlayer();
 
         if (currentPlayer == lastPlayer) {
+            if (Game.getCurrentTurn() == Game.getTurns()) {
+                Game.getStage().close();
+                return;
+            }
             int currentTurn = Game.getCurrentTurn();
             Game.setCurrentTurn(++currentTurn);
             Game.setCurrentPlayer(myPlayerList.get(0));
             Game.setCurrentPlayerIndex(0);
             SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
             return;
-        }
-        else if (Game.getCurrentTurn() == Game.getTurns()) {
-            // launch a summery of all players wealth to see who won.
         }
 
         var currentPlayerIndex = Game.getCurrentPlayerIndex();
