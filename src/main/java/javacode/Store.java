@@ -16,7 +16,7 @@ public class Store {
     public static void buyAnimal(Player player, Animal animal){
         //set age != 0 because bought in store.
         player.addAnimal(animal);
-        player.setMyMoney(player.getMyMoney() - animal.getValue());
+       // player.setMyMoney(player.getMyMoney() - animal.getValue());
     }
 
     /**

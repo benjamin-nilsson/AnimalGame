@@ -24,28 +24,55 @@ public class PlayerTurnController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         var numberOfPlayers = Game.getMyPlayerList().size();
 
         ArrayList<Player> myPlayerList = Game.getMyPlayerList();
         Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
 
         var currentPlayer = Game.getCurrentPlayer();
-        if (currentPlayer == null)
-            currentPlayer = myPlayerList.get(Game.getCurrentPlayerIndex());
+        if (currentPlayer == null) {
+            Game.setCurrentPlayer(myPlayerList.get(Game.getCurrentPlayerIndex()));
+            currentPlayer = Game.getCurrentPlayer();
+        }
+
+        availableOptions(currentPlayer);
 
         if (currentPlayer == lastPlayer) {
             nextPlayerOrTurnButton.setText("Next Turn");
-        }
-        else
+        } else {
             nextPlayerOrTurnButton.setText("Next Player");
+        }
 
         playerText.setText(currentPlayer.getMyName());
         int currentTurn = Game.getCurrentTurn();
         turn.setText(String.valueOf(currentTurn));
+        moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
+        farmInformation.setText(currentPlayer.reportStatus());
+    }
+
+    private void availableOptions(Player currentPlayer) {
+        if (currentPlayer.getMyMoney() == 0) {
+            buyAnimalButton.setDisable(true);
+            buyFoodButton.setDisable(true);
+        }
+        else if (currentPlayer.getMyAnimals().isEmpty()) {
+            //todo: also add if they don't have a male or female of the animal
+            mateAnimalsButton.setDisable(true);
+            sellAnimalsButton.setDisable(true);
+            feedAnimalsButton.setDisable(true);
+        }
+        else if (currentPlayer.getMyFood().isEmpty()) {
+            feedAnimalsButton.setDisable(true);
+        } else if (Game.getCurrentTurn() == 30) {
+            buyAnimalButton.setDisable(true);
+            buyFoodButton.setDisable(true);
+            feedAnimalsButton.setDisable(true);
+            mateAnimalsButton.setDisable(true);
+        }
     }
 
     public void openTurnScene() throws Exception {
-        // todo: fix the problem with it being one player to little
         int numberOfPlayers = Game.getMyPlayerList().size();
         ArrayList<Player> myPlayerList = Game.getMyPlayerList();
         Player lastPlayer = myPlayerList.get(numberOfPlayers -1);

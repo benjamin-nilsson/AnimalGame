@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StoreController implements Initializable {
@@ -44,7 +45,7 @@ public class StoreController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        moneyText.setText(String.valueOf(Game.getCurrentPlayer().getMyMoney()));
+        moneyText.setText(String.valueOf(Game.getCurrentPlayer().getMyMoney()) + "AB");
 
         var currentTab = Game.getCurrentTab();
         var selectionModel = store.getSelectionModel();
@@ -66,6 +67,9 @@ public class StoreController implements Initializable {
             animal = new Cow("", Gender.FEMALE);
             specificationsWindow.setVisible(true);
         });
+
+       // var myAnimals = Game.getCurrentPlayer().getMyAnimals();
+
     }
 
 
@@ -102,9 +106,8 @@ public class StoreController implements Initializable {
         //animal.setGender()
         //addAnimal(this animal field)
 
-
         animal = new Cow(nameOfAnimalField.getText(), gender);
-        Game.getCurrentPlayer().addAnimal(animal);
+        Store.buyAnimal(Game.getCurrentPlayer(), animal);
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
     }
 

@@ -13,7 +13,7 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
-      <Text fx:id="playerText" layoutX="121.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="51.6708984375">
+      <Text fx:id="playerText" layoutX="118.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="203.6708984375">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Text>
@@ -28,7 +28,7 @@
       <Text layoutX="30.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current turn:" />
       <Text layoutX="72.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player:" />
       <Text layoutX="69.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money:" />
-      <Text fx:id="moneyText" layoutX="121.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="51.6708984375">
+      <Text fx:id="moneyText" layoutX="121.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="152.6708984375">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

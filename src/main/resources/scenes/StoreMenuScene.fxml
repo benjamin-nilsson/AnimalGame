@@ -31,28 +31,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Pane fx:id="animalSpecificationWindow" layoutX="220.0" layoutY="149.0" prefHeight="177.0" prefWidth="351.0" style="visibility: false; -fx-background-color: white;">
-         <children>
-            <Text layoutX="65.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Specifications" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Text>
-            <Button fx:id="completeButton" layoutX="250.0" layoutY="110.0" mnemonicParsing="false" onAction="#openStoreAfterMoveScene" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Complete" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <CheckBox fx:id="maleBox" layoutX="50.0" layoutY="90.0" mnemonicParsing="false" text="male" />
-            <CheckBox fx:id="femaleBox" layoutX="125.0" layoutY="90.0" mnemonicParsing="false" text="female" />
-            <TextField fx:id="nameOfAnimalField" layoutX="40.0" layoutY="54.0" promptText="Name your animal" />
-            <Text fx:id="errorCheckedText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Only one option can be chosen" />
-            <Text fx:id="errorEmptyFieldText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Plase give the animal a name and gender" />
-         </children>
-      </Pane>
       <TabPane fx:id="store" layoutY="41.0" prefHeight="412.0" prefWidth="772.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="buyAnimalsTab" text="Store | Buy Animals">
@@ -138,6 +116,31 @@
                                     <Image url="@../images/sheep.jpg" />
                                  </image>
                               </ImageView>
+                              <Text fx:id="costPigText" strokeType="OUTSIDE" strokeWidth="0.0" text="10AB" textAlignment="CENTER" wrappingWidth="66.0" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="costCowText" strokeType="OUTSIDE" strokeWidth="0.0" text="20AB" textAlignment="CENTER" wrappingWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="costDogText" strokeType="OUTSIDE" strokeWidth="0.0" text="5AB" textAlignment="CENTER" wrappingWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="costHorseText" strokeType="OUTSIDE" strokeWidth="0.0" text="25AB" textAlignment="CENTER" wrappingWidth="66.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="costSheepText" strokeType="OUTSIDE" strokeWidth="0.0" text="10AB" textAlignment="CENTER" wrappingWidth="66.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </GridPane>
                         <Button fx:id="nextPlayerOrTurnButton" layoutX="611.0" layoutY="328.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Done" textFill="#b52020">
@@ -148,6 +151,28 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
+                        <Pane fx:id="animalSpecificationWindow" layoutX="211.0" layoutY="98.0" prefHeight="177.0" prefWidth="351.0" style="visibility: false; -fx-background-color: white;">
+                           <children>
+                              <Text layoutX="65.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Specifications" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="completeButton" layoutX="250.0" layoutY="110.0" mnemonicParsing="false" onAction="#openStoreAfterMoveScene" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Complete" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <CheckBox fx:id="maleBox" layoutX="50.0" layoutY="90.0" mnemonicParsing="false" text="male" />
+                              <CheckBox fx:id="femaleBox" layoutX="125.0" layoutY="90.0" mnemonicParsing="false" text="female" />
+                              <TextField fx:id="nameOfAnimalField" layoutX="40.0" layoutY="54.0" promptText="Name your animal" />
+                              <Text fx:id="errorCheckedText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Only one option can be chosen" />
+                              <Text fx:id="errorEmptyFieldText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Plase give the animal a name and gender" />
+                           </children>
+                        </Pane>
                      </children>
                   </AnchorPane>
             </content>
@@ -202,7 +227,7 @@
                                           <RowConstraints maxHeight="38.0" minHeight="0.0" prefHeight="32.0" valignment="CENTER" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fx:id="meatImage1" fitHeight="86.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="meatImage1" fitHeight="119.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../images/meat.png" />
                                              </image>
@@ -267,6 +292,31 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
                                        </children>
                                     </GridPane>
                                     <GridPane layoutX="53.0" layoutY="196.0" prefHeight="163.0" prefWidth="659.0">
@@ -296,6 +346,11 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
                                        </children>
                                     </GridPane>
                                  </children>
@@ -329,7 +384,7 @@
                                     <Image url="@../images/weed.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="buyWeedButton11" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                              <Button fx:id="buyWeedButton11" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Sell" textFill="WHITE" GridPane.rowIndex="2">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -337,6 +392,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Button>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="73.6708984375" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>
