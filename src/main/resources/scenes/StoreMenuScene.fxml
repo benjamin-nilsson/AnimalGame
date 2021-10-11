@@ -2,12 +2,13 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -51,66 +52,26 @@
                             <RowConstraints maxHeight="159.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="buyPigButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
                               <ImageView fx:id="pigImage" fitHeight="110.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/95884243-cartoon-pig-play-in-mud.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="buyCowButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
                               <ImageView fx:id="cowImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                                  <image>
                                     <Image url="@../images/cow.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="buyDogButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <ImageView fx:id="dogImage" fitHeight="98.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                              <ImageView fx:id="dogImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                                  <image>
                                     <Image url="@../images/dog.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="buyHorseButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
                               <ImageView fx:id="horseImage" fitHeight="96.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                                  <image>
                                     <Image url="@../images/Horse.jpg" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="buySheepButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
                               <ImageView fx:id="sheepImage" fitHeight="99.0" fitWidth="103.0" pickOnBounds="true" GridPane.columnIndex="4">
                                  <image>
                                     <Image url="@../images/sheep.jpg" />
@@ -141,6 +102,15 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Text>
+                              <RadioButton fx:id="pigBox" mnemonicParsing="false" text="Pig" GridPane.rowIndex="2">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="animals" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="cowBox" mnemonicParsing="false" text="Cow" toggleGroup="$animals" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="dogBox" mnemonicParsing="false" text="Dog" toggleGroup="$animals" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="horseBox" mnemonicParsing="false" text="Horse" toggleGroup="$animals" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <RadioButton fx:id="sheepBox" mnemonicParsing="false" text="Sheep" toggleGroup="$animals" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                         <Button fx:id="nextPlayerOrTurnButton" layoutX="611.0" layoutY="328.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Done" textFill="#b52020">
@@ -151,28 +121,32 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Pane fx:id="animalSpecificationWindow" layoutX="211.0" layoutY="98.0" prefHeight="177.0" prefWidth="351.0" style="visibility: false; -fx-background-color: white;">
-                           <children>
-                              <Text layoutX="65.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animal Specifications" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Text>
-                              <Button fx:id="completeButton" layoutX="250.0" layoutY="110.0" mnemonicParsing="false" onAction="#openStoreAfterMoveScene" prefHeight="31.0" prefWidth="94.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Complete" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <CheckBox fx:id="maleBox" layoutX="50.0" layoutY="90.0" mnemonicParsing="false" text="male" />
-                              <CheckBox fx:id="femaleBox" layoutX="125.0" layoutY="90.0" mnemonicParsing="false" text="female" />
-                              <TextField fx:id="nameOfAnimalField" layoutX="40.0" layoutY="54.0" promptText="Name your animal" />
-                              <Text fx:id="errorCheckedText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Only one option can be chosen" />
-                              <Text fx:id="errorEmptyFieldText" layoutX="20.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Plase give the animal a name and gender" />
-                           </children>
-                        </Pane>
+                        <Text layoutX="76.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="76.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="nameOfAnimalField" layoutX="76.0" layoutY="282.0" promptText="Animals name" />
+                        <Button fx:id="buyAnimalButton" layoutX="77.0" layoutY="328.0" mnemonicParsing="false" onAction="#openStoreAfterMoveScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <RadioButton fx:id="maleBox" layoutX="72.0" layoutY="222.0" mnemonicParsing="false" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="femaleBox" layoutX="153.0" layoutY="222.0" mnemonicParsing="false" text="Female" toggleGroup="$gender" />
+                        <Text fx:id="errorEmptyFieldText" layoutX="286.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Fields cannot be empty" wrappingWidth="275.6708984375" />
                      </children>
                   </AnchorPane>
             </content>

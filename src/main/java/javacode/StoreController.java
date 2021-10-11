@@ -1,6 +1,5 @@
 package javacode;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,7 +9,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class StoreController implements Initializable {
@@ -29,11 +27,14 @@ public class StoreController implements Initializable {
             linenImage, grassImage, weedImage;
 
     @FXML
-    private Button buyPigButton, buyCowButton, buyDogButton, buySheepButton, buyHorseButton, buyMeatButton,
+    private Button buyAnimalButton, buyMeatButton,
             butHayButton, buyLinenButton, buyGrassButton, buyWeedButton, completeButton;
 
     @FXML
-    private CheckBox maleBox, femaleBox;
+    private RadioButton pigBox, cowBox, dogBox, horseBox, sheepBox, maleBox, femaleBox;
+
+    @FXML
+    private ToggleGroup animals, gender;
 
     @FXML
     private TabPane store;
@@ -48,12 +49,6 @@ public class StoreController implements Initializable {
         moneyText.setText(String.valueOf(Game.getCurrentPlayer().getMyMoney()) + "AB");
 
         selectTab();
-
-        String species;
-        buyCowButton.setOnMouseClicked(event -> {
-       //     species = "cow";
-            specificationsWindow.setVisible(true);
-        });
 
        // var myAnimals = Game.getCurrentPlayer().getMyAnimals();
 
@@ -86,17 +81,38 @@ public class StoreController implements Initializable {
     }
 
     public void openStoreAfterMoveScene(ActionEvent actionEvent) throws Exception {
-        if (maleBox.isSelected() && femaleBox.isSelected()) {
-            errorEmptyFieldText.setVisible(false);
-            errorCheckedText.setVisible(true);
-            return;
-        }
-        else if (!maleBox.isSelected() && !femaleBox.isSelected() || nameOfAnimalField.getText().isEmpty()) {
-            errorCheckedText.setVisible(false);
+        if (animals.getSelectedToggle() == null || gender.getSelectedToggle() == null || nameOfAnimalField.getText().isEmpty()) {
             errorEmptyFieldText.setVisible(true);
             return;
         }
 
+        Player currentPlayer = Game.getCurrentPlayer();
+        if (pigBox.isSelected()) {
+            Store.buyAnimal(currentPlayer, new Pig(nameOfAnimalField.getText(), setGender()));
+            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+        }
+        else if (cowBox.isSelected()) {
+            Store.buyAnimal(currentPlayer, new Cow(nameOfAnimalField.getText(), setGender()));
+            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+        }
+        else if (dogBox.isSelected()) {
+            Store.buyAnimal(currentPlayer, new Dog(nameOfAnimalField.getText(), setGender()));
+            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+        }
+        else if (horseBox.isSelected()) {
+            Store.buyAnimal(currentPlayer, new Horse(nameOfAnimalField.getText(), setGender()));
+            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+        }
+        else if (sheepBox.isSelected()) {
+            Store.buyAnimal(currentPlayer, new Sheep(nameOfAnimalField.getText(), setGender()));
+            SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+        }
+    }
+
+    private void setAnimalNameAndGender() {
+    }
+
+    private Gender setGender() {
         Gender gender;
         if (maleBox.isSelected()) {
             gender = Gender.MALE;
@@ -104,19 +120,7 @@ public class StoreController implements Initializable {
             gender = Gender.FEMALE;
         }
 
-        //todo: maybe setters and getters for gender and name, to avoid having to create 10 of these methods;
-
-        //todo: alternatively add two more fields to the grid with one being a textfield and one genderField;
-
-        //animal.setName(name)
-        //animal.setGender()
-        //addAnimal(this animal field)
-
-
-
-      //  animal = new Cow(nameOfAnimalField.getText(), gender);
-       // Store.buyAnimal(Game.getCurrentPlayer(), animal);
-        SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+        return gender;
     }
 
     private Cow typeOfAnimal(String name, Gender gender) {
