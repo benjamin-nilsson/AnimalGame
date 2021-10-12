@@ -21,7 +21,7 @@ public class Player {
     public String reportStatus(){
         String statusReport = "You have: ";
         for (Food food:this.getMyFood()) {
-            statusReport += food.getMyWeight() + " kg´s of " + food.getMyName();
+            statusReport += food.getMyWeight() + " kg of " + food.getMyName();
             if(this.getMyFood().indexOf(food) < this.getMyFood().size()-1){
                 statusReport += ", ";
             } else {
