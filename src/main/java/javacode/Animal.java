@@ -123,7 +123,7 @@ public abstract class Animal {
      * @return the value of animal attributes.
      */
 
-    public abstract void mateWith(Animal animal);
+    public abstract boolean mateWith(Animal animal);
 
 
 }

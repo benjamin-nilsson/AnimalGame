@@ -64,7 +64,7 @@ public class Player {
         ArrayList<Animal> returnList = new ArrayList<>();
         for (Animal animal2:this.myAnimals) {
                 if(animal1.canMateWith(animal2)){
-                    returnList.add(animal1);
+                    returnList.add(animal2);
                 }
             }
         return returnList;

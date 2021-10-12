@@ -71,12 +71,13 @@ public class PlayerTurnController implements Initializable {
             buyFoodButton.setDisable(true);
         }
 
-        if (currentPlayer.getMyAnimals().isEmpty()) {
+        if (currentPlayer.getMyAnimals().isEmpty() || currentPlayer.canMate().isEmpty()) {
             //todo: also add if they don't have a male or female of the animal
             mateAnimalsButton.setDisable(true);
             sellAnimalsButton.setDisable(true);
             feedAnimalsButton.setDisable(true);
         }
+
         if (currentPlayer.getMyFood().isEmpty()) {
             feedAnimalsButton.setDisable(true);
         }
@@ -124,8 +125,8 @@ public class PlayerTurnController implements Initializable {
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
     }
 
-    public void openMatingScene() {
-
+    public void openMatingScene() throws Exception {
+        SceneCreator.launchScene("/scenes/MateWithScene.fxml");
     }
 
     public void openSellMenuScene() {

@@ -32,7 +32,8 @@ public class Horse extends Animal {
      * be added to the players animals.
      * @param animal
      */
-    public void mateWith(Animal animal){
+    public boolean mateWith(Animal animal){
+        boolean successful = false;
         if(this.canMateWith(animal) && Math.random()<0.50){
             int litter = (int) (this.litterSize * Math.random() + 1);
             for(int i = 0; i < litter; i++) {
@@ -43,9 +44,11 @@ public class Horse extends Animal {
                     nameEnding = "sson";
                 }
                 this.owner.addAnimal(new Horse(this.name + nameEnding, newBornsGender));
+                successful = true;
             }
         }
 
+        return successful;
     }
 
 }
