@@ -40,6 +40,37 @@ public class Player {
     }
 
     /**
+     * Returns all animals in a players collection that can be mated.
+     * @return
+     */
+    public ArrayList<Animal> canMate(){
+        ArrayList<Animal> returnList = new ArrayList<>();
+        for (Animal animal1:this.myAnimals) {
+            for (Animal animal2:this.myAnimals) {
+                if(animal1.canMateWith(animal2) && !returnList.contains(animal1)){
+                    returnList.add(animal1);
+                }
+            }
+        }
+        return returnList;
+    }
+
+    /**
+     * returns all animals in a players collection that can mate with animal1
+     * @param animal1
+     * @return
+     */
+    public ArrayList<Animal> willMateWith(Animal animal1){
+        ArrayList<Animal> returnList = new ArrayList<>();
+        for (Animal animal2:this.myAnimals) {
+                if(animal1.canMateWith(animal2)){
+                    returnList.add(animal1);
+                }
+            }
+        return returnList;
+    }
+
+    /**
      * Add food to player. If the same type of food already is in myFood, just add upp the weights.
      * @param food
      */
