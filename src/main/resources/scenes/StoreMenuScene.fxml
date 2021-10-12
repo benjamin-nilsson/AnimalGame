@@ -206,7 +206,7 @@
                                                 <Image url="@../images/meat.png" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyMeatButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                          <Button fx:id="buyCornAndSoyButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -219,7 +219,7 @@
                                                 <Image url="@../images/hay.png" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="butHayButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Button fx:id="buyHayButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -232,7 +232,7 @@
                                                 <Image url="@../images/lining.jpg" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyLinenButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                          <Button fx:id="buyFrolicButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -245,7 +245,7 @@
                                                 <Image url="@../images/grass.jpg" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyGrassButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                          <Button fx:id="buyGrassAndWeedsButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -258,7 +258,7 @@
                                                 <Image url="@../images/weed.jpg" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyWeedButton1" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                          <Button fx:id="buyMixedGrain" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -266,27 +266,27 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5kg   25AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10kg   100AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5kg   25AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5kg   25AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5kg   25AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -312,7 +312,7 @@
                                                 <Image url="@../images/weed.jpg" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyWeedButton12" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                          <Button fx:id="buyDogFoodButton" mnemonicParsing="false" onAction="#openStoreScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -320,7 +320,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1kg   10AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5kg   25AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>

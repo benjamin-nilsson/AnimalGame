@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -17,10 +16,7 @@ import java.util.ResourceBundle;
 public class StoreController implements Initializable {
 
     @FXML
-    private Pane specificationsWindow;
-
-    @FXML
-    private Text moneyText, errorEmptyFieldText, errorCheckedText;
+    private Text moneyText, errorEmptyFieldText;
 
     @FXML
     private TextField nameOfAnimalField;
@@ -30,11 +26,11 @@ public class StoreController implements Initializable {
             linenImage, grassImage, weedImage;
 
     @FXML
-    private Button buyAnimalButton, buyMeatButton,
-            butHayButton, buyLinenButton, buyGrassButton, buyWeedButton, completeButton;
+    private Button buyAnimalButton, buyCornAndSoyButton, buyHayButton, buyFrolicButton,
+            buyGrassAndWeedsButton, buyMixedGrain, buyDogFoodButton;
 
     @FXML
-    private RadioButton pigBox, cowBox, dogBox, horseBox, sheepBox, maleBox, femaleBox;
+    private RadioButton pigBox, cowBox, dogBox, horseBox, sheepBox, maleBox;
 
     @FXML
     private ToggleGroup animals, gender;
@@ -48,12 +44,74 @@ public class StoreController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Player currentPlayer = Game.getCurrentPlayer();
-        moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
+        setMoney(currentPlayer);
 
         selectTab();
-        buyOptions(currentPlayer);
+        buyAnimalsOptions(currentPlayer);
         ensureFieldsAreFilledOut();
+        buyFood(currentPlayer);
+    }
 
+    private void buyFood(Player currentPlayer) {
+        buyCornAndSoyButton.setOnMouseClicked(event -> {
+                    Store.buyFood(currentPlayer, new CornAndSoybeans());
+                    setMoney(currentPlayer);
+                    buyFoodOptions(currentPlayer);
+                }
+        );
+
+        buyHayButton.setOnMouseClicked(event -> {
+                    Store.buyFood(currentPlayer, new BaledHay());
+                    setMoney(currentPlayer);
+                    buyFoodOptions(currentPlayer);
+                }
+        );
+
+        buyFrolicButton.setOnMouseClicked(event -> {
+                    Store.buyFood(currentPlayer, new Frolic());
+                    setMoney(currentPlayer);
+                    buyFoodOptions(currentPlayer);
+                }
+        );
+
+        buyGrassAndWeedsButton.setOnMouseClicked(event -> {
+                    Store.buyFood(currentPlayer, new GrassAndWeeds());
+                    setMoney(currentPlayer);
+                    buyFoodOptions(currentPlayer);
+                }
+        );
+
+        buyMixedGrain.setOnMouseClicked(event -> {
+                    Store.buyFood(currentPlayer, new MixedGrain());
+                    setMoney(currentPlayer);
+                    buyFoodOptions(currentPlayer);
+                }
+        );
+
+        buyDogFoodButton.setOnMouseClicked(event -> {
+                    Store.buyFood(currentPlayer, new WellnesDryDogFood());
+                    setMoney(currentPlayer);
+                    buyFoodOptions(currentPlayer);
+                }
+        );
+    }
+
+    private void setMoney(Player currentPlayer) {
+        moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
+    }
+
+    private void buyFoodOptions(Player currentPlayer) {
+        if (currentPlayer.getMyMoney() < 25) {
+            buyCornAndSoyButton.setDisable(true);
+            buyFrolicButton.setDisable(true);
+            buyGrassAndWeedsButton.setDisable(true);
+            buyMixedGrain.setDisable(true);
+            buyDogFoodButton.setDisable(true);
+        }
+
+        if (currentPlayer.getMyMoney() < 100) {
+            buyHayButton.setDisable(true);
+        }
     }
 
     private void ensureFieldsAreFilledOut() {
@@ -82,26 +140,21 @@ public class StoreController implements Initializable {
         }
     }
 
-    public void buyOptions(Player currentPlayer) {
+    private void buyAnimalsOptions(Player currentPlayer) {
         if (currentPlayer.getMyMoney() < 5) {
-            horseBox.setDisable(true);
-            cowBox.setDisable(true);
-            pigBox.setDisable(true);
-            sheepBox.setDisable(true);
             dogBox.setDisable(true);
-            buyAnimalButton.setDisable(true);
         }
-        else if (currentPlayer.getMyMoney() < 10) {
-            horseBox.setDisable(true);
-            cowBox.setDisable(true);
+
+        if (currentPlayer.getMyMoney() < 10) {
             pigBox.setDisable(true);
             sheepBox.setDisable(true);
         }
-        else if (currentPlayer.getMyMoney() < 20) {
-            horseBox.setDisable(true);
+
+        if (currentPlayer.getMyMoney() < 20) {
             cowBox.setDisable(true);
         }
-        else if (currentPlayer.getMyMoney() < 25) {
+
+        if (currentPlayer.getMyMoney() < 25) {
             horseBox.setDisable(true);
         }
     }
