@@ -18,11 +18,11 @@ public abstract class Animal {
     private Player owner;
     private Gender gender;
     private String name, species;
-    private int age, health, basicValue, maxAge, litterSize;
+    private int age, health, basicValue, maxAge, litterSize, amountEaten;
     private ArrayList<String> foods;
 
 
-    public Animal(String name, String species, Gender gender, int maxAge, int basicValue, int litterSize) {
+    public Animal(String name, String species, Gender gender, int maxAge, int basicValue, int litterSize, int amountEaten) {
         super();
         this.name = name;
         this.species = species;
@@ -33,6 +33,7 @@ public abstract class Animal {
         this.maxAge = maxAge;
         this.basicValue = basicValue;
         this.litterSize = litterSize;
+        this.amountEaten = amountEaten;
     }
 
     /**
@@ -71,8 +72,14 @@ public abstract class Animal {
         this.owner.removeAnimal(this);
     }
 
+
+
     public String getName() {
         return name;
+    }
+
+    public int getAmountEaten() {
+        return amountEaten;
     }
 
     public int getAge(){

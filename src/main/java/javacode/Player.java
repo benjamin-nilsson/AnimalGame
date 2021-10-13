@@ -40,6 +40,22 @@ public class Player {
     }
 
     /**
+     * returns all animals in a players collection that can and needs to eat.
+     * @return
+     */
+    public ArrayList<Animal> canEat(){
+        ArrayList<Animal> returnList= new ArrayList<>();
+        for (Animal animal:this.myAnimals){
+            for (Food food:this.getMyFood()){
+                if(animal.canEat(food) && animal.getAmountEaten() >= food.getMyWeight() && !returnList.contains(animal)){
+                    returnList.add(animal);
+                }
+            }
+        }
+        return returnList;
+    }
+
+    /**
      * Returns all animals in a players collection that can be mated.
      * @return
      */
