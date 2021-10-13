@@ -44,6 +44,16 @@ public abstract class Animal {
     }
 
     /**
+     * Animal eats amountEaten kg of the offered food and its healh
+     * is increased by 10 (to a maximum of 100)
+     * @param food
+     */
+    public void eat(Food food){
+        food.setMyWeight(food.getMyWeight()-this.getAmountEaten());
+        this.health = Math.min(this.health + 10, 100);
+    }
+
+    /**
      * Method that is called whenever a game turn ends
      * health drops by 10-30%, age increases by 1 Turn.
      * The animal may die.
