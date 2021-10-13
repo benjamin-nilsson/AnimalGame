@@ -47,7 +47,11 @@ public class Player {
         ArrayList<Animal> returnList= new ArrayList<>();
         for (Animal animal:this.myAnimals){
             for (Food food:this.getMyFood()){
-                if(animal.canEat(food) && animal.getAmountEaten() >= food.getMyWeight() && !returnList.contains(animal)){
+                boolean test = animal.canEat(food);
+                test = test && animal.getAmountEaten() >= food.getMyWeight();
+                test = test && animal.getHealth() < 100;
+                test = test && !returnList.contains(animal);
+                if(test){
                     returnList.add(animal);
                 }
             }
