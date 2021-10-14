@@ -24,6 +24,8 @@ public class PlayerTurnController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // todo: implement delete player method.
+        // todo: implement after game menu.
 
         var numberOfPlayers = Game.getMyPlayerList().size();
 
@@ -57,7 +59,8 @@ public class PlayerTurnController implements Initializable {
     }
 
     private void availableOptions(Player currentPlayer) {
-        int cheapestStoreItem = 5;
+        int cheapestAnimalItem = 5;
+        int cheapestFoodItem = 25;
 
         if (Game.getCurrentTurn() == Game.getTurns()) {
             buyAnimalButton.setDisable(true);
@@ -66,8 +69,11 @@ public class PlayerTurnController implements Initializable {
             mateAnimalsButton.setDisable(true);
         }
 
-        if (currentPlayer.getMyMoney() < cheapestStoreItem) {
+        if (currentPlayer.getMyMoney() <= cheapestAnimalItem) {
             buyAnimalButton.setDisable(true);
+        }
+
+        if (currentPlayer.getMyMoney() <= cheapestFoodItem) {
             buyFoodButton.setDisable(true);
         }
 

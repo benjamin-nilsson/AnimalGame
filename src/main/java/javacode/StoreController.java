@@ -54,6 +54,7 @@ public class StoreController implements Initializable {
         Player currentPlayer = Game.getCurrentPlayer();
         setMoney(currentPlayer);
         selectTabAndPerformItsFunctions(currentPlayer);
+        buyFoodOptions(currentPlayer);
     }
 
     private void buyFood(Player currentPlayer) {
