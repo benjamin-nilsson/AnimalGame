@@ -42,5 +42,5 @@ public abstract class Food {
     public int getValue() {
         return this.myPrice * this.myWeight;
     }
-    }
+}
 

@@ -35,7 +35,7 @@ public class Store {
      */
     public static void sellAllAnimals(Player player){
         ArrayList<Animal> animals = player.getMyAnimals();
-        for (Animal animal : animals){
+        for (Animal animal : animals) {
             sellAnimal(player, animal);
         }
     }

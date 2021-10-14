@@ -31,13 +31,20 @@ public class CreatePlayersController implements Initializable {
         } else if (size == 3) {
             player4.setVisible(false);
         }
+
+        ensureNamesAreFilledOut();
+
     }
 
-    public void openTurnScene() throws Exception {
+    private void ensureNamesAreFilledOut() {
         startGameButton.disableProperty().bind(
                 Bindings.isEmpty(player1.textProperty())
                         .or(Bindings.isEmpty(player2.textProperty()))
         );
+    }
+
+    public void openTurnScene() throws Exception {
+        // todo: fix so they cant have the same name and that it cant be empty.
 
         var size = Game.getNumberOfPlayers();
         Game.addPlayer(new Player(player1.getText()));
@@ -58,9 +65,9 @@ public class CreatePlayersController implements Initializable {
 
         if (startGameButton.isDisabled()) {
             emptyFieldError.setVisible(true);
-        } else {
-            SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
         }
+
+        SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
     }
 
     public void openMainMenuScene(MouseEvent mouseEvent) throws Exception {

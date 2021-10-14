@@ -4,12 +4,9 @@ package javacode;
  * This class extends the food class.
  */
 public class CornAndSoybeans extends Food{
-    private String myName;
-    private int myPrice, myWeight;
 
     public CornAndSoybeans () {
-        super("Corn And Soybeans" , 5, 5);
-        this.myName = myName;
+        super("Corn And Soybeans", 5, 5);
     }
 
 }

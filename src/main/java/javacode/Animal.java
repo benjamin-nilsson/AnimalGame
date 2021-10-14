@@ -1,6 +1,7 @@
 package javacode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
@@ -21,8 +22,7 @@ public abstract class Animal {
     private int age, health, basicValue, maxAge, litterSize, amountEaten;
     private ArrayList<String> foods;
 
-
-    public Animal(String name, String species, Gender gender, int maxAge, int basicValue, int litterSize, int amountEaten) {
+    public Animal(String name, String species, Gender gender, int maxAge, int basicValue, int litterSize, int amountEaten, String ... args) {
         super();
         this.name = name;
         this.species = species;
@@ -30,6 +30,7 @@ public abstract class Animal {
         this.health = 100;//Perfect health.
         this.age = 0; //Newborn
         this.foods = new ArrayList<>();
+        this.foods.addAll(Arrays.asList(args));
         this.maxAge = maxAge;
         this.basicValue = basicValue;
         this.litterSize = litterSize;
@@ -82,8 +83,6 @@ public abstract class Animal {
         this.owner.removeAnimal(this);
     }
 
-
-
     public String getName() {
         return name;
     }
@@ -131,9 +130,6 @@ public abstract class Animal {
     public boolean canMateWith(Animal animal){
         return animal.getSpecies().equals(this.species) && !(animal.getGender() == this.gender);
     }
-
-
-
 
     /**
      * Abstract methods that the subclass animals inherit.

@@ -71,14 +71,20 @@ public class PlayerTurnController implements Initializable {
             buyFoodButton.setDisable(true);
         }
 
-        if (currentPlayer.getMyAnimals().isEmpty() || currentPlayer.canMate().isEmpty()) {
-            //todo: also add if they don't have a male or female of the animal
+        if (currentPlayer.getMyAnimals().isEmpty()) {
             mateAnimalsButton.setDisable(true);
             sellAnimalsButton.setDisable(true);
             feedAnimalsButton.setDisable(true);
         }
 
-        if (currentPlayer.getMyFood().isEmpty()) {
+        if (currentPlayer.canMate().isEmpty()) {
+            mateAnimalsButton.setDisable(true);
+        }
+
+        if (currentPlayer.canEat().isEmpty())
+            System.out.println("is empty");
+
+        if (currentPlayer.getMyFood().isEmpty() || currentPlayer.canEat().isEmpty()) {
             feedAnimalsButton.setDisable(true);
         }
     }
@@ -98,15 +104,22 @@ public class PlayerTurnController implements Initializable {
             Game.setCurrentTurn(++currentTurn);
             Game.setCurrentPlayer(myPlayerList.get(0));
             Game.setCurrentPlayerIndex(0);
-            SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
-            return;
+            ageAnimals(currentPlayer);
+        }
+        else if (currentPlayer != lastPlayer) {
+            var currentPlayerIndex = Game.getCurrentPlayerIndex();
+            Game.setCurrentPlayerIndex(++currentPlayerIndex);
+            Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
+            ageAnimals(currentPlayer);
         }
 
-        var currentPlayerIndex = Game.getCurrentPlayerIndex();
-        Game.setCurrentPlayerIndex(++currentPlayerIndex);
-        Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
-
         SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
+    }
+
+    private void ageAnimals(Player currentPlayer) {
+        for (Animal animal : currentPlayer.getMyAnimals()) {
+            animal.endOfTurn();
+        }
     }
 
     public void openStoreWithAnimalsScene() throws Exception{
@@ -121,16 +134,16 @@ public class PlayerTurnController implements Initializable {
     }
 
     public void openFeedAnimalsMenuScene() throws Exception {
-        Game.setCurrentTab("sellAnimals");
-        SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
+        SceneCreator.launchScene("/scenes/FeedAnimalsScene.fxml");
     }
 
     public void openMatingScene() throws Exception {
         SceneCreator.launchScene("/scenes/MateWithScene.fxml");
     }
 
-    public void openSellMenuScene() {
-
+    public void openStoreWithSellScene() throws Exception {
+        Game.setCurrentTab("sellAnimals");
+        SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
     }
 
     public void openStoreScene(ActionEvent actionEvent) {

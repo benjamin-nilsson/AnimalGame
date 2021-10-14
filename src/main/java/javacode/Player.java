@@ -33,9 +33,11 @@ public class Player {
             statusReport += "The animals you own are:\n";
             for (Animal animal:this.getMyAnimals()) {
                statusReport +=  animal.getName() + ", a " + animal.getGender();
-               statusReport += " " + animal.getSpecies() + " of age " + animal.getAge() + ".\n";
+               statusReport += " " + animal.getSpecies() + " of age " + animal.getAge();
+               statusReport += " with a health of " + animal.getHealth() + ".\n";
             }
         }
+
         return statusReport;
     }
 
@@ -43,20 +45,34 @@ public class Player {
      * returns all animals in a players collection that can and needs to eat.
      * @return
      */
-    public ArrayList<Animal> canEat(){
+    public ArrayList<Animal> canEat() {
         ArrayList<Animal> returnList= new ArrayList<>();
-        for (Animal animal:this.myAnimals){
-            for (Food food:this.getMyFood()){
+        for (Animal animal:this.myAnimals) {
+            for (Food food:this.myFood) {
                 boolean test = animal.canEat(food);
-                test = test && animal.getAmountEaten() >= food.getMyWeight();
-                test = test && animal.getHealth() < 100;
-                test = test && !returnList.contains(animal);
-                if(test){
+                test &= animal.getAmountEaten() <= food.getMyWeight();
+                test &= animal.getHealth() < 100;
+                test &= !returnList.contains(animal);
+                if (test) {
                     returnList.add(animal);
                 }
             }
         }
+
         return returnList;
+    }
+
+    public String reportStatusAnimals() {
+        String statusReport = "The animals you own are:\n";
+        if(this.getMyAnimals().size() > 0){
+            for (Animal animal:this.getMyAnimals()) {
+                statusReport +=  animal.getName() + ", a " + animal.getGender();
+                statusReport += " " + animal.getSpecies() + " of age " + animal.getAge() + " with a health of " +
+                       animal.getHealth() + " and a value of " + animal.getValue() + "AB.\n";
+            }
+        }
+
+        return statusReport;
     }
 
     /**

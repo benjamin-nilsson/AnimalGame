@@ -21,10 +21,7 @@ public class Dog extends Animal {
      * @param gender
      */
     public Dog (String name, Gender gender) {
-        super(name, "Dog", gender, 10, 5, 6, 2);
-        foods = new ArrayList<>();
-        this.foods.add("Wellness Dry Dog Food");
-        this.foods.add("Frolic");
+        super(name, "Dog", gender, 10, 5, 6, 2, "Wellness Dry Dog Food", "Frolic");
     }
 
     /**
@@ -50,5 +47,4 @@ public class Dog extends Animal {
 
         return successful;
     }
-
 }
