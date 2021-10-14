@@ -69,11 +69,11 @@ public class PlayerTurnController implements Initializable {
             mateAnimalsButton.setDisable(true);
         }
 
-        if (currentPlayer.getMyMoney() <= cheapestAnimalItem) {
+        if (currentPlayer.getMyMoney() < cheapestAnimalItem) {
             buyAnimalButton.setDisable(true);
         }
 
-        if (currentPlayer.getMyMoney() <= cheapestFoodItem) {
+        if (currentPlayer.getMyMoney() < cheapestFoodItem) {
             buyFoodButton.setDisable(true);
         }
 
