@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="450.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalgame.controllers.PlayerTurnController">
+   <children>
+      <Text fx:id="turn" layoutX="118.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="135.6708984375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Text fx:id="playerText" layoutX="118.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="203.6708984375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Button fx:id="nextPlayerOrTurnButton" layoutX="611.0" layoutY="365.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Next Player" textFill="#b52020">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Text layoutX="30.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current turn:" />
+      <Text layoutX="72.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player:" />
+      <Text layoutX="69.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Money:" />
+      <Text fx:id="moneyText" layoutX="121.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="152.6708984375">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="farmInformation" layoutX="121.0" layoutY="77.0" prefHeight="115.0" prefWidth="616.0" />
+      <Text layoutX="81.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farm:" />
+      <Button fx:id="buyAnimalButton" layoutX="99.0" layoutY="253.0" mnemonicParsing="false" onAction="#openStoreWithAnimalsScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy Animals " textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="buyFoodButton" layoutX="239.0" layoutY="253.0" mnemonicParsing="false" onAction="#openStoreWithFoodScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy Food" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="feedAnimalsButton" layoutX="373.0" layoutY="253.0" mnemonicParsing="false" onAction="#openFeedAnimalsMenuScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Feed Animals" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="mateAnimalsButton" layoutX="506.0" layoutY="253.0" mnemonicParsing="false" onAction="#openMatingScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Mate Animals" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="sellAnimalsButton" layoutX="632.0" layoutY="253.0" mnemonicParsing="false" onAction="#openStoreWithSellScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Sell Animals" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Text layoutX="100.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player Options">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="506.0" layoutY="365.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: Gray; -fx-border-width: 2px;" text="Save Game" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
