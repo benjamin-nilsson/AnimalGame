@@ -129,6 +129,10 @@ public abstract class Animal {
         return this.gender;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setOwner(Player owner) {
         this.owner = owner;
     }

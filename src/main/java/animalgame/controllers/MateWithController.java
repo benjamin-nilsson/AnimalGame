@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -21,14 +22,15 @@ public class MateWithController implements Initializable {
 
     @FXML
     private Button findMatesButton, mateButton;
+    private ArrayList<Animal> willingAnimalsList;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Player currentPlayer = Game.getCurrentPlayer();
-        ArrayList<Animal> animalsList = currentPlayer.canMate();
-
-        for (Animal animal : animalsList) {
+        ArrayList<Animal> animalsToMateList = currentPlayer.canMate();
+        System.out.println("Debug: # of Matable animals" + animalsToMateList.size());
+        for (Animal animal : animalsToMateList) {
             canMateDropDownList.getItems().add(animal.getName());
         }
 
@@ -37,7 +39,7 @@ public class MateWithController implements Initializable {
 
         findMatesButton.setOnMouseClicked(event -> {
             int selectedAnimal = canMateDropDownList.getSelectionModel().getSelectedIndex();
-            findMates(currentPlayer, animalsList.get(selectedAnimal));
+            findMates(currentPlayer, animalsToMateList.get(selectedAnimal));
             }
         );
         BooleanBinding noSuitAbleMates = willingAnimalsDropDownList.getSelectionModel().selectedItemProperty().isNull();
@@ -48,12 +50,15 @@ public class MateWithController implements Initializable {
             System.out.println(animalToMateIndex);
                 int chosenMateNameIndex = willingAnimalsDropDownList.getSelectionModel().getSelectedIndex();
             System.out.println(chosenMateNameIndex);
-                Animal animalToMateObject = animalsList.get(animalToMateIndex);
-                Animal chosenMateObject = animalsList.get(chosenMateNameIndex);
 
+                Animal animalToMateObject = animalsToMateList.get(animalToMateIndex);
+                Animal chosenMateObject = currentPlayer.willMateWith(animalToMateObject).get(chosenMateNameIndex);
+                //Remove this, write loop that asks player to name any added animals to currentPlayer.animalsList()
                 boolean successfulMating = animalToMateObject.mateWith(chosenMateObject);
                 if (successfulMating) {
-
+                    System.out.println("Debug: Your mating attempt was successful!");
+                } else {
+                    System.out.println("Debug: Your animals are not interested in mating.");
                 }
 
 
