@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="450.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javacode.SaveGameController">
+<AnchorPane prefHeight="450.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalgame.controllers.SaveGameController">
    <children>
       <TextField fx:id="gameName" layoutX="310.0" layoutY="213.0" promptText="Name your game" />
       <Button fx:id="saveButton" layoutX="418.0" layoutY="247.0" mnemonicParsing="false" onAction="#saveCurrentGame" style="-fx-background-color: gray;" text="Save" textFill="WHITE" />
