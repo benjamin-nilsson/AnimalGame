@@ -53,15 +53,15 @@ public class MateWithController implements Initializable {
 
                 Animal animalToMateObject = animalsToMateList.get(animalToMateIndex);
                 Animal chosenMateObject = currentPlayer.willMateWith(animalToMateObject).get(chosenMateNameIndex);
-                //Remove this, write loop that asks player to name any added animals to currentPlayer.animalsList()
-                boolean successfulMating = animalToMateObject.mateWith(chosenMateObject);
-                if (successfulMating) {
-                    System.out.println("Debug: Your mating attempt was successful!");
-                } else {
-                    System.out.println("Debug: Your animals are not interested in mating.");
-                }
 
+                int nrPreMating, nrPostMating;
+                nrPreMating = currentPlayer.getMyAnimals().size();
+                animalToMateObject.mateWith(chosenMateObject);
+                nrPostMating = currentPlayer.getMyAnimals().size();
 
+                for(int i = nrPreMating; i < nrPostMating; i++) {
+                    // Call nameThisAnimal(
+                    }
             }
         );
     }
