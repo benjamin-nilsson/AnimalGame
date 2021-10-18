@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public final class Game extends Application {
+public class Game extends Application {
     private static ArrayList<Player> myPlayerList = new ArrayList<>();
     private static int turns;
     private static Parent root;
@@ -19,7 +19,7 @@ public final class Game extends Application {
     private static String currentTab;
     private static ArrayList<Player> resultOrder;
 
-    private Game() {
+    public Game() {
         myPlayerList = new ArrayList<>();
         resultOrder = new ArrayList<>();
     }
@@ -39,7 +39,7 @@ public final class Game extends Application {
         }
     }
 
- /*   public void newTurn(int turns){
+    /*public void newTurn(int turns){
     }
 
     public void playerTurn(Player player){
@@ -47,10 +47,10 @@ public final class Game extends Application {
     }*/
 
     public static void saveGame(String gameName) {
-       // FilesUtils.writeFile(gameName, this);
+       // FilesUtils.writeFile(gameName, );
     }
 
-   /* public void loadGame(){
+    /*public void loadGame(){
 
     }*/
 
