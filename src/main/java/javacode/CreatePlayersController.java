@@ -12,7 +12,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CreatePlayersController implements Initializable {
-
     @FXML
     private TextField player1, player2, player3, player4;
 

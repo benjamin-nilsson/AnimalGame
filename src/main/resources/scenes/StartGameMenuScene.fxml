@@ -56,5 +56,7 @@
       <Pane fx:id="subScene" layoutX="198.0" layoutY="74.0" prefHeight="321.0" prefWidth="399.0" visible="false" />
       <Text fx:id="errorText" fill="#0400ff" layoutX="243.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Wrong input of players or turns" wrappingWidth="218.6708984375" />
       <Text fx:id="emptyFieldError" fill="#0400ff" layoutX="243.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="All fields needs to be filled out" wrappingWidth="218.6708984375" />
+      <Button layoutX="389.0" layoutY="254.0" mnemonicParsing="false" onAction="#loadOldGameFile" text="Load Old File" />
+      <TextField fx:id="oldGameFileText" layoutX="231.0" layoutY="253.0" promptText="Name of saved game file" />
    </children>
 </AnchorPane>

@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class Game extends Application {
+public final class Game extends Application {
     private static ArrayList<Player> myPlayerList = new ArrayList<>();
     private static int turns;
     private static Parent root;
@@ -17,6 +17,12 @@ public class Game extends Application {
     private static int currentPlayerIndex = 0;
     private static int numberOfPlayers;
     private static String currentTab;
+    private static ArrayList<Player> resultOrder;
+
+    private Game() {
+        myPlayerList = new ArrayList<>();
+        resultOrder = new ArrayList<>();
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -33,18 +39,27 @@ public class Game extends Application {
         }
     }
 
-    public void newTurn(int turns){
+ /*   public void newTurn(int turns){
     }
 
     public void playerTurn(Player player){
 
+    }*/
+
+    public static void saveGame(String gameName) {
+       // FilesUtils.writeFile(gameName, this);
     }
 
-    public void saveGame(){
+   /* public void loadGame(){
+
+    }*/
+
+    public static void addPlayerToResultOrder(Player currentPlayer) {
+        resultOrder.add(currentPlayer);
     }
 
-    public void loadGame(){
-
+    public static ArrayList<Player> getResultOrder() {
+        return resultOrder;
     }
 
     public static String getCurrentTab() {
@@ -96,8 +111,7 @@ public class Game extends Application {
     }
 
     public static void deletePlayer(Player player) {
-        if (player.getMyMoney() == 0 && player.getMyAnimals().isEmpty())
-            myPlayerList.remove(player);
+        myPlayerList.remove(player);
     }
 
     static void setTurns(int numberOfTurns) {

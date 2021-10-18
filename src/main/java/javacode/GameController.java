@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
     @FXML
-    private TextField numberOfPlayers, turns;
+    private TextField numberOfPlayers, turns, oldGameFileText;
 
     @FXML
     private Text errorText, emptyFieldError;
@@ -58,5 +58,9 @@ public class GameController implements Initializable {
 
     public void exitGame(MouseEvent mouseEvent) {
         Game.getStage().close();
+    }
+
+    public void loadOldGameFile() {
+        FilesUtils.readFile(oldGameFileText.getText());
     }
 }

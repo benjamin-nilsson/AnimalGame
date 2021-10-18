@@ -3,8 +3,7 @@ package javacode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -24,15 +23,13 @@ public class PlayerTurnController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // todo: implement delete player method.
-        // todo: implement after game menu.
+        // todo: implement message telling the player his animal died.
 
-        var numberOfPlayers = Game.getMyPlayerList().size();
-
+        int numberOfPlayers = Game.getMyPlayerList().size();
         ArrayList<Player> myPlayerList = Game.getMyPlayerList();
         Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
 
-        var currentPlayer = Game.getCurrentPlayer();
+        Player currentPlayer = Game.getCurrentPlayer();
         if (currentPlayer == null) {
             Game.setCurrentPlayer(myPlayerList.get(Game.getCurrentPlayerIndex()));
             currentPlayer = Game.getCurrentPlayer();
@@ -56,6 +53,84 @@ public class PlayerTurnController implements Initializable {
         farmInformation.setText(currentPlayer.reportStatus());
 
         availableOptions(currentPlayer);
+
+        haveLost(currentPlayer, lastPlayer);
+    }
+
+    private void haveLost(Player currentPlayer, Player lastPlayer) {
+        if (currentPlayer.getMyMoney() < 5 && currentPlayer.getMyAnimals().isEmpty()) {
+
+            Game.deletePlayer(currentPlayer);
+            Game.addPlayerToResultOrder(currentPlayer);
+
+            var numberOfPlayers = Game.getMyPlayerList().size();
+            System.out.println(numberOfPlayers);
+            ArrayList<Player> myPlayerList = Game.getMyPlayerList();
+
+            Alert alert = new Alert(Alert.AlertType.NONE, currentPlayer.getMyName() + " you lost the game!", ButtonType.OK);
+            alertStyle(alert);
+
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.OK) {
+                alert.close();
+
+                if (Game.getMyPlayerList().size() == 1) {
+                    return;
+                }
+                else if (currentPlayer == lastPlayer) {
+                    int currentTurn = Game.getCurrentTurn();
+                    Game.setCurrentTurn(++currentTurn);
+                    Game.setCurrentPlayer(myPlayerList.get(0));
+                    Game.setCurrentPlayerIndex(0);
+                    //ageAnimals(currentPlayer);
+                }
+                else if (currentPlayer != lastPlayer) {
+                    var currentPlayerIndex = Game.getCurrentPlayerIndex();
+                    Game.setCurrentPlayerIndex(++currentPlayerIndex);
+                    Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
+                    // ageAnimals(currentPlayer);
+                }
+            }
+        }
+    }
+
+    public void openTurnScene() throws Exception {
+        int numberOfPlayers = Game.getMyPlayerList().size();
+        ArrayList<Player> myPlayerList = Game.getMyPlayerList();
+        Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
+        Player currentPlayer = Game.getCurrentPlayer();
+
+
+        if (Game.getMyPlayerList().size() == 1) {
+            SceneCreator.launchScene("/scenes/AfterGameMenuScene.fxml");
+            return;
+        }
+        else if (currentPlayer == lastPlayer) {
+            if (Game.getCurrentTurn() == Game.getTurns()) {
+                SceneCreator.launchScene("/scenes/AfterGameMenuScene.fxml");
+                return;
+            }
+            int currentTurn = Game.getCurrentTurn();
+            Game.setCurrentTurn(++currentTurn);
+            Game.setCurrentPlayer(myPlayerList.get(0));
+            Game.setCurrentPlayerIndex(0);
+            ageAnimals(currentPlayer);
+        }
+        else if (currentPlayer != lastPlayer) {
+            var currentPlayerIndex = Game.getCurrentPlayerIndex();
+            Game.setCurrentPlayerIndex(++currentPlayerIndex);
+            Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
+            ageAnimals(currentPlayer);
+        }
+
+        SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
+    }
+
+    private void ageAnimals(Player currentPlayer) {
+        for (Animal animal : currentPlayer.getMyAnimals()) {
+            animal.endOfTurn();
+        }
     }
 
     private void availableOptions(Player currentPlayer) {
@@ -95,39 +170,6 @@ public class PlayerTurnController implements Initializable {
         }
     }
 
-    public void openTurnScene() throws Exception {
-        int numberOfPlayers = Game.getMyPlayerList().size();
-        ArrayList<Player> myPlayerList = Game.getMyPlayerList();
-        Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
-        Player currentPlayer = Game.getCurrentPlayer();
-
-        if (currentPlayer == lastPlayer) {
-            if (Game.getCurrentTurn() == Game.getTurns()) {
-                Game.getStage().close();
-                return;
-            }
-            int currentTurn = Game.getCurrentTurn();
-            Game.setCurrentTurn(++currentTurn);
-            Game.setCurrentPlayer(myPlayerList.get(0));
-            Game.setCurrentPlayerIndex(0);
-            ageAnimals(currentPlayer);
-        }
-        else if (currentPlayer != lastPlayer) {
-            var currentPlayerIndex = Game.getCurrentPlayerIndex();
-            Game.setCurrentPlayerIndex(++currentPlayerIndex);
-            Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
-            ageAnimals(currentPlayer);
-        }
-
-        SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
-    }
-
-    private void ageAnimals(Player currentPlayer) {
-        for (Animal animal : currentPlayer.getMyAnimals()) {
-            animal.endOfTurn();
-        }
-    }
-
     public void openStoreWithAnimalsScene() throws Exception{
         Game.setCurrentTab("buyAnimals");
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
@@ -153,6 +195,28 @@ public class PlayerTurnController implements Initializable {
     }
 
     public void openStoreScene(ActionEvent actionEvent) {
+    }
+
+    /**
+     * Sets a determined style for the alert window.
+     *
+     * @param alert takes an Alert object
+     */
+    private void alertStyle(Alert alert) {
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-background-color: #000000;");
+        dialogPane.lookup(".content.label").setStyle("-fx-font-size: 12px; "
+                + "-fx-font-weight: bold; -fx-text-fill: #ffffff;");
+
+        ButtonBar buttonBar = (ButtonBar)alert.getDialogPane().lookup(".button-bar");
+        buttonBar.getButtons().forEach(b -> b.setStyle("-fx-background-color: #a51414;" +
+                "-fx-text-fill: #ffffff;" +
+                "-fx-font-weight: bold;" +
+                "-fx-cursor:hand;"));
+    }
+
+    public void saveGame(ActionEvent actionEvent) throws Exception {
+        SceneCreator.launchScene("/scenes/SaveGameScene.fxml");
     }
 }
 
