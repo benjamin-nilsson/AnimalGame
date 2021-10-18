@@ -8,11 +8,6 @@ import java.util.ArrayList;
  */
 
 public class Cow extends Animal {
-    private Player owner;
-    private Gender gender;
-    private String name, species;
-    private int age, health, basicValue, maxAge, litterSize;
-    private ArrayList<String> foods;
 
     /**
      * Constructor - calls the supers constructor and sets maxAge, basicValue , foods & litterSize according
@@ -32,7 +27,7 @@ public class Cow extends Animal {
     public boolean mateWith(Animal animal){
         boolean successful = false;
         if(this.canMateWith(animal) && Math.random()<0.50) {
-            int litter = (int) (this.litterSize * Math.random() + 1);
+            int litter = (int) (this.getLitterSize() * Math.random() + 1);
             for(int i = 0; i < litter; i++) {
                 Gender newBornsGender = Gender.FEMALE;
                 String nameEnding = "dottir";
@@ -40,7 +35,7 @@ public class Cow extends Animal {
                     newBornsGender = Gender.MALE;
                     nameEnding = "sson";
                 }
-                this.owner.addAnimal(new Cow(this.name + nameEnding, newBornsGender));
+                this.getOwner().addAnimal(new Cow(this.getName() + nameEnding, newBornsGender));
                 successful = true;
             }
         }

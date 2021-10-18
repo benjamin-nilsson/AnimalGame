@@ -83,6 +83,14 @@ public abstract class Animal {
         this.owner.removeAnimal(this);
     }
 
+    public int getLitterSize() {
+        return litterSize;
+    }
+
+    public ArrayList<String> getFoods() {
+        return foods;
+    }
+
     public String getName() {
         return name;
     }
