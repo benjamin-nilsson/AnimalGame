@@ -8,10 +8,13 @@ import javafx.beans.binding.BooleanBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 
+import javax.annotation.processing.Generated;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -22,8 +25,9 @@ public class MateWithController implements Initializable {
 
     @FXML
     private Button findMatesButton, mateButton;
-    private ArrayList<Animal> willingAnimalsList;
 
+    @FXML
+    private AnchorPane mateAnimalsPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,10 +62,51 @@ public class MateWithController implements Initializable {
                 nrPreMating = currentPlayer.getMyAnimals().size();
                 animalToMateObject.mateWith(chosenMateObject);
                 nrPostMating = currentPlayer.getMyAnimals().size();
+                if (nrPreMating == nrPostMating) {
+                    var alert = new Alert(Alert.AlertType.NONE, "Mating was unsuccessful!", ButtonType.OK);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.OK) {
+                        openTurnScene();
+                        return;
+                    }
+                }
 
                 for(int i = nrPreMating; i < nrPostMating; i++) {
-                    // Call nameThisAnimal(
+                    int animalIndex = i;
+                    var pane = new Pane();
+                    pane.setLayoutX(243);
+                    pane.setLayoutY(93);
+                    pane.setMinWidth(292);
+                    pane.setMinHeight(200);
+                    pane.setStyle("-fx-background-color: #ffffff;");
+                    mateAnimalsPane.getChildren().add(pane);
+                    Text text = new Text("Congratulations, you got " + (nrPostMating - nrPreMating) +
+                            " new animal(s)! " + "Now set a name for your new animal(s)!");
+                    text.setLayoutX(47);
+                    text.setLayoutY(68);
+                    text.setWrappingWidth(224.46356201171875);
+                    TextField textField = new TextField();
+                    textField.setPromptText("Name of child");
+                    textField.setLayoutX(72);
+                    textField.setLayoutY(100);
+                    Button button = new Button("Ok");
+                    button.setLayoutX(226);
+                    button.setLayoutY(161);
+                    button.setOnMouseClicked(e -> {
+                        currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
+                        mateAnimalsPane.getChildren().remove(pane);
+                    });
+
+                    //if we don't set openTurnScene in a method it gets executed before we can name the children
+                    if (animalIndex == nrPreMating) {
+                        button.setOnAction(event1 -> {
+                            currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
+                            openTurnScene();
+                        });
                     }
+
+                    pane.getChildren().addAll(text, textField, button);
+                }
             }
         );
     }
@@ -77,7 +122,7 @@ public class MateWithController implements Initializable {
     public void openStoreAfterMoveScene(ActionEvent actionEvent) {
     }
 
-    public void openTurnScene() throws Exception {
+    public void openTurnScene() {
         int numberOfPlayers = Game.getMyPlayerList().size();
         ArrayList<Player> myPlayerList = Game.getMyPlayerList();
         Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
@@ -100,8 +145,11 @@ public class MateWithController implements Initializable {
             Game.setCurrentPlayer(myPlayerList.get(currentPlayerIndex));
             ageAnimals(currentPlayer);
         }
-
-        SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
+        try {
+            SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void ageAnimals(Player currentPlayer) {
