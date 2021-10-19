@@ -27,7 +27,7 @@ public class Pig extends Animal {
      */
     public boolean mateWith(Animal animal){
         boolean successful = false;
-        if(this.canMateWith(animal) && Math.random()<1.0){
+        if(this.canMateWith(animal) && Math.random()<0.5){
             int litter = (int) (this.getLitterSize() * Math.random() + 1);
             for(int i = 0; i < litter; i++) {
                 Gender newBornsGender = Gender.FEMALE;
