@@ -24,7 +24,7 @@ public class MateWithController implements Initializable {
     private ComboBox<String> canMateDropDownList, willingAnimalsDropDownList;
 
     @FXML
-    private Button findMatesButton, mateButton;
+    private Button mateButton;
 
     @FXML
     private AnchorPane mateAnimalsPane;
@@ -33,19 +33,18 @@ public class MateWithController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Player currentPlayer = Game.getCurrentPlayer();
         ArrayList<Animal> animalsToMateList = currentPlayer.canMate();
-        System.out.println("Debug: # of Matable animals" + animalsToMateList.size());
         for (Animal animal : animalsToMateList) {
             canMateDropDownList.getItems().add(animal.getName());
         }
 
-        BooleanBinding noSelectedAnimal = canMateDropDownList.getSelectionModel().selectedItemProperty().isNull();
-        findMatesButton.disableProperty().bind(noSelectedAnimal);
+        // When a choice is made on the canMateDropDownList the options of the
+        canMateDropDownList.setOnAction(event -> {
+            int selectedAnimal = canMateDropDownList.getSelectionModel().getSelectedIndex();
 
-        findMatesButton.setOnMouseClicked(event -> {
-                    int selectedAnimal = canMateDropDownList.getSelectionModel().getSelectedIndex();
-                    findMates(currentPlayer, animalsToMateList.get(selectedAnimal));
-                }
-        );
+            findMates(currentPlayer, animalsToMateList.get(selectedAnimal));
+            System.out.println("Debug - index selected:");
+        });
+
         BooleanBinding noSuitAbleMates = willingAnimalsDropDownList.getSelectionModel().selectedItemProperty().isNull();
         mateButton.disableProperty().bind(noSuitAbleMates);
 
