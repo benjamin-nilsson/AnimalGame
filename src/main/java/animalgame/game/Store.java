@@ -26,21 +26,24 @@ public class Store {
      * Removes the animal from player, and adds AnimalBucks to player.
      * @param player
      * @param animal
+     * @return
      */
-    public static void sellAnimal(Player player, Animal animal){
+    public static Runnable sellAnimal(Player player, Animal animal){
         player.removeAnimal(animal);
         player.setMyMoney(player.getMyMoney() + animal.getValue());
+        return null;
     }
 
     /**
      * removes all animals from a player, and adds AnimalBucks to player.
      * @param player
+     * @return
      */
     public static void sellAllAnimals(Player player){
         ArrayList<Animal> animals = player.getMyAnimals();
-        for (Animal animal : animals) {
-            sellAnimal(player, animal);
-        }
+        for (Animal animal : animals)
+            player.setMyMoney(player.getMyMoney() + animal.getValue());
+            player.getMyAnimals().clear();
     }
 
     /**

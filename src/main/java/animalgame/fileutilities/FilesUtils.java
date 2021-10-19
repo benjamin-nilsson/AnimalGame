@@ -1,5 +1,7 @@
 package animalgame.fileutilities;
 
+import animalgame.game.Game;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -19,7 +21,9 @@ public class FilesUtils {
             e.printStackTrace();
         }
     }
+    public static void writeToFile(Game game){
 
+    }
     public static Object readFile(String fileName) {
         ObjectInputStream objectInputStream = null;
         Object students = null;

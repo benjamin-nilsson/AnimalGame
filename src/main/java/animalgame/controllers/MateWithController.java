@@ -1,23 +1,23 @@
-package animalgame.controllers;
+    package animalgame.controllers;
 
-import animalgame.animals.abstractmodels.Animal;
-import animalgame.game.Game;
-import animalgame.game.Player;
-import animalgame.game.SceneCreator;
-import javafx.beans.binding.BooleanBinding;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
+    import animalgame.animals.abstractmodels.Animal;
+    import animalgame.game.Game;
+    import animalgame.game.Player;
+    import animalgame.game.SceneCreator;
+    import javafx.beans.binding.BooleanBinding;
+    import javafx.event.ActionEvent;
+    import javafx.fxml.FXML;
+    import javafx.fxml.Initializable;
+    import javafx.scene.control.*;
+    import javafx.scene.layout.AnchorPane;
+    import javafx.scene.layout.Pane;
+    import javafx.scene.text.Text;
 
 
-import javax.annotation.processing.Generated;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+    import javax.annotation.processing.Generated;
+    import java.net.URL;
+    import java.util.ArrayList;
+    import java.util.ResourceBundle;
 
 public class MateWithController implements Initializable {
     @FXML
@@ -42,72 +42,72 @@ public class MateWithController implements Initializable {
         findMatesButton.disableProperty().bind(noSelectedAnimal);
 
         findMatesButton.setOnMouseClicked(event -> {
-            int selectedAnimal = canMateDropDownList.getSelectionModel().getSelectedIndex();
-            findMates(currentPlayer, animalsToMateList.get(selectedAnimal));
-            }
+                    int selectedAnimal = canMateDropDownList.getSelectionModel().getSelectedIndex();
+                    findMates(currentPlayer, animalsToMateList.get(selectedAnimal));
+                }
         );
         BooleanBinding noSuitAbleMates = willingAnimalsDropDownList.getSelectionModel().selectedItemProperty().isNull();
         mateButton.disableProperty().bind(noSuitAbleMates);
 
         mateButton.setOnMouseClicked(event -> {
-                int animalToMateIndex = canMateDropDownList.getSelectionModel().getSelectedIndex();
-            System.out.println(animalToMateIndex);
-                int chosenMateNameIndex = willingAnimalsDropDownList.getSelectionModel().getSelectedIndex();
-            System.out.println(chosenMateNameIndex);
+                    int animalToMateIndex = canMateDropDownList.getSelectionModel().getSelectedIndex();
+                    System.out.println(animalToMateIndex);
+                    int chosenMateNameIndex = willingAnimalsDropDownList.getSelectionModel().getSelectedIndex();
+                    System.out.println(chosenMateNameIndex);
 
-                Animal animalToMateObject = animalsToMateList.get(animalToMateIndex);
-                Animal chosenMateObject = currentPlayer.willMateWith(animalToMateObject).get(chosenMateNameIndex);
+                    Animal animalToMateObject = animalsToMateList.get(animalToMateIndex);
+                    Animal chosenMateObject = currentPlayer.willMateWith(animalToMateObject).get(chosenMateNameIndex);
 
-                int nrPreMating, nrPostMating;
-                nrPreMating = currentPlayer.getMyAnimals().size();
-                animalToMateObject.mateWith(chosenMateObject);
-                nrPostMating = currentPlayer.getMyAnimals().size();
-                if (nrPreMating == nrPostMating) {
-                    var alert = new Alert(Alert.AlertType.NONE, "Mating was unsuccessful!", ButtonType.OK);
-                    alert.showAndWait();
-                    if (alert.getResult() == ButtonType.OK) {
-                        openTurnScene();
-                        return;
-                    }
-                }
-
-                for(int i = nrPreMating; i < nrPostMating; i++) {
-                    int animalIndex = i;
-                    var pane = new Pane();
-                    pane.setLayoutX(243);
-                    pane.setLayoutY(93);
-                    pane.setMinWidth(292);
-                    pane.setMinHeight(200);
-                    pane.setStyle("-fx-background-color: #ffffff;");
-                    mateAnimalsPane.getChildren().add(pane);
-                    Text text = new Text("Congratulations, you got " + (nrPostMating - nrPreMating) +
-                            " new animal(s)! " + "Now set a name for your new animal(s)!");
-                    text.setLayoutX(47);
-                    text.setLayoutY(68);
-                    text.setWrappingWidth(224.46356201171875);
-                    TextField textField = new TextField();
-                    textField.setPromptText("Name of child");
-                    textField.setLayoutX(72);
-                    textField.setLayoutY(100);
-                    Button button = new Button("Ok");
-                    button.setLayoutX(226);
-                    button.setLayoutY(161);
-                    button.setOnMouseClicked(e -> {
-                        currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
-                        mateAnimalsPane.getChildren().remove(pane);
-                    });
-
-                    //if we don't set openTurnScene in a method it gets executed before we can name the children
-                    if (animalIndex == nrPreMating) {
-                        button.setOnAction(event1 -> {
-                            currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
+                    int nrPreMating, nrPostMating;
+                    nrPreMating = currentPlayer.getMyAnimals().size();
+                    animalToMateObject.mateWith(chosenMateObject);
+                    nrPostMating = currentPlayer.getMyAnimals().size();
+                    if (nrPreMating == nrPostMating) {
+                        var alert = new Alert(Alert.AlertType.NONE, "Mating was unsuccessful!", ButtonType.OK);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.OK) {
                             openTurnScene();
-                        });
+                            return;
+                        }
                     }
 
-                    pane.getChildren().addAll(text, textField, button);
+                    for(int i = nrPreMating; i < nrPostMating; i++) {
+                        int animalIndex = i;
+                        var pane = new Pane();
+                        pane.setLayoutX(243);
+                        pane.setLayoutY(93);
+                        pane.setMinWidth(292);
+                        pane.setMinHeight(200);
+                        pane.setStyle("-fx-background-color: #ffffff;");
+                        mateAnimalsPane.getChildren().add(pane);
+                        Text text = new Text("Congratulations, you got " + (nrPostMating - nrPreMating) +
+                                " new animal(s)! " + "Now set a name for your new animal(s)!");
+                        text.setLayoutX(47);
+                        text.setLayoutY(68);
+                        text.setWrappingWidth(224.46356201171875);
+                        TextField textField = new TextField();
+                        textField.setPromptText("Name of child");
+                        textField.setLayoutX(72);
+                        textField.setLayoutY(100);
+                        Button button = new Button("Ok");
+                        button.setLayoutX(226);
+                        button.setLayoutY(161);
+                        button.setOnMouseClicked(e -> {
+                            currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
+                            mateAnimalsPane.getChildren().remove(pane);
+                        });
+
+                        //if we don't set openTurnScene in a method it gets executed before we can name the children
+                        if (animalIndex == nrPreMating) {
+                            button.setOnAction(event1 -> {
+                                currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
+                                openTurnScene();
+                            });
+                        }
+
+                        pane.getChildren().addAll(text, textField, button);
+                    }
                 }
-            }
         );
     }
 

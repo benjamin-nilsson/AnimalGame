@@ -8,6 +8,7 @@ import animalgame.game.Game;
 import animalgame.game.Player;
 import animalgame.game.SceneCreator;
 import animalgame.game.Store;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.ObservableList;
@@ -167,10 +168,10 @@ public class StoreController implements Initializable {
 
             sellAnimalButton.setOnMouseClicked(event -> sellAnimal(currentPlayer, myAnimals));
             // todo: fix the sellAllAnimalsProblem
-            /*sellAllAnimalsButton.setOnMouseClicked(event -> {
+            sellAllAnimalsButton.setOnMouseClicked(event -> {
                 Store.sellAllAnimals(currentPlayer);
                 allAnimalsInfoText.setText(currentPlayer.reportStatusAnimals());
-            });*/
+            });
         }
     }
 
