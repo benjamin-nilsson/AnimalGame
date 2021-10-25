@@ -1,29 +1,25 @@
 package animalgame.controllers;
 
 import animalgame.game.Game;
+import animalgame.game.SceneCreator;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class SaveGameController implements Initializable {
-    @FXML
-    private Button saveGame;
+/**
+ * Saves the games data to a text file.
+ */
+public class SaveGameController {
 
     @FXML
     private TextField gameName;
 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-
-    }
-
-    public void saveCurrentGame() {
+    /**
+     * Saves the games data to a text file that the user gets to name.
+     * Launches the playerTurnMenuScene.
+     * @throws Exception
+     */
+    public void saveCurrentGame() throws Exception{
         Game.saveGame(gameName.getText() + ".txt");
+        SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
     }
 }

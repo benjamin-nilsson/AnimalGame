@@ -1,27 +1,37 @@
 package animalgame.controllers;
 
 import animalgame.game.Game;
+import animalgame.game.Gui;
+import animalgame.game.SceneCreator;
 import animalgame.game.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-
 import java.net.URL;
 import java.util.*;
 
+/**
+ * Sorts the players that made it until the end and then displays the players
+ * placement for the played game.
+ */
 public class AfterGameMenuController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
 
-    @FXML
-    private Button exitGameButton;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        sortRemainingPlayersAndAddToResultOrder();
+        displayPlayersPlacement();
+    }
+
+    /**
+     * Sorts the players that haven't lost the game according to the money that they have left.
+     * The players are then added to the resultOrder list according to their placement.
+     */
+    private void sortRemainingPlayersAndAddToResultOrder() {
         Game.getMyPlayerList().sort(new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
@@ -29,11 +39,18 @@ public class AfterGameMenuController implements Initializable {
             }
         });
 
-        for (Player player : Game.getMyPlayerList())
+        for (Player player : Game.getMyPlayerList()) {
             Game.getResultOrder().add(player);
+        }
+    }
 
+    /**
+     * Displays the players placement in the game.
+     */
+    private void displayPlayersPlacement() {
         int place = 1;
         int layoutY = 100;
+        // as the losers are added first in the list when they lose we go through the list backwards.
         for (int i = Game.getResultOrder().size(); i > 0; i--) {
             Text text = new Text();
             text.setLayoutX(339);
@@ -41,16 +58,29 @@ public class AfterGameMenuController implements Initializable {
             text.setStyle("-fx-font-size: 15px; "
                     + "-fx-font-weight: bold;");
             text.setText(String.valueOf(place)+ ". " + Game.getResultOrder().get(i -1).getMyName()
-                            + " (" + String.valueOf(Game.getResultOrder().get(i-1).getMyMoney()) + " AB)");
+                    + " (" + String.valueOf(Game.getResultOrder().get(i-1).getMyMoney()) + " AB)");
+
             anchorPane.getChildren().add(text);
+
             place++;
             layoutY += 45;
         }
-
-        exitGameButton.setOnMouseClicked(event -> Game.getStage().close());
     }
 
-    public void openTurnScene(ActionEvent actionEvent) {
-        // todo: make it so you can play again with the same players from the start.
+    /**
+     * Resets all the game data and launches the StartGameMenuScene.
+     * @param actionEvent Action event represents a click on the start game button.
+     * @throws Exception
+     */
+    public void openStartMenu(ActionEvent actionEvent) throws Exception {
+        // todo: reset all fields.
+        SceneCreator.launchScene("/scenes/StartGameMenuScene.fxml");
+    }
+
+    /**
+     * Exits the game.
+     */
+    public void exitGame() {
+        Gui.getStage().close();
     }
 }

@@ -2,12 +2,10 @@ package animalgame.fileutilities;
 
 import animalgame.game.Game;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class FilesUtils {
+    // todo: make messages if it failed to save file
     public static void writeFile(String fileName, Object objects) {
         ObjectOutputStream objectOutputStream = null;
         FileOutputStream fileOutputStream = null;
@@ -38,4 +36,5 @@ public class FilesUtils {
 
         return students;
     }
+
 }

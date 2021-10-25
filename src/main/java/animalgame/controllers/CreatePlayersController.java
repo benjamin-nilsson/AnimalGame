@@ -1,4 +1,4 @@
-package animalgame.controllers;
+/*package animalgame.controllers;
 
 import animalgame.game.Game;
 import animalgame.game.Player;
@@ -46,7 +46,6 @@ public class CreatePlayersController implements Initializable {
     }
 
     public void openTurnScene() throws Exception {
-        // todo: fix so they cant have the same name and that it cant be empty.
 
         var size = Game.getNumberOfPlayers();
         Game.addPlayer(new Player(player1.getText()));
@@ -75,4 +74,4 @@ public class CreatePlayersController implements Initializable {
     public void openMainMenuScene(MouseEvent mouseEvent) throws Exception {
         SceneCreator.launchScene("/scenes/StartGameMenuScene.fxml");
     }
-}
+}*/

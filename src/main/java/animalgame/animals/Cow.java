@@ -4,8 +4,8 @@ import animalgame.animals.abstractmodels.Animal;
 import animalgame.enums.Gender;
 
 /**
+ * This class extends the Animal class and holds the characteristics of the cow.
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
- * This class extens the Animal class and holds the characteristics of the cow.
  */
 
 public class Cow extends Animal {

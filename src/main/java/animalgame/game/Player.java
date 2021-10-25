@@ -3,9 +3,10 @@ package animalgame.game;
 import animalgame.animals.abstractmodels.Animal;
 import animalgame.food.abstractmodels.Food;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Player {
+public class Player implements Serializable {
     private ArrayList<Animal> myAnimals = new ArrayList<>();
     private ArrayList<Food> myFood = new ArrayList<>();
     private int myMoney;

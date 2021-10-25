@@ -133,7 +133,7 @@
                            </font>
                         </Text>
                         <TextField fx:id="nameOfAnimalField" layoutX="76.0" layoutY="282.0" promptText="Animals name" />
-                        <Button fx:id="buyAnimalButton" layoutX="77.0" layoutY="328.0" mnemonicParsing="false" onAction="#openStoreAfterMoveScene" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE">
+                        <Button fx:id="buyAnimalButton" layoutX="77.0" layoutY="328.0" mnemonicParsing="false" onAction="#buyAnimal" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

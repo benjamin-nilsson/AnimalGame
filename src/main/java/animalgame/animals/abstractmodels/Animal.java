@@ -3,6 +3,8 @@ package animalgame.animals.abstractmodels;
 import animalgame.food.abstractmodels.Food;
 import animalgame.game.Player;
 import animalgame.enums.Gender;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -13,7 +15,7 @@ import java.util.Arrays;
  * This class declares the animal attributes.
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
-public abstract class Animal {
+public abstract class Animal implements Serializable {
     private Player owner;
     private Gender gender;
     private String name, species;
