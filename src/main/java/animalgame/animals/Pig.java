@@ -22,26 +22,20 @@ public class Pig extends Animal {
 
     /**
      * If a player attempts to have two animals mate there is 50% chance that up to litterSize new animals will
-     * be added to the players animals.
+     * be added to the players animals. returns # of offspring.
      * @param animal
      */
-    public boolean mateWith(Animal animal){
-        boolean successful = false;
-        if(this.canMateWith(animal) && Math.random()<0.5){
-            int litter = (int) (this.getLitterSize() * Math.random() + 1);
+    public int mateWith(Animal animal){
+        int litter = 0;
+        Gender newBornsGender;
+        if(this.canMateWith(animal) && Math.random()<0.50) {
+            litter = (int) (this.getLitterSize() * Math.random() + 1);
             for(int i = 0; i < litter; i++) {
-                Gender newBornsGender = Gender.FEMALE;
-                String nameEnding = "dottir";
-                if(Math.random()<0.5) {
-                    newBornsGender = Gender.MALE;
-                    nameEnding = "sson";
-                }
-                this.getOwner().addAnimal(new Pig(this.getName() + nameEnding, newBornsGender));
-                successful = true;
+                newBornsGender = Math.random()<0.5 ? Gender.FEMALE: Gender.MALE;
+                this.getOwner().addAnimal(new Cow("Calf", newBornsGender));
             }
         }
-
-        return successful;
+        return litter;
     }
 
 }
