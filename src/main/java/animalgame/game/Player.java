@@ -2,6 +2,8 @@ package animalgame.game;
 
 import animalgame.animals.abstractmodels.Animal;
 import animalgame.food.abstractmodels.Food;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -78,6 +80,40 @@ public class Player implements Serializable {
         }
 
         return statusReport;
+    }
+
+    public void ageAnimals() {
+        // change health of all animals animal.endOfTurn()
+
+        ArrayList<Animal> deadAnimals = new ArrayList<>();
+        StringBuilder healthUpdate = new StringBuilder();
+        for (Animal animal : this.getMyAnimals()) {
+            healthUpdate.append(animal.endOfTurn());
+            if (this.getMyAnimals().indexOf(animal)  < (this.getMyAnimals().size() + 1)) {
+                healthUpdate.append("\n");
+            }
+        }
+        // Pop-up to inform about the animals health update.
+        if (!this.getMyAnimals().isEmpty()) {
+            Alert healthUpdateAlert = new Alert(Alert.AlertType.NONE, "", ButtonType.OK);
+            healthUpdateAlert.setContentText(healthUpdate.toString());
+            healthUpdateAlert.showAndWait();
+            if (healthUpdateAlert.getResult() == ButtonType.OK) {
+                healthUpdateAlert.close();
+            }
+            this.removeDeadAnimals();
+        }
+    }
+
+    /**
+     * Function that cleans dead animals from myAnimals
+     */
+    private void removeDeadAnimals() {
+        for (Animal animal:this.getMyAnimals()) {
+            if(animal.getHealth() < 1){
+                this.removeAnimal(animal);
+            }
+        }
     }
 
     /**

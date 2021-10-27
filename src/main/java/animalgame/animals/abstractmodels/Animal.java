@@ -58,13 +58,22 @@ public abstract class Animal implements Serializable {
      * Method that is called whenever a game turn ends
      * health drops by 10-30%, age increases by 1 Turn.
      * The animal may die.
+     * method returns an update
      */
-    public void endOfTurn() {
-        this.health -= (int) (20 * Math.random() + 11);
+    public String endOfTurn() {
+        String healthUpdate = this.name + " lost ";
+        int healthLoss = (int) (20 * Math.random() + 11);
+        this.health -= healthLoss;
+        healthUpdate += healthLoss + ",and is now at " + this.health + " health.";
+        if (this.health < 1) {
+            healthUpdate = this.name + " died from starvation!";
+        }
         this.age++;
         if(this.age > this.maxAge){
-            this.dies();
+            this.health = 0;
+            healthUpdate = this.name + " died from old age!";
         }
+        return healthUpdate;
     }
 
     /**

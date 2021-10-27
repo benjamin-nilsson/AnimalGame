@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
  * a saved game file.
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
-public class GameController implements Initializable {
+public class StartGameMenuController implements Initializable {
 
     @FXML
     private TextField player1Text, player2Text, player3Text, player4Text, turns, oldGameFileText;
@@ -30,10 +30,14 @@ public class GameController implements Initializable {
     @FXML
     private TextArea infoText;
 
+    private Game game;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         ensureAllFieldsAreFilledOut();
         displayInfoToUser();
+        this.game = Gui.getGameObject();
     }
 
     /**
@@ -65,14 +69,17 @@ public class GameController implements Initializable {
      */
     public void openTurnScene() throws Exception {
         // todo: fix so they cant have the same name and that it cant be empty.
-        Game.addPlayer(new Player(player1Text.getText()));
-        Game.addPlayer(new Player(player2Text.getText()));
+        // is it a problem if more than one player have the same name?
+        // changed Game to this.game
+
+        this.game.addPlayer(new Player(player1Text.getText()));
+        this.game.addPlayer(new Player(player2Text.getText()));
         if (!player3Text.getText().isEmpty()) {
-            Game.addPlayer(new Player(player3Text.getText()));
+           this.game.addPlayer(new Player(player3Text.getText()));
         }
 
         if (!player4Text.getText().isEmpty()) {
-            Game.addPlayer(new Player(player4Text.getText()));
+            this.game.addPlayer(new Player(player4Text.getText()));
         }
 
         var numberOfTurns = Integer.parseInt(turns.getText());
@@ -82,7 +89,7 @@ public class GameController implements Initializable {
         }
 
         if (!startGameButton.isDisabled()) {
-            Game.setTurns(numberOfTurns);
+            this.game.setTurns(numberOfTurns);
             SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
         }
     }
@@ -101,13 +108,19 @@ public class GameController implements Initializable {
      * @throws Exception
      */
     public void loadOldGameFile() throws Exception {
+        /*
+        Since we now have a game object this is pointless.
         GameData saveGameData = (GameData) FilesUtils.readFile(oldGameFileText.getText());
-        Game.setMyPlayerList(saveGameData.getMyPlayerList());
-        Game.setTurns(saveGameData.getTurns());
-        Game.setCurrentTurn(saveGameData.getCurrentTurn());
-        Game.setCurrentPlayer(saveGameData.getCurrentPlayer());
-        Game.setCurrentPlayerIndex(saveGameData.getCurrentPlayerIndex());
-        Game.setResultOrder(saveGameData.getResultOrder());
+        this.game.setMyPlayerList(saveGameData.getMyPlayerList());
+        this.game.setTurns(saveGameData.getTurns());
+        this.game.setCurrentTurn(saveGameData.getCurrentTurn());
+        this.game.setCurrentPlayer(saveGameData.getCurrentPlayer());
+        this.game.setCurrentPlayerIndex(saveGameData.getCurrentPlayerIndex());
+        this.game.setResultOrder(saveGameData.getResultOrder());
         SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
+        */
+        this.game = (Game) FilesUtils.readFile(oldGameFileText.getText());
+
+        this.game.nextScene(this.game.getCurrentScene());
     }
 }

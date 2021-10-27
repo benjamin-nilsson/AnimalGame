@@ -19,6 +19,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+//Can we please split this scene and controller up? There is absolutely no point in having different tabs.
+
 /**
  * Renders a store and depending on the selected tab it either enables the user to buy animals, buy food,
  * or sell animals.
@@ -57,10 +59,12 @@ public class StoreController implements Initializable {
 
     @FXML
     private ComboBox<String> allAnimalsDropDownList;
+    private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Player currentPlayer = Game.getCurrentPlayer();
+        this.game = Gui.getGameObject();
+        Player currentPlayer = this.game.getCurrentPlayer();
 
         selectTab(currentPlayer);
         setMoney(currentPlayer);
@@ -73,7 +77,7 @@ public class StoreController implements Initializable {
      * @param currentPlayer the player whose turn it is.
      */
     private void selectTab(Player currentPlayer) {
-        String currentTab = Game.getCurrentTab();
+        String currentTab = this.game.getCurrentTab();
         SingleSelectionModel<Tab> selectionModel = store.getSelectionModel();
 
         isBuyingAnimals(currentTab, selectionModel, currentPlayer);
@@ -324,7 +328,7 @@ public class StoreController implements Initializable {
             animal = new Sheep(name, setGender());
         }
 
-        Store.buyAnimal(Game.getCurrentPlayer(), animal);
+        Store.buyAnimal(this.game.getCurrentPlayer(), animal);
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
     }
 
@@ -348,6 +352,6 @@ public class StoreController implements Initializable {
      * @throws Exception
      */
     public void openTurnScene() throws Exception {
-        NextTurn.nextPlayer();
+        this.game.nextPlayer();
     }
 }

@@ -17,16 +17,18 @@ import java.util.ResourceBundle;
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
 public class FeedAnimalsController implements Initializable {
+    private Game game;
 
     @FXML
     private ComboBox<String> animalsThatCanEatDropDownList, eatableFoodDropDownList;
-
     @FXML
     private Button feedButton;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Player currentPlayer = Game.getCurrentPlayer();
+        this.game = Gui.getGameObject();
+        Player currentPlayer = this.game.getCurrentPlayer();
 
         ArrayList<Animal> animalsThatCanEat = setAnimalAndEatableFoodLists(currentPlayer);
         haveEatableFood();
@@ -134,6 +136,6 @@ public class FeedAnimalsController implements Initializable {
      * @throws Exception
      */
     public void openTurnScene() throws Exception {
-        NextTurn.nextPlayer();
+        game.nextPlayer();
     }
 }

@@ -1,9 +1,6 @@
 package animalgame.controllers;
 
-import animalgame.game.Game;
-import animalgame.game.NextTurn;
-import animalgame.game.Player;
-import animalgame.game.SceneCreator;
+import animalgame.game.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,41 +29,51 @@ public class PlayerTurnController implements Initializable {
 
     private int cheapestAnimalItem = 5;
     private int cheapestFoodItem = 25;
+    private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // todo: implement message telling the player his animal died.
-
-        int numberOfPlayers = Game.getMyPlayerList().size();
-        ArrayList<Player> myPlayerList = Game.getMyPlayerList();
+        this.game = Gui.getGameObject();
+        int numberOfPlayers = this.game.getMyPlayerList().size();
+        ArrayList<Player> myPlayerList = this.game.getMyPlayerList();
         Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
-        Player currentPlayer = Game.getCurrentPlayer();
-        if (currentPlayer == null) {
-            Game.setCurrentPlayer(myPlayerList.get(Game.getCurrentPlayerIndex()));
-            currentPlayer = Game.getCurrentPlayer();
+        Player currentPlayer = this.game.getCurrentPlayer();
+
+        currentPlayer.ageAnimals();
+        if(stillInGame(currentPlayer)){
+            displayPlayerInformation(currentPlayer, lastPlayer);
+            availableOptions(currentPlayer);
+        } else {
+            //simply skip to next
+            try {
+                game.nextPlayer();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
-        NextTurn.ageAnimals(currentPlayer);
-        displayPlayerInformation(currentPlayer, lastPlayer);
-        availableOptions(currentPlayer);
-        NextTurn.haveLost(currentPlayer, lastPlayer);
+    }
+
+    private boolean stillInGame(Player currentPlayer) {
+        return currentPlayer.getMyAnimals().size() > 0 || currentPlayer.getMyMoney() > 0;
     }
 
     /**
-     * Sets the players players information such as whose turn it is, current turn, player's money,
+     * Sets the players  information such as whose turn it is, current turn, player's money,
      * player's food and animal inventory.
      * Displays if the game will move on the next player or show the result.
      * @param currentPlayer the player whose turn it is.
      * @param lastPlayer last player in the arraylist of this game's players.
      */
     private void displayPlayerInformation(Player currentPlayer, Player lastPlayer) {
-        int currentTurn = Game.getCurrentTurn();
-        turn.setText(String.valueOf(currentTurn) + " of " + Game.getTurns());
+        int currentTurn = this.game.getCurrentTurn();
+        turn.setText(String.valueOf(currentTurn) + " of " + this.game.getTurns());
         playerText.setText(currentPlayer.getMyName());
         moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
         farmInformation.setText(currentPlayer.reportStatus());
 
-        if (Game.getCurrentTurn() == Game.getTurns() && currentPlayer == lastPlayer) {
+        if (this.game.getCurrentTurn() == this.game.getTurns() && currentPlayer == lastPlayer) {
             nextPlayerOrTurnButton.setText("Get Result");
         } else {
             nextPlayerOrTurnButton.setText("Next Player");
@@ -80,7 +87,7 @@ public class PlayerTurnController implements Initializable {
      * @param currentPlayer currentPlayer the player whose turn it is.
      */
     private void availableOptions(Player currentPlayer) {
-        boolean lastRound = Game.getCurrentTurn() == Game.getTurns();
+        boolean lastRound = this.game.getCurrentTurn() == this.game.getTurns();
         if (lastRound) {
             buyAnimalButton.setDisable(true);
             buyFoodButton.setDisable(true);
@@ -116,7 +123,7 @@ public class PlayerTurnController implements Initializable {
      * @throws Exception
      */
     public void openTurnScene() throws Exception {
-        NextTurn.nextPlayer();
+        game.nextPlayer();
     }
 
     /**
@@ -125,7 +132,7 @@ public class PlayerTurnController implements Initializable {
      * @throws Exception
      */
     public void openStoreWithAnimalsScene() throws Exception{
-        Game.setCurrentTab("buyAnimals");
+        this.game.setCurrentTab("buyAnimals");
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
     }
 
@@ -135,7 +142,7 @@ public class PlayerTurnController implements Initializable {
      * @throws Exception
      */
     public void openStoreWithFoodScene() throws Exception {
-        Game.setCurrentTab("buyFood");
+        this.game.setCurrentTab("buyFood");
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
 
     }
@@ -162,7 +169,7 @@ public class PlayerTurnController implements Initializable {
      * @throws Exception
      */
     public void openStoreWithSellScene() throws Exception {
-        Game.setCurrentTab("sellAnimals");
+        this.game.setCurrentTab("sellAnimals");
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
     }
 

@@ -28,10 +28,12 @@ public class MateWithController implements Initializable {
 
     @FXML
     private AnchorPane mateAnimalsPane;
+    private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Player currentPlayer = Game.getCurrentPlayer();
+        this.game = Gui.getGameObject();
+        Player currentPlayer = this.game.getCurrentPlayer();
 
         ArrayList<Animal> animalsToMateList = setMateAndWillingAnimalsLists(currentPlayer);
         haveSuitableMates();
@@ -190,7 +192,7 @@ public class MateWithController implements Initializable {
      */
     public void openTurnScene() {
         try {
-            NextTurn.nextPlayer();
+            this.game.nextPlayer();
         } catch (Exception e) {
             e.printStackTrace();
         }

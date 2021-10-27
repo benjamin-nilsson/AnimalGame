@@ -10,9 +10,9 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalgame.controllers.FeedAnimalsController">
    <children>
-      <ComboBox fx:id="eatableFoodDropDownList" layoutX="375.0" layoutY="178.0" prefWidth="150.0" />
-      <ComboBox fx:id="animalsThatCanEatDropDownList" layoutX="269.0" layoutY="120.0" prefWidth="150.0" />
-      <Text layoutX="269.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suitable Food:" />
+      <ComboBox fx:id="eatableFoodDropDownList" layoutX="367.0" layoutY="187.0" prefWidth="150.0" />
+      <ComboBox fx:id="animalsThatCanEatDropDownList" layoutX="367.0" layoutY="129.0" prefWidth="150.0" />
+      <Text layoutX="275.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suitable Food:" />
       <Text layoutX="313.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feed Animals" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
@@ -26,15 +26,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="findFoodButton" layoutX="442.0" layoutY="120.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Find Food" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="feedButton" layoutX="353.0" layoutY="235.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Feed" textFill="WHITE">
+      <Button fx:id="feedButton" layoutX="434.0" layoutY="235.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Feed" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -45,5 +37,6 @@
             <Bloom />
          </effect>
       </Button>
+      <Text layoutX="251.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Animals with food:" />
    </children>
 </AnchorPane>

@@ -12,14 +12,16 @@ public class SaveGameController {
 
     @FXML
     private TextField gameName;
+    private Game game;
 
+    // should the savefile really be of .txt?
     /**
      * Saves the games data to a text file that the user gets to name.
      * Launches the playerTurnMenuScene.
      * @throws Exception
      */
     public void saveCurrentGame() throws Exception{
-        Game.saveGame(gameName.getText() + ".txt");
+        this.game.saveGame(gameName.getText() + ".txt");
         SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
     }
 }

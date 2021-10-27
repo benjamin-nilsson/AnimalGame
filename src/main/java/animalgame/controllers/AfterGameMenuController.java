@@ -20,9 +20,11 @@ public class AfterGameMenuController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
+    private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.game = Gui.getGameObject();
         sortRemainingPlayersAndAddToResultOrder();
         displayPlayersPlacement();
     }
@@ -32,15 +34,15 @@ public class AfterGameMenuController implements Initializable {
      * The players are then added to the resultOrder list according to their placement.
      */
     private void sortRemainingPlayersAndAddToResultOrder() {
-        Game.getMyPlayerList().sort(new Comparator<Player>() {
+        this.game.getMyPlayerList().sort(new Comparator<Player>() {
             @Override
             public int compare(Player o1, Player o2) {
                 return o1.getMyMoney() - o2.getMyMoney();
             }
         });
 
-        for (Player player : Game.getMyPlayerList()) {
-            Game.getResultOrder().add(player);
+        for (Player player : this.game.getMyPlayerList()) {
+            this.game.getResultOrder().add(player);
         }
     }
 
@@ -51,14 +53,14 @@ public class AfterGameMenuController implements Initializable {
         int place = 1;
         int layoutY = 100;
         // as the losers are added first in the list when they lose we go through the list backwards.
-        for (int i = Game.getResultOrder().size(); i > 0; i--) {
+        for (int i = this.game.getResultOrder().size(); i > 0; i--) {
             Text text = new Text();
             text.setLayoutX(339);
             text.setLayoutY(layoutY);
             text.setStyle("-fx-font-size: 15px; "
                     + "-fx-font-weight: bold;");
-            text.setText(String.valueOf(place)+ ". " + Game.getResultOrder().get(i -1).getMyName()
-                    + " (" + String.valueOf(Game.getResultOrder().get(i-1).getMyMoney()) + " AB)");
+            text.setText(String.valueOf(place)+ ". " + this.game.getResultOrder().get(i -1).getMyName()
+                    + " (" + String.valueOf(this.game.getResultOrder().get(i-1).getMyMoney()) + " AB)");
 
             anchorPane.getChildren().add(text);
 

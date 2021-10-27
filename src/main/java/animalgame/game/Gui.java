@@ -11,7 +11,16 @@ import javafx.stage.Stage;
  */
 public class Gui extends Application {
     private static Stage primaryStage;
+    private static Game currentGame;
 
+    public static void setGameObject(Game game) {
+        currentGame = game;
+    }
+
+    public static Game getGameObject() {
+        return currentGame;
+
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
