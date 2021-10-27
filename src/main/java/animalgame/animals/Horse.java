@@ -32,7 +32,7 @@ public class Horse extends Animal {
             litter = (int) (this.getLitterSize() * Math.random() + 1);
             for(int i = 0; i < litter; i++) {
                 newBornsGender = Math.random()<0.5 ? Gender.FEMALE: Gender.MALE;
-                this.getOwner().addAnimal(new Cow("Foal", newBornsGender));
+                this.getOwner().addAnimal(new Horse("Foal", newBornsGender));
             }
         }
         return litter;
