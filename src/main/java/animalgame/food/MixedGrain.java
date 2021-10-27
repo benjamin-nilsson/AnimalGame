@@ -10,7 +10,7 @@ import animalgame.food.abstractmodels.Food;
 public class MixedGrain extends Food {
 
     public MixedGrain () {
-        super("Mixed Grain", 5, 5);
+        super("Mixed Grain", 3, 20);
     }
 
 }

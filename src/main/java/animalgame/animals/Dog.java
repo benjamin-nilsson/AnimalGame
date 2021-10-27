@@ -17,7 +17,7 @@ public class Dog extends Animal {
      * @param gender
      */
     public Dog (String name, Gender gender) {
-        super(name, "Dog", gender, 10, 5, 6, 2, "Wellness Dry Dog Food", "Frolic");
+        super(name, "Dog", gender, 10, 100, 6, 2, "Wellness Dry Dog Food", "Frolic");
     }
 
     /**

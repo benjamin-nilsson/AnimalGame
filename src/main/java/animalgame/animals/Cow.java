@@ -17,7 +17,7 @@ public class Cow extends Animal {
      * @param gender
      */
     public Cow (String name, Gender gender) {
-        super(name, "Cow", gender, 20, 20, 1, 10, "Baled Hay", "Corn And Soybeans");
+        super(name, "Cow", gender, 20, 400, 1, 10, "Baled Hay", "Corn And Soybeans");
     }
 
     /**

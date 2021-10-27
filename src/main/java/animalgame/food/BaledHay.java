@@ -9,7 +9,7 @@ import animalgame.food.abstractmodels.Food;
 public class BaledHay extends Food {
 
     public BaledHay () {
-        super("Baled Hay", 10, 10);
+        super("Baled Hay", 2, 12);
     }
 
 }

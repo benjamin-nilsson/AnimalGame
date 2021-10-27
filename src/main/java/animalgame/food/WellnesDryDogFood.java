@@ -9,7 +9,7 @@ import animalgame.food.abstractmodels.Food;
 public class WellnesDryDogFood extends Food {
 
     public WellnesDryDogFood () {
-        super("Wellness Dry Dog Food", 5, 5);
+        super("Wellness Dry Dog Food", 4, 2);
     }
 
 }

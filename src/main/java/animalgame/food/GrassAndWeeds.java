@@ -9,7 +9,7 @@ import animalgame.food.abstractmodels.Food;
 public class GrassAndWeeds extends Food {
 
     public GrassAndWeeds () {
-        super("Grass And Weeds", 5, 5);
+        super("Grass And Weeds", 1, 100);
     }
 
 }

@@ -17,7 +17,7 @@ public class Pig extends Animal {
      * @param gender
      */
     public Pig (String name, Gender gender) {
-        super(name, "Pig", gender, 8, 10, 7, 5, "Corn and soybeans", "Mixed Grain");
+        super(name, "Pig", gender, 8, 200, 7, 5, "Corn and soybeans", "Mixed Grain");
     }
 
     /**

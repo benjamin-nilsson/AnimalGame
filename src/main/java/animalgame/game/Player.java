@@ -15,7 +15,7 @@ public class Player implements Serializable {
     private String myName;
 
     public Player(String myName) {
-        this.myMoney = 100; //AnimalBucks
+        this.myMoney = 2000; //AnimalBucks
         this.myName = myName;
     }
 
