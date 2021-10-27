@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 /**
  * Shows the player's information as well as providing the player with different options depending
  * on the player situation as well as the game's rules.
- * Removes a player if the player lost the game.
+ * If a player have no possible actions his/her turn is skipped.
  */
 public class PlayerTurnController implements Initializable {
 
@@ -27,22 +27,20 @@ public class PlayerTurnController implements Initializable {
     private Button nextPlayerOrTurnButton, buyAnimalButton, buyFoodButton, feedAnimalsButton,
             mateAnimalsButton, sellAnimalsButton;
 
+    // Debug - Don't love this - can we not somehow actually get these values?
     private int cheapestAnimalItem = 5;
     private int cheapestFoodItem = 25;
+
     private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // todo: implement message telling the player his animal died.
         this.game = Gui.getGameObject();
-        int numberOfPlayers = this.game.getMyPlayerList().size();
-        ArrayList<Player> myPlayerList = this.game.getMyPlayerList();
-        Player lastPlayer = myPlayerList.get(numberOfPlayers -1);
         Player currentPlayer = this.game.getCurrentPlayer();
 
         currentPlayer.ageAnimals();
         if(stillInGame(currentPlayer)){
-            displayPlayerInformation(currentPlayer, lastPlayer);
+            displayPlayerInformation(this.game.getCurrentPlayer());
             availableOptions(currentPlayer);
         } else {
             //simply skip to next
@@ -64,20 +62,13 @@ public class PlayerTurnController implements Initializable {
      * player's food and animal inventory.
      * Displays if the game will move on the next player or show the result.
      * @param currentPlayer the player whose turn it is.
-     * @param lastPlayer last player in the arraylist of this game's players.
      */
-    private void displayPlayerInformation(Player currentPlayer, Player lastPlayer) {
+    private void displayPlayerInformation(Player currentPlayer) {
         int currentTurn = this.game.getCurrentTurn();
-        turn.setText(String.valueOf(currentTurn) + " of " + this.game.getTurns());
+        turn.setText(currentTurn + " of " + this.game.getTurns());
         playerText.setText(currentPlayer.getMyName());
-        moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
+        moneyText.setText(currentPlayer.getMyMoney() + "AnimalBucks");
         farmInformation.setText(currentPlayer.reportStatus());
-
-        if (this.game.getCurrentTurn() == this.game.getTurns() && currentPlayer == lastPlayer) {
-            nextPlayerOrTurnButton.setText("Get Result");
-        } else {
-            nextPlayerOrTurnButton.setText("Next Player");
-        }
     }
 
     /**
@@ -87,16 +78,8 @@ public class PlayerTurnController implements Initializable {
      * @param currentPlayer currentPlayer the player whose turn it is.
      */
     private void availableOptions(Player currentPlayer) {
-        boolean lastRound = this.game.getCurrentTurn() == this.game.getTurns();
-        if (lastRound) {
-            buyAnimalButton.setDisable(true);
-            buyFoodButton.setDisable(true);
-            feedAnimalsButton.setDisable(true);
-            mateAnimalsButton.setDisable(true);
-        }
 
         if (currentPlayer.getMyAnimals().isEmpty()) {
-            mateAnimalsButton.setDisable(true);
             sellAnimalsButton.setDisable(true);
             feedAnimalsButton.setDisable(true);
         }

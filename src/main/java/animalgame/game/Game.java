@@ -118,49 +118,22 @@ public class Game implements Serializable {
         this.myPlayerList = myPlayerList;
     }
 
-    /**
-     * Provides the user with the specified number of turns.
-     * @return number of turns to be played.
-     */
     public int getTurns() {
         return turns;
     }
 
-    /**
-     * Sets the number of turns that the game will have.
-     * @param numberOfTurns number of turns the game will be played.
-     */
     public void setTurns(int numberOfTurns) {
         turns = numberOfTurns;
     }
 
-    /**
-     * Provides the turn that the game is currently on.
-     * @return a number representing what turn the game is currently on.
-     */
     public int getCurrentTurn() {
         return currentTurn;
     }
 
-    /**2
-     * Sets the turn that the game will be on.
-     * @param currentTurn the number of the turn that the game is on.
-     */
-    public void setCurrentTurn(int currentTurn) {
-        this.currentTurn = currentTurn;
-    }
-
-    /**
-     * Provides the user with the player whose turn it is.
-     * @return the Player object whose turn it is.
-     */
     public Player getCurrentPlayer() {
         return myPlayerList.get(this.currentPlayerIndex);
     }
 
-    /**
-     * @return the index of the player whose turn it is in regards to the list of players.
-     */
     public int getCurrentPlayerIndex() {
         return this.currentPlayerIndex;
     }
@@ -210,7 +183,6 @@ public class Game implements Serializable {
      * updates current scene and launches next scene
      */
     public void nextScene(String nextScene) throws Exception {
-        //Depending on what the
         this.currentScene = nextScene;
         SceneCreator.launchScene(nextScene);
     }

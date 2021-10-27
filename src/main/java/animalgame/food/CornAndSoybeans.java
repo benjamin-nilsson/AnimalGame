@@ -9,7 +9,7 @@ import animalgame.food.abstractmodels.Food;
 public class CornAndSoybeans extends Food {
 
     public CornAndSoybeans () {
-        super("Corn And Soybeans", 5, 5);
+        super("Corn And Soybeans", 3, 10);
     }
 
 }

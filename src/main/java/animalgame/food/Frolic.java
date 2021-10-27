@@ -11,7 +11,7 @@ public class Frolic extends Food {
     private int myPrice, myWeight;
 
     public Frolic () {
-        super("Frolic" , 5, 5);
+        super("Frolic" , 4, 5);
         this.myName = myName;
     }
 

@@ -157,7 +157,7 @@ public abstract class Animal implements Serializable {
      * @return the value of animal attributes.
      */
 
-    public abstract boolean mateWith(Animal animal);
+    public abstract int mateWith(Animal animal);
 
 
 }
