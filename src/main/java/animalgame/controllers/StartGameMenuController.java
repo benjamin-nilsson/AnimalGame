@@ -51,7 +51,10 @@ public class StartGameMenuController implements Initializable {
                         .or(Bindings.isEmpty(player2Text.textProperty()))
                         .or(Bindings.isEmpty(turns.textProperty()))
         );
+
     }
+
+
 
     /**
      * Makes the infoIcon display the infoText when the mouse is hovering it.

@@ -32,7 +32,7 @@ public class Sheep extends Animal {
             litter = (int) (this.getLitterSize() * Math.random() + 1);
             for(int i = 0; i < litter; i++) {
                 newBornsGender = Math.random()<0.5 ? Gender.FEMALE: Gender.MALE;
-                this.getOwner().addAnimal(new Cow("Calf", newBornsGender));
+                this.getOwner().addAnimal(new Cow("Lamb", newBornsGender));
             }
         }
         return litter;
