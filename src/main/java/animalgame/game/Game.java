@@ -2,19 +2,16 @@ package animalgame.game;
 
 import animalgame.fileutilities.FilesUtils;
 import javafx.application.Application;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Game {
-    //todo: Should it be static, or should each controller hold the necessary fields that will be made static, required and then we
-    // just move between scenes calling the other scenes? Or should we just make a class that holds the game data that is static?
-    //game should NOT be static.
-
-    private  ArrayList<Player> myPlayerList;
-    private  int turns;
-    private  int currentTurn = 1;
+public class Game implements Serializable {
+    private ArrayList<Player> myPlayerList;
+    private int turns;
+    private int currentTurn = 1;
     private int currentPlayerIndex = 0;
-    private  String currentTab;
-    private  ArrayList<Player> resultOrder;
+    private String currentTab;
+    private ArrayList<Player> resultOrder;
     private String currentScene;
 
     public Game(String[] args) {
@@ -38,11 +35,19 @@ public class Game {
      * @param gameName the name that the saved file will have.
      */
     public void saveGame(String gameName) {
-        /*
-        GameData standings = new GameData(myPlayerList, turns, currentTurn,
-                currentPlayer, currentPlayerIndex, resultOrder);
-        */
         FilesUtils.writeFile(gameName, this);
+    }
+
+    public void loadOldFile(String fileName) {
+        Game savedGame = (Game) FilesUtils.readFile(fileName);
+        try {
+            this.myPlayerList = savedGame.getMyPlayerList();
+            this.turns = savedGame.getTurns();
+            this.currentTurn = savedGame.getCurrentTurn();
+            this.currentPlayerIndex = savedGame.getCurrentPlayerIndex();
+            this.resultOrder = savedGame.getResultOrder();
+            this.currentScene = savedGame.getCurrentScene();
+        } catch (Exception ignore) {}
     }
 
     /**

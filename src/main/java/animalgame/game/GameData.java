@@ -14,15 +14,17 @@ public class GameData implements Serializable {
     private Player currentPlayer;
     private int currentPlayerIndex = 0;
     private ArrayList<Player> resultOrder;
+    private String currentScene;
 
     public GameData(ArrayList<Player> myPlayerList, int turn, int currentTurn, Player currentPlayer,
-                    int currentPlayerIndex, ArrayList<Player> resultOrder) {
+                    int currentPlayerIndex, ArrayList<Player> resultOrder, String currentScene) {
         this.myPlayerList = myPlayerList;
         this.turns = turn;
         this.currentTurn = currentTurn;
         this.currentPlayer = currentPlayer;
         this.currentPlayerIndex = currentPlayerIndex;
         this.resultOrder = resultOrder;
+        this.currentScene = currentScene;
 
     }
 
@@ -120,5 +122,9 @@ public class GameData implements Serializable {
      */
     public void setResultOrder(ArrayList<Player> resultOrder) {
         this.resultOrder = resultOrder;
+    }
+
+    public String getCurrentScene() {
+        return currentScene;
     }
 }

@@ -108,19 +108,18 @@ public class StartGameMenuController implements Initializable {
      * @throws Exception
      */
     public void loadOldGameFile() throws Exception {
-        /*
-        Since we now have a game object this is pointless.
-        GameData saveGameData = (GameData) FilesUtils.readFile(oldGameFileText.getText());
-        this.game.setMyPlayerList(saveGameData.getMyPlayerList());
-        this.game.setTurns(saveGameData.getTurns());
-        this.game.setCurrentTurn(saveGameData.getCurrentTurn());
-        this.game.setCurrentPlayer(saveGameData.getCurrentPlayer());
-        this.game.setCurrentPlayerIndex(saveGameData.getCurrentPlayerIndex());
-        this.game.setResultOrder(saveGameData.getResultOrder());
-        SceneCreator.launchScene("/scenes/PlayerTurnMenuScene.fxml");
-        */
-        this.game = (Game) FilesUtils.readFile(oldGameFileText.getText());
+        try {
+            this.game.loadOldFile(oldGameFileText.getText());
+            this.game.nextScene(this.game.getCurrentScene());
+        } catch (Exception e) {
+            Alert noFileFound = new Alert(Alert.AlertType.ERROR, "No such file found", ButtonType.OK);
 
-        this.game.nextScene(this.game.getCurrentScene());
+            noFileFound.showAndWait();
+
+            if (noFileFound.getResult() == ButtonType.OK) {
+                noFileFound.close();
+            }
+        }
     }
 }
+
