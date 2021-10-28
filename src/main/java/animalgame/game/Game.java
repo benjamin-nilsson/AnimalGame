@@ -22,7 +22,7 @@ public class Game implements Serializable {
 
     /**
      * Launches the first scene.
-     * @param args
+     * @param args args
      */
     public void main(String[] args) {
         Gui.setGameObject(this);
@@ -108,14 +108,6 @@ public class Game implements Serializable {
      */
     public ArrayList<Player> getMyPlayerList() {
         return myPlayerList;
-    }
-
-    /**
-     * Sets the list of Players we have in the game.
-     * @param myPlayerList takes a list of Player's that are in the game.
-     */
-    public void setMyPlayerList(ArrayList<Player> myPlayerList) {
-        this.myPlayerList = myPlayerList;
     }
 
     public int getTurns() {
