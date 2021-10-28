@@ -91,19 +91,8 @@ public abstract class Animal implements Serializable {
         return this.foods.contains(food.getMyName());
     }
 
-    /**
-     * When an animal dies, it is removed from its owners animals.
-     */
-    public void dies(){
-        this.owner.removeAnimal(this);
-    }
-
     public int getLitterSize() {
         return litterSize;
-    }
-
-    public ArrayList<String> getFoods() {
-        return foods;
     }
 
     public String getName() {

@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**
@@ -28,8 +27,6 @@ public class PlayerTurnController implements Initializable {
             mateAnimalsButton, sellAnimalsButton;
 
     // Debug - Don't love this - can we not somehow actually get these values?
-    private final int cheapestAnimalItem = 5;
-    private final int cheapestFoodItem = 25;
 
     private Game game;
 
@@ -78,6 +75,8 @@ public class PlayerTurnController implements Initializable {
      * @param currentPlayer currentPlayer the player whose turn it is.
      */
     private void availableOptions(Player currentPlayer) {
+        final int cheapestAnimalItem = 100;
+        final int cheapestFoodItem = 8;
 
         if (currentPlayer.getMyAnimals().isEmpty()) {
             sellAnimalsButton.setDisable(true);

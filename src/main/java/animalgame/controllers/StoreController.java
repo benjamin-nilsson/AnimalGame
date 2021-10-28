@@ -43,7 +43,7 @@ public class StoreController implements Initializable {
 
     @FXML
     private Button buyAnimalButton, buyCornAndSoyButton, buyHayButton, buyFrolicButton,
-            buyGrassAndWeedsButton, buyMixedGrain, buyDogFoodButton, sellAnimalButton, sellAllAnimalsButton;
+            buyGrassAndWeedsButton, buyMixedGrainButton, buyDogFoodButton, sellAnimalButton, sellAllAnimalsButton;
 
     @FXML
     private RadioButton pigBox, cowBox, dogBox, horseBox, sheepBox, maleBox;
@@ -109,20 +109,20 @@ public class StoreController implements Initializable {
      * @param currentPlayer the player whose turn it is.
      */
     private void buyAnimalsOptions(Player currentPlayer) {
-        if (currentPlayer.getMyMoney() < 5) {
+        if (currentPlayer.getMyMoney() < 100) {
             dogBox.setDisable(true);
         }
 
-        if (currentPlayer.getMyMoney() < 10) {
+        if (currentPlayer.getMyMoney() < 200) {
             pigBox.setDisable(true);
             sheepBox.setDisable(true);
         }
 
-        if (currentPlayer.getMyMoney() < 20) {
+        if (currentPlayer.getMyMoney() < 400) {
             cowBox.setDisable(true);
         }
 
-        if (currentPlayer.getMyMoney() < 25) {
+        if (currentPlayer.getMyMoney() < 500) {
             horseBox.setDisable(true);
         }
     }
@@ -186,7 +186,7 @@ public class StoreController implements Initializable {
                 }
         );
 
-        buyMixedGrain.setOnMouseClicked(event -> {
+        buyMixedGrainButton.setOnMouseClicked(event -> {
                     Store.buyFood(currentPlayer, new MixedGrain());
                     setMoney(currentPlayer);
                     buyFoodOptions(currentPlayer);
@@ -206,16 +206,28 @@ public class StoreController implements Initializable {
     }
 
     private void buyFoodOptions(Player currentPlayer) {
-        if (currentPlayer.getMyMoney() < 25) {
-            buyCornAndSoyButton.setDisable(true);
-            buyFrolicButton.setDisable(true);
-            buyGrassAndWeedsButton.setDisable(true);
-            buyMixedGrain.setDisable(true);
+        if (currentPlayer.getMyMoney() < 8) {
             buyDogFoodButton.setDisable(true);
         }
 
-        if (currentPlayer.getMyMoney() < 100) {
+        if (currentPlayer.getMyMoney() < 20) {
+            buyFrolicButton.setDisable(true);
+        }
+
+        if (currentPlayer.getMyMoney() < 24) {
             buyHayButton.setDisable(true);
+        }
+
+        if (currentPlayer.getMyMoney() < 30) {
+            buyCornAndSoyButton.setDisable(true);
+        }
+
+        if (currentPlayer.getMyMoney() < 60) {
+            buyMixedGrainButton.setDisable(true);
+        }
+
+        if (currentPlayer.getMyMoney() < 100) {
+            buyGrassAndWeedsButton.setDisable(true);
         }
     }
 
