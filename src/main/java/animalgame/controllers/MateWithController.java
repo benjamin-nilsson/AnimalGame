@@ -52,12 +52,9 @@ public class MateWithController implements Initializable {
         for (Animal animal : animalsToMateList) {
             canMateDropDownList.getItems().add(animal.getName());
         }
-        // When a choice is made on the canMateDropDownList the options of the
         canMateDropDownList.setOnAction(event -> {
             int selectedAnimal = canMateDropDownList.getSelectionModel().getSelectedIndex();
-
             findMates(currentPlayer, animalsToMateList.get(selectedAnimal));
-            System.out.println("Debug - index selected:");
         });
 
         return animalsToMateList;
@@ -91,32 +88,30 @@ public class MateWithController implements Initializable {
                 System.out.println(animalToMateIndex);
                 int chosenMateNameIndex = willingAnimalsDropDownList.getSelectionModel().getSelectedIndex();
                 System.out.println(chosenMateNameIndex);
-
                 Animal animalToMateObject = animalsToMateList.get(animalToMateIndex);
                 Animal chosenMateObject = currentPlayer.willMateWith(animalToMateObject).get(chosenMateNameIndex);
-
-                int nrPreMating, nrPostMating;
-                nrPreMating = currentPlayer.getMyAnimals().size();
-                animalToMateObject.mateWith(chosenMateObject);
-                nrPostMating = currentPlayer.getMyAnimals().size();
-
-                unsuccessfulMating(nrPreMating, nrPostMating);
-                successfulMating(currentPlayer, nrPreMating, nrPostMating);
+                int litter = animalToMateObject.mateWith(chosenMateObject);
+                if ((litter == 0)) {
+                    unsuccessfulMating();
+                } else {
+                    try {
+                        successfulMating(currentPlayer, litter);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         );
     }
 
     /**
-     * Displays that the mating successful through a pop-up window and allows the user to
-     * set a name for each new animal.
-     * After the names are set it launches the PlayerTurnMenuScene for the next player.
-     * @param currentPlayer the player whose turn it is.
-     * @param nrPreMating number of animals in a players animal list before mating.
-     * @param nrPostMating number of animals in a players animal list after mating.
+     *
+     * @param currentPlayer
+     * @param litter
      */
-    private void successfulMating(Player currentPlayer, int nrPreMating, int nrPostMating) {
-        for(int i = nrPreMating; i < nrPostMating; i++) {
-            int animalIndex = i;
+    private void successfulMating(Player currentPlayer, int litter) throws Exception {
+        int animalIndex = currentPlayer.getMyAnimals().size() - litter;
+        for(int i = animalIndex; i < animalIndex + litter; i++) {
 
             var pane = new Pane();
             pane.setLayoutX(243);
@@ -127,28 +122,26 @@ public class MateWithController implements Initializable {
 
             // add the created pane to the anchorPane of the scene
             mateAnimalsPane.getChildren().add(pane);
-
-            Text text = new Text("Congratulations, you got " + (nrPostMating - nrPreMating) +
+            Text text = new Text("Congratulations, you got " + litter +
                     " new animal(s)! " + "Now set a name for your new animal(s)!");
             text.setLayoutX(47);
             text.setLayoutY(68);
             text.setWrappingWidth(224.46356201171875);
-
             TextField textField = new TextField();
             textField.setPromptText("Name of child");
             textField.setLayoutX(72);
             textField.setLayoutY(100);
-
             Button button = new Button("Ok");
             button.setLayoutX(226);
             button.setLayoutY(161);
+            int finalI = i;
             button.setOnMouseClicked(e -> {
-                currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
+                currentPlayer.getMyAnimals().get(finalI).setName(textField.getText());
                 mateAnimalsPane.getChildren().remove(pane);
             });
 
             // if we don't set openTurnScene in a method it gets executed before we can name the children
-            if (animalIndex == nrPreMating) {
+            if (i == animalIndex){
                 button.setOnAction(event1 -> {
                     currentPlayer.getMyAnimals().get(animalIndex).setName(textField.getText());
                     openTurnScene();
@@ -158,24 +151,19 @@ public class MateWithController implements Initializable {
             // add the created text, textField, and button to the created pane
             pane.getChildren().addAll(text, textField, button);
         }
+
     }
 
+
+
     /**
-     * Displays an alert that the mating was unsuccessful and then launches the PlayerTurnMenuScene
-     * for the next player.
-     * @param nrPreMating number of animals in a players animal list before mating.
-     * @param nrPostMating number of animals in a players animal list after mating.
+     * Displays an alert that the mating was unsuccessful.
      */
-    private void unsuccessfulMating(int nrPreMating, int nrPostMating) {
-        if (nrPreMating == nrPostMating) {
+    private void unsuccessfulMating() {
             var alert = new Alert(Alert.AlertType.NONE, "Mating was unsuccessful!", ButtonType.OK);
-
             alert.showAndWait();
-
-            if (alert.getResult() == ButtonType.OK) {
-                openTurnScene();
-            }
-        }
+            if (alert.getResult() == ButtonType.OK);
+            openTurnScene();
     }
 
     /**

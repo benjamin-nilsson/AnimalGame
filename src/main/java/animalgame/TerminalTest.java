@@ -12,7 +12,7 @@ import animalgame.game.Player;
 public class TerminalTest {
     public static void main(String[] args) {
     System.out.println("TerminalTest is running:");
-    TerminalTest.testMating();
+    //TerminalTest.testMating();
     //Player player = new Player("Fredrik");
     //testAllAnimals();
     //testAnimal();
@@ -24,7 +24,7 @@ public class TerminalTest {
         cow2 = new Cow("Ferdinand", Gender.MALE);
 
     }*/
-    static void testMating(){
+   /* static void testMating(){
         Player player1 = new Player("Player One");
         System.out.println("Name: " + player1.getMyName());
         System.out.println("AnimalBucks: " + player1.getMyMoney());
@@ -40,7 +40,7 @@ public class TerminalTest {
         } else {
             System.out.println("Miss Piggy has a headache!");
         }
-    }
+    }*/
 
 
     static void testAnimal(Animal animal){

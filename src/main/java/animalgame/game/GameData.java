@@ -14,7 +14,7 @@ public class GameData implements Serializable {
     private Player currentPlayer;
     private int currentPlayerIndex = 0;
     private ArrayList<Player> resultOrder;
-    private String currentScene;
+    private final String currentScene;
 
     public GameData(ArrayList<Player> myPlayerList, int turn, int currentTurn, Player currentPlayer,
                     int currentPlayerIndex, ArrayList<Player> resultOrder, String currentScene) {
