@@ -2,12 +2,11 @@ package animalgame.game;
 
 import animalgame.animals.abstractmodels.Animal;
 import animalgame.food.abstractmodels.Food;
-
 import java.util.ArrayList;
 
 /**
  * The Store Class contains the static methods of buying and selling animals, and buying food
- * @author grupp1
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
 public class Store {
 

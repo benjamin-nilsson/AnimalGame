@@ -13,6 +13,7 @@ public class SaveGameController {
 
     @FXML
     private TextField gameName;
+
     private final Game game;
 
     public SaveGameController() {

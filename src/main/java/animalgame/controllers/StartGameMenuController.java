@@ -108,7 +108,7 @@ public class StartGameMenuController implements Initializable {
      */
     public void loadOldGameFile() {
         try {
-            this.game.loadOldFile(oldGameFileText.getText());
+            this.game.loadOldFile(oldGameFileText.getText() + ".ser");
             this.game.nextScene(this.game.getCurrentScene());
         } catch (Exception e) {
             Alert noFileFound = new Alert(Alert.AlertType.ERROR, "No such file found", ButtonType.OK);

@@ -5,14 +5,18 @@ import javafx.application.Application;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Starts the game scene and keeps track of the games current standings
+ * and sets up for each players turn.
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
+ */
 public class Game implements Serializable {
     private ArrayList<Player> myPlayerList;
     private int turns;
     private int currentTurn = 1;
     private int currentPlayerIndex = 0;
-    private String currentTab;
+    private String currentTab, currentScene;
     private ArrayList<Player> resultOrder;
-    private String currentScene;
 
     public Game(String[] args) {
         myPlayerList = new ArrayList<>();
@@ -194,6 +198,9 @@ public class Game implements Serializable {
         SceneCreator.launchScene(nextScene);
     }
 
+    /**
+     * @return the scene that is showing.
+     */
     public String getCurrentScene() {
         return this.currentScene;
     }

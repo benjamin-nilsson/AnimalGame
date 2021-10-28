@@ -20,6 +20,7 @@ public class AfterGameMenuController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
+
     private Game game;
 
     @Override

@@ -13,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -157,6 +156,11 @@ public class StoreController implements Initializable {
         }
     }
 
+    /**
+     * Allows the user to buy the specific food that the player clicks on and updates the money
+     * aswell as the player's list with the food bought.
+     * @param currentPlayer the player whose turn it is.
+     */
     private void buyFood(Player currentPlayer) {
         buyCornAndSoyButton.setOnMouseClicked(event -> {
                     Store.buyFood(currentPlayer, new CornAndSoybeans());
@@ -201,10 +205,20 @@ public class StoreController implements Initializable {
         );
     }
 
+    /**
+     * Set the current player's money.
+     * @param currentPlayer the player whose turn it is.
+     */
     private void setMoney(Player currentPlayer) {
         moneyText.setText(currentPlayer.getMyMoney() + "AB");
     }
 
+    /**
+     * Controls which food that are possible for the player to choose based on the player's situation and
+     * the rules of the game.
+     * The ability to buy the specific food will be removed if the player don't meet the requirements.
+     * @param currentPlayer the player whose turn it is.
+     */
     private void buyFoodOptions(Player currentPlayer) {
         if (currentPlayer.getMyMoney() < 8) {
             buyDogFoodButton.setDisable(true);

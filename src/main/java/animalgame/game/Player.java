@@ -4,10 +4,14 @@ import animalgame.animals.abstractmodels.Animal;
 import animalgame.food.abstractmodels.Food;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Keeps track of all information regarding a player such as players animals, food, money, and name
+ * as well as holds the methods for implementing changes to them.
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
+ */
 public class Player implements Serializable {
     private final ArrayList<Animal> myAnimals = new ArrayList<>();
     private final ArrayList<Food> myFood = new ArrayList<>();

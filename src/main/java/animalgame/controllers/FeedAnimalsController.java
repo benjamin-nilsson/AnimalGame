@@ -17,13 +17,14 @@ import java.util.ResourceBundle;
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
 public class FeedAnimalsController implements Initializable {
-    private Game game;
 
     @FXML
     private ComboBox<String> animalsThatCanEatDropDownList, eatableFoodDropDownList;
+
     @FXML
     private Button feedButton;
 
+    private Game game;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -36,7 +37,6 @@ public class FeedAnimalsController implements Initializable {
     }
 
     /**
-     /**
      * Sets the dropdown list for all the animals that the player has food for and all the food
      * that the player has for an animal when an item from the animalsThatCanEatDropDownList is selected.
      * Provides a list of the animals that the player has food for.

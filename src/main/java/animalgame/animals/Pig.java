@@ -7,7 +7,6 @@ import animalgame.enums.Gender;
  * This class extens the Animal class and holds the characteristics of the pig.
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
-
 public class Pig extends Animal {
 
     /**

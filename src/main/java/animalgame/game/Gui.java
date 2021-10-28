@@ -4,25 +4,32 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-
 import java.util.Objects;
 
 /**
  * Responsible for setting and launching the first scene as well as holding
  * the rest of the scenes.
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
 public class Gui extends Application {
     private static Stage primaryStage;
     private static Game currentGame;
 
+    /**
+     * @param game the current game object.
+     */
     public static void setGameObject(Game game) {
         currentGame = game;
     }
 
+    /**
+     * @return the object of the game.
+     */
     public static Game getGameObject() {
         return currentGame;
 
     }
+
     @Override
     public void start(Stage primaryStage) {
         try {

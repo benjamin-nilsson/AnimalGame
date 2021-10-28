@@ -3,13 +3,9 @@ package animalgame.animals.abstractmodels;
 import animalgame.food.abstractmodels.Food;
 import animalgame.game.Player;
 import animalgame.enums.Gender;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-
-
 
 /**
  * This class declares the animal attributes.
@@ -90,7 +86,6 @@ public abstract class Animal implements Serializable {
     public boolean canEat(Food food){
         return this.foods.contains(food.getMyName());
     }
-
 
     /**
      * Returns the maximum number of offspring a mating of two of this animal can have.
@@ -212,7 +207,6 @@ public abstract class Animal implements Serializable {
      * Abstract methods that the subclass animals inherit.
      * @return the value of animal attributes.
      */
-
     public abstract int mateWith(Animal animal);
 
 

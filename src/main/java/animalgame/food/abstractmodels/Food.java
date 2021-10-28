@@ -6,7 +6,6 @@ import java.io.Serializable;
  * The food class stores the basic attributes of the animal foods.
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
-
 public abstract class Food implements Serializable {
 
     private final String myName;
@@ -20,10 +19,17 @@ public abstract class Food implements Serializable {
         this.myWeight = myWeight;
     }
 
+    /**
+     * The weight of the food created.
+     * @param myWeight the weight of the food.
+     */
     public void setMyWeight(int myWeight) {
         this.myWeight = myWeight;
     }
 
+    /**
+     * @return the name of the food.
+     */
     public String getMyName() {
         return myName;
     }
@@ -32,6 +38,9 @@ public abstract class Food implements Serializable {
         return myPrice;
     }
 
+    /**
+     * @return the weight of the food.
+     */
     public int getMyWeight() {
         return myWeight;
     }
