@@ -4,8 +4,8 @@ import animalgame.animals.abstractmodels.Animal;
 import animalgame.enums.Gender;
 
 /**
- * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  * This class extens the Animal class and holds the characteristics of the dog.
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
 
 public class Dog extends Animal {

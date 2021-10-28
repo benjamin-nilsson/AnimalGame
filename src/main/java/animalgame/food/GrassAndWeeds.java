@@ -3,8 +3,8 @@ package animalgame.food;
 import animalgame.food.abstractmodels.Food;
 
 /**
- * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  * This class extends the food class.
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
 public class GrassAndWeeds extends Food {
 
