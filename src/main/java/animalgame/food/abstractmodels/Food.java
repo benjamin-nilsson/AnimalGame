@@ -34,10 +34,6 @@ public abstract class Food implements Serializable {
         return myName;
     }
 
-    public int getMyPrice() {
-        return myPrice;
-    }
-
     /**
      * @return the weight of the food.
      */
