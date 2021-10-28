@@ -101,6 +101,7 @@ public class Player implements Serializable {
             }
         }
         // Pop-up to inform about the animals health update.
+
         if (!this.getMyAnimals().isEmpty()) {
             Alert healthUpdateAlert = new Alert(Alert.AlertType.NONE, "", ButtonType.OK);
             healthUpdateAlert.setContentText(healthUpdate.toString());
@@ -116,10 +117,15 @@ public class Player implements Serializable {
      * Function that cleans dead animals from myAnimals
      */
     private void removeDeadAnimals() {
+        ArrayList<Animal> deadAnimals = new ArrayList<>();
         for (Animal animal:this.getMyAnimals()) {
             if(animal.getHealth() < 1){
-                this.removeAnimal(animal);
+                deadAnimals.add(animal);
             }
+        }
+        for (Animal animal :
+                deadAnimals) {
+            this.removeAnimal(animal);
         }
     }
 

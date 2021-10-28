@@ -38,6 +38,10 @@ public class Game implements Serializable {
         FilesUtils.writeFile(gameName, this);
     }
 
+    /**
+     * Loads old game.
+     * @param fileName
+     */
     public void loadOldFile(String fileName) {
         Game savedGame = (Game) FilesUtils.readFile(fileName);
         try {
@@ -110,6 +114,10 @@ public class Game implements Serializable {
         return myPlayerList;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTurns() {
         return turns;
     }
