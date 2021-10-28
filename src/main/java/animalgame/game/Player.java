@@ -22,12 +22,12 @@ public class Player implements Serializable {
     /**
      * Reports the players current status in the game, as a string to be displayed to the player to
      * allow the player make an informed decision about his move.
-     * @return
+     * @return String statusReport
      */
     public String reportStatus(){
         String statusReport = "You have: ";
         for (Food food:this.getMyFood()) {
-            statusReport += food.getMyWeight() + " kg of " + food.getMyName();
+            statusReport = statusReport + food.getMyWeight() + " kg of " + food.getMyName();
             if(this.getMyFood().indexOf(food) < this.getMyFood().size()-1){
                 statusReport += ", ";
             } else {
@@ -38,7 +38,7 @@ public class Player implements Serializable {
         if(this.getMyAnimals().size() > 0){
             statusReport += "The animals you own are:\n";
             for (Animal animal:this.getMyAnimals()) {
-               statusReport +=  animal.getName() + ", a " + animal.getGender();
+               statusReport =  statusReport + animal.getName() + ", a " + animal.getGender();
                statusReport += " " + animal.getSpecies() + " of age " + animal.getAge();
                statusReport += " with a health of " + animal.getHealth() + ".\n";
             }
@@ -47,10 +47,9 @@ public class Player implements Serializable {
         return statusReport;
     }
 
-
     /**
      * returns all animals in a players collection that can and needs to eat.
-     * @return
+     * @return ArrayList of Animal
      */
     public ArrayList<Animal> canEat() {
         ArrayList<Animal> returnList= new ArrayList<>();
@@ -71,13 +70,13 @@ public class Player implements Serializable {
 
     /**
      * Returns a string with the current status of all animals in players collection
-     * @return
+     * @return String statusReport
      */
     public String reportStatusAnimals() {
         String statusReport = "The animals you own are:\n";
         if(this.getMyAnimals().size() > 0){
             for (Animal animal:this.getMyAnimals()) {
-                statusReport +=  animal.getName() + ", a " + animal.getGender();
+                statusReport =  statusReport + animal.getName() + ", a " + animal.getGender();
                 statusReport += " " + animal.getSpecies() + " of age " + animal.getAge() + " with a health of " +
                        animal.getHealth() + " and a value of " + animal.getValue() + "AB.\n";
             }
@@ -88,7 +87,6 @@ public class Player implements Serializable {
 
     /**
      * Ages all animals in players collection.
-     *
      */
     public void ageAnimals() {
         // change health of all animals animal.endOfTurn()
@@ -131,7 +129,7 @@ public class Player implements Serializable {
 
     /**
      * Returns all animals in a players collection that can be mated.
-     * @return
+     * @return ArrayList of Animal
      */
     public ArrayList<Animal> canMate(){
         ArrayList<Animal> returnList = new ArrayList<>();
@@ -147,8 +145,8 @@ public class Player implements Serializable {
 
     /**
      * returns all animals in a players collection that can mate with animal1
-     * @param animal1
-     * @return
+     * @param animal1 Animal to find mates for
+     * @return ArrayList of Animal that can bat with animal1
      */
     public ArrayList<Animal> willMateWith(Animal animal1){
         ArrayList<Animal> returnList = new ArrayList<>();
@@ -162,7 +160,7 @@ public class Player implements Serializable {
 
     /**
      * Add food to player. If the same type of food already is in myFood, just add upp the weights.
-     * @param food
+     * @param food the food object to add to myFood
      */
     public void addFood(Food food) {
         String foodName = food.getMyName();
@@ -177,7 +175,7 @@ public class Player implements Serializable {
 
     /**
      * removes animal from myAnimals
-     * @param animal
+     * @param animal to remove
      */
     public void removeAnimal(Animal animal) {
         this.myAnimals.remove(animal);
@@ -185,7 +183,7 @@ public class Player implements Serializable {
 
     /**
      * return ArrayList myAnimals
-     * @return
+     * @return all animals this player owns
      */
     public ArrayList<Animal> getMyAnimals() {
         return myAnimals;
@@ -193,7 +191,7 @@ public class Player implements Serializable {
 
     /**
      * Return ArrayList myFood
-     * @return
+     * @return all food this player owns
      */
     public ArrayList<Food> getMyFood() {
         return myFood;
@@ -201,7 +199,7 @@ public class Player implements Serializable {
 
     /**
      * Return int myMoney
-     * @return
+     * @return amount of money this player has
      */
     public int getMyMoney() {
         return myMoney;
@@ -209,7 +207,7 @@ public class Player implements Serializable {
 
     /**
      * sets int myMoney
-     * @param myMoney
+     * @param myMoney the amount of money
      */
     public void setMyMoney(int myMoney) {
         this.myMoney = myMoney;
@@ -217,12 +215,16 @@ public class Player implements Serializable {
 
     /**
      * returns String myName
-     * @return
+     * @return the players name
      */
     public String getMyName() {
         return myName;
     }
 
+    /**
+     * Adds animal to myAnimals
+     * @param animal to add
+     */
     public void addAnimal(Animal animal) {
         animal.setOwner(this);
         this.myAnimals.add(animal);

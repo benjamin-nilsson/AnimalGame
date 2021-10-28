@@ -40,7 +40,7 @@ public class Game implements Serializable {
 
     /**
      * Loads old game.
-     * @param fileName
+     * @param fileName name of saved file
      */
     public void loadOldFile(String fileName) {
         Game savedGame = (Game) FilesUtils.readFile(fileName);
@@ -115,35 +115,43 @@ public class Game implements Serializable {
     }
 
     /**
-     *
-     * @return
+     * Returns the total number of turns the game is to be played
+     * @return int turns
      */
     public int getTurns() {
         return turns;
     }
 
+    /**
+     * Sets the total number of turns the game is to be played
+     * @param numberOfTurns int number of turns
+     */
     public void setTurns(int numberOfTurns) {
         turns = numberOfTurns;
     }
 
+    /**
+     * Returns the current turn
+     * @return int currentTurn
+     */
     public int getCurrentTurn() {
         return currentTurn;
     }
 
+    /**
+     * Returns the list of players in the game
+     * @return ArrayList of Players
+     */
     public Player getCurrentPlayer() {
         return myPlayerList.get(this.currentPlayerIndex);
     }
 
+    /**
+     * Returns the current Player
+     * @return currentPlayer
+     */
     public int getCurrentPlayerIndex() {
         return this.currentPlayerIndex;
-    }
-
-    /**
-     * Sets the index of the player whose turn it is in regards to the list of players.
-     * @param currentPlayerIndex the player index of the player whose turn it is.
-     */
-    public void setCurrentPlayerIndex(int currentPlayerIndex) {
-        this.currentPlayerIndex = currentPlayerIndex;
     }
 
     /**
@@ -153,7 +161,6 @@ public class Game implements Serializable {
         return currentTab;
     }
 
-    //Why have a special case here? Why not have 3 different scenes??
     /**
      * Sets the tab for the part of the store that the user wants to open.
      * @param currentTab String representation of the tab we want to display.
