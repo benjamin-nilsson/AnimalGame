@@ -3,8 +3,8 @@ package animalgame.food.abstractmodels;
 import java.io.Serializable;
 
 /**
- * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  * The food class stores the basic attributes of the animal foods.
+ * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
 
 public abstract class Food implements Serializable {
