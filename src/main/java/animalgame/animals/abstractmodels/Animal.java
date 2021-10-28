@@ -53,7 +53,7 @@ public abstract class Animal implements Serializable {
     /**
      * Animal eats amountEaten kg of the offered food and its healh
      * is increased by 10 (to a maximum of 100)
-     * @param food
+     * @param food of Food class
      */
     public void eat(Food food){
         food.setMyWeight(food.getMyWeight()-this.getAmountEaten());
@@ -84,77 +84,135 @@ public abstract class Animal implements Serializable {
 
     /**
      * checks if this animal can eat the food proposed.
-     * @param food
-     * @return boolean
+     * @param food Food to check if this animal can eat.
+     * @return boolean true if this animal can eat food.
      */
     public boolean canEat(Food food){
         return this.foods.contains(food.getMyName());
     }
 
-    /**
-     * When an animal dies, it is removed from its owners animals.
-     */
-    public void dies(){
-        this.owner.removeAnimal(this);
-    }
 
+    /**
+     * Returns the maximum number of offspring a mating of two of this animal can have.
+     * @return int litterSize
+     */
     public int getLitterSize() {
         return litterSize;
     }
 
+    /**
+     * Returns an arraylist of the foods this animal can eat.
+     * @return foods
+     */
     public ArrayList<String> getFoods() {
         return foods;
     }
 
+    /**
+     * Return this animals name.
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns the amount of food this animal eats in each serving
+     * Each serving is what is needed to increase its health with 10.
+     * @return int amountEaten
+     */
     public int getAmountEaten() {
         return amountEaten;
     }
 
+    /**
+     * Returns the animals age.
+     * @return int age
+     */
     public int getAge(){
         return this.age;
     }
 
+    /**
+     * Returns the animals max age.
+     * @return in maxAge
+     */
     public int getMaxAge(){
         return this.maxAge;
     }
 
+    /**
+     * Returns the value of the animal at its current health.
+     * @return in value
+     */
     public int getValue(){
         return (this.getBasicValue() * this.getHealth())/100;
     }
 
+    /**
+     * Returns the animals basicValue
+     * @return basicValue
+     */
     public int getBasicValue(){
         return this.basicValue;
     }
 
+    /**
+     * Returns the animals current health
+     * @return int health
+     */
     public int getHealth(){
         return this.health;
     }
 
+    /**
+     * Return what species this animal is of
+     * @return species
+     */
     public String getSpecies(){
         return this.species;
     }
 
+    /**
+     * Returns the Player object that is the owner of this animal.
+     * @return owner
+     */
     public Player getOwner() {
         return owner;
     }
 
+    /**
+     * Returns this animals gender.
+     * @return gender
+     */
     public Gender getGender() {
         return this.gender;
     }
 
+    /**
+     * Sets this animals name to name
+     * @param name String
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Sets this animals owner.
+     * @param owner of Player class
+     */
     public void setOwner(Player owner) {
         this.owner = owner;
     }
 
+    /**
+     * Returns an ArrayList of all animals in its owners
+     * @param animal of Animal class
+     * @return ArrayList of Animal
+     */
     public boolean canMateWith(Animal animal){
+        if (this.health < 1) return false;
+        if (animal.getHealth() < 0) return false;
         return animal.getSpecies().equals(this.species) && !(animal.getGender() == this.gender);
     }
 
