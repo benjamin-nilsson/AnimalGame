@@ -105,11 +105,11 @@ public class MateWithController implements Initializable {
     }
 
     /**
-     *
-     * @param currentPlayer
-     * @param litter
+     * Opens pop-ups that the mating is successful and to name the offspring
+     * @param currentPlayer the active player
+     * @param litter the number of offspring
      */
-    private void successfulMating(Player currentPlayer, int litter) throws Exception {
+    private void successfulMating(Player currentPlayer, int litter) {
         int animalIndex = currentPlayer.getMyAnimals().size() - litter;
         for(int i = animalIndex; i < animalIndex + litter; i++) {
 
@@ -139,7 +139,6 @@ public class MateWithController implements Initializable {
                 currentPlayer.getMyAnimals().get(finalI).setName(textField.getText());
                 mateAnimalsPane.getChildren().remove(pane);
             });
-
             // if we don't set openTurnScene in a method it gets executed before we can name the children
             if (i == animalIndex){
                 button.setOnAction(event1 -> {
@@ -147,7 +146,6 @@ public class MateWithController implements Initializable {
                     openTurnScene();
                 });
             }
-
             // add the created text, textField, and button to the created pane
             pane.getChildren().addAll(text, textField, button);
         }

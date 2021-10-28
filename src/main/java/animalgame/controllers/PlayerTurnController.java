@@ -1,7 +1,6 @@
 package animalgame.controllers;
 
 import animalgame.game.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -14,6 +13,7 @@ import java.util.ResourceBundle;
  * on the player situation as well as the game's rules.
  * If a player have no possible actions his/her turn is skipped.
  */
+@SuppressWarnings("JavaDoc")
 public class PlayerTurnController implements Initializable {
 
     @FXML
@@ -157,10 +157,9 @@ public class PlayerTurnController implements Initializable {
 
     /**
      * Launches the SaveGameScene.
-     * @param actionEvent Action event represents a click on the start game button.
      * @throws Exception
      */
-    public void saveGame(ActionEvent actionEvent) throws Exception {
+    public void saveGame() throws Exception {
         SceneCreator.launchScene("/scenes/SaveGameScene.fxml");
     }
 }

@@ -1,12 +1,10 @@
 package animalgame.controllers;
 
-import animalgame.fileutilities.FilesUtils;
 import animalgame.game.*;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -99,18 +97,16 @@ public class StartGameMenuController implements Initializable {
 
     /**
      * Exits the game.
-     * @param mouseEvent Mouse event represents a click on the exitGame button.
      */
-    public void exitGame(MouseEvent mouseEvent) {
+    public void exitGame() {
         Gui.getStage().close();
     }
 
     /**
      * Takes a saved file and instantiates the required values of the Game to enable a user to pick up
      * from where the user last saved the game. Then launches the scene where the user last saved.
-     * @throws Exception
      */
-    public void loadOldGameFile() throws Exception {
+    public void loadOldGameFile() {
         try {
             this.game.loadOldFile(oldGameFileText.getText());
             this.game.nextScene(this.game.getCurrentScene());

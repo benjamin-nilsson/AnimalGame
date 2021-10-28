@@ -1,7 +1,6 @@
 package animalgame;
 
 import animalgame.game.Game;
-import javafx.application.Application;
 
 public class LaunchGame {
 

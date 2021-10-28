@@ -12,7 +12,6 @@ public class Frolic extends Food {
 
     public Frolic () {
         super("Frolic" , 4, 5);
-        this.myName = myName;
     }
 
 }

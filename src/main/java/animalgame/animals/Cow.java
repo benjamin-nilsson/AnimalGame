@@ -13,8 +13,8 @@ public class Cow extends Animal {
     /**
      * Constructor - calls the supers constructor and sets maxAge, basicValue , foods & litterSize according
      * to the values for the subclass.
-     * @param name
-     * @param gender
+     * @param name String name of this dog
+     * @param gender Gender of this dog
      */
     public Cow (String name, Gender gender) {
         super(name, "Cow", gender, 20, 400, 1, 10, "Baled Hay", "Corn And Soybeans");
@@ -23,7 +23,7 @@ public class Cow extends Animal {
     /**
      * If a player attempts to have two animals mate there is 50% chance that up to litterSize new animals will
      * be added to the players animals. returns # of offspring.
-     * @param animal
+     * @param animal the animal this animal is to mate with
      */
     public int mateWith(Animal animal){
         int litter = 0;

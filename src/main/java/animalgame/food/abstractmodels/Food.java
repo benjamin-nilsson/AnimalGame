@@ -38,7 +38,7 @@ public abstract class Food implements Serializable {
 
     /**
      * Returns the value for the amount and type of food in this object
-     * @return
+     * @return int myPrice * myWeight
      */
     public int getValue() {
         return this.myPrice * this.myWeight;

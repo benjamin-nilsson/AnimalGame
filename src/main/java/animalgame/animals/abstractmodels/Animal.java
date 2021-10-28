@@ -101,14 +101,6 @@ public abstract class Animal implements Serializable {
     }
 
     /**
-     * Returns an arraylist of the foods this animal can eat.
-     * @return foods
-     */
-    public ArrayList<String> getFoods() {
-        return foods;
-    }
-
-    /**
      * Return this animals name.
      * @return name
      */

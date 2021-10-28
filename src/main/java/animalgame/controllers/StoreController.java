@@ -8,13 +8,12 @@ import animalgame.game.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.scene.control.TextArea;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -26,6 +25,7 @@ import java.util.ResourceBundle;
  * or sell animals.
  * @author Lara Ibrahim, William Hökegård, Benjamin Nilsson, Fredrik Jonsson.
  */
+@SuppressWarnings("ALL")
 public class StoreController implements Initializable {
 
     @FXML
@@ -318,10 +318,9 @@ public class StoreController implements Initializable {
      * Handles the transaction of buying an animal and then creates the animal that
      * the player selected with the player's chosen gender and name.
      * Launches the StoreMenuScene when finished so the player can keep buying animals.
-     * @param actionEvent Action event represents a click on the start game button.
      * @throws Exception
      */
-    public void buyAnimal(ActionEvent actionEvent) throws Exception {
+    public void buyAnimal() throws Exception {
         String name = nameOfAnimalField.getText();
         Animal animal = null;
         if (pigBox.isSelected()) {
@@ -340,6 +339,7 @@ public class StoreController implements Initializable {
             animal = new Sheep(name, setGender());
         }
 
+        assert animal != null;
         Store.buyAnimal(this.game.getCurrentPlayer(), animal);
         SceneCreator.launchScene("/scenes/StoreMenuScene.fxml");
     }
@@ -363,6 +363,7 @@ public class StoreController implements Initializable {
      * Launches the PlayerTurnMenuScene for the next player.
      * @throws Exception
      */
+    @SuppressWarnings("JavaDoc")
     public void openTurnScene() throws Exception {
         this.game.nextPlayer();
     }

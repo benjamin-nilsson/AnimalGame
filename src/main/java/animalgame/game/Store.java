@@ -13,8 +13,8 @@ public class Store {
 
     /**
      * Adds the animal and removes the AnimalBucks for it to and from player.
-     * @param player
-     * @param animal
+     * @param player Player that buys the animal
+     * @param animal Animal bough
      */
     public static void buyAnimal(Player player, Animal animal){
         animal.ageFromStore();
@@ -24,20 +24,17 @@ public class Store {
 
     /**
      * Removes the animal from player, and adds AnimalBucks to player.
-     * @param player
-     * @param animal
-     * @return
+     * @param player Player selling animal.
+     * @param animal Animal sold.
      */
-    public static Runnable sellAnimal(Player player, Animal animal){
+    public static void sellAnimal(Player player, Animal animal){
         player.removeAnimal(animal);
         player.setMyMoney(player.getMyMoney() + animal.getValue());
-        return null;
     }
 
     /**
      * removes all animals from a player, and adds AnimalBucks to player.
-     * @param player
-     * @return
+     * @param player Player to remove all animals from.
      */
     public static void sellAllAnimals(Player player){
         ArrayList<Animal> animals = player.getMyAnimals();
@@ -48,8 +45,8 @@ public class Store {
 
     /**
      * Adds the food to the player and removes the AnimalBucks for it.
-     * @param player
-     * @param food
+     * @param player Player buying food.
+     * @param food Food bought.
      */
     public static void buyFood(Player player, Food food){
         player.addFood(food);

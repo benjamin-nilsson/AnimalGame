@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 /**
  * Responsible for setting and launching the first scene as well as holding
  * the rest of the scenes.
@@ -22,10 +24,10 @@ public class Gui extends Application {
 
     }
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         try {
             // setting up the login scene
-            Parent root = FXMLLoader.load(getClass().getResource("/scenes/StartGameMenuScene.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/scenes/StartGameMenuScene.fxml")));
             Gui.primaryStage = primaryStage;
             Gui.primaryStage.setTitle("Animal Game");
             var scene = new javafx.scene.Scene(root, 768, 450);
