@@ -202,7 +202,7 @@ public class StoreController implements Initializable {
     }
 
     private void setMoney(Player currentPlayer) {
-        moneyText.setText(String.valueOf(currentPlayer.getMyMoney()) + "AB");
+        moneyText.setText(currentPlayer.getMyMoney() + "AB");
     }
 
     private void buyFoodOptions(Player currentPlayer) {

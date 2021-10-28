@@ -13,7 +13,7 @@ public class SaveGameController {
 
     @FXML
     private TextField gameName;
-    private Game game;
+    private final Game game;
 
     public SaveGameController() {
         this.game = Gui.getGameObject();

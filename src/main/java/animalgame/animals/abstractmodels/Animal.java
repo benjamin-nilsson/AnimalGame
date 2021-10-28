@@ -17,10 +17,16 @@ import java.util.Arrays;
  */
 public abstract class Animal implements Serializable {
     private Player owner;
-    private Gender gender;
-    private String name, species;
-    private int age, health, basicValue, maxAge, litterSize, amountEaten;
-    private ArrayList<String> foods;
+    private final Gender gender;
+    private String name;
+    private final String species;
+    private int age;
+    private int health;
+    private final int basicValue;
+    private final int maxAge;
+    private final int litterSize;
+    private final int amountEaten;
+    private final ArrayList<String> foods;
 
     public Animal(String name, String species, Gender gender, int maxAge, int basicValue, int litterSize, int amountEaten, String ... args) {
         super();

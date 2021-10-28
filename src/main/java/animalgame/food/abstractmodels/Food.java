@@ -9,8 +9,9 @@ import java.io.Serializable;
 
 public abstract class Food implements Serializable {
 
-    private String myName;
-    private int myPrice, myWeight;
+    private final String myName;
+    private final int myPrice;
+    private int myWeight;
 
 
     public Food(String myName, int myPrice, int myWeight) {

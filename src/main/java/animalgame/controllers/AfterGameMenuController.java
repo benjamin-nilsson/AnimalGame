@@ -59,8 +59,8 @@ public class AfterGameMenuController implements Initializable {
             text.setLayoutY(layoutY);
             text.setStyle("-fx-font-size: 15px; "
                     + "-fx-font-weight: bold;");
-            text.setText(String.valueOf(place)+ ". " + this.game.getResultOrder().get(i -1).getMyName()
-                    + " (" + String.valueOf(this.game.getResultOrder().get(i-1).getMyMoney()) + " AB)");
+            text.setText(place + ". " + this.game.getResultOrder().get(i -1).getMyName()
+                    + " (" + this.game.getResultOrder().get(i - 1).getMyMoney() + " AB)");
 
             anchorPane.getChildren().add(text);
 

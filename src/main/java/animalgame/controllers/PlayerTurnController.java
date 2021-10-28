@@ -28,8 +28,8 @@ public class PlayerTurnController implements Initializable {
             mateAnimalsButton, sellAnimalsButton;
 
     // Debug - Don't love this - can we not somehow actually get these values?
-    private int cheapestAnimalItem = 5;
-    private int cheapestFoodItem = 25;
+    private final int cheapestAnimalItem = 5;
+    private final int cheapestFoodItem = 25;
 
     private Game game;
 

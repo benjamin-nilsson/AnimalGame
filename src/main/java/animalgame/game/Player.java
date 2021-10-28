@@ -9,10 +9,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Player implements Serializable {
-    private ArrayList<Animal> myAnimals = new ArrayList<>();
-    private ArrayList<Food> myFood = new ArrayList<>();
+    private final ArrayList<Animal> myAnimals = new ArrayList<>();
+    private final ArrayList<Food> myFood = new ArrayList<>();
     private int myMoney;
-    private String myName;
+    private final String myName;
 
     public Player(String myName) {
         this.myMoney = 2000; //AnimalBucks
@@ -69,6 +69,10 @@ public class Player implements Serializable {
         return returnList;
     }
 
+    /**
+     * Returns a string with the current status of all animals in players collection
+     * @return
+     */
     public String reportStatusAnimals() {
         String statusReport = "The animals you own are:\n";
         if(this.getMyAnimals().size() > 0){
@@ -82,10 +86,13 @@ public class Player implements Serializable {
         return statusReport;
     }
 
+    /**
+     * Ages all animals in players collection.
+     *
+     */
     public void ageAnimals() {
         // change health of all animals animal.endOfTurn()
 
-        ArrayList<Animal> deadAnimals = new ArrayList<>();
         StringBuilder healthUpdate = new StringBuilder();
         for (Animal animal : this.getMyAnimals()) {
             healthUpdate.append(animal.endOfTurn());
@@ -170,22 +177,42 @@ public class Player implements Serializable {
         this.myAnimals.remove(animal);
     }
 
+    /**
+     * return ArrayList myAnimals
+     * @return
+     */
     public ArrayList<Animal> getMyAnimals() {
         return myAnimals;
     }
 
+    /**
+     * Return ArrayList myFood
+     * @return
+     */
     public ArrayList<Food> getMyFood() {
         return myFood;
     }
 
+    /**
+     * Return int myMoney
+     * @return
+     */
     public int getMyMoney() {
         return myMoney;
     }
 
+    /**
+     * sets int myMoney
+     * @param myMoney
+     */
     public void setMyMoney(int myMoney) {
         this.myMoney = myMoney;
     }
 
+    /**
+     * returns String myName
+     * @return
+     */
     public String getMyName() {
         return myName;
     }
