@@ -19,6 +19,22 @@
             <Image url="@../images/AnimalFarm.jpg" />
          </image>
       </ImageView>
+      <Text layoutX="238.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turns (5-30)">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <TextField fx:id="turns" layoutX="389.0" layoutY="60.0" prefHeight="61.0" prefWidth="67.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="player1Text" layoutX="310.0" layoutY="141.0" />
+      <TextField fx:id="player2Text" layoutX="310.0" layoutY="185.0" />
+      <TextField fx:id="player3Text" layoutX="310.0" layoutY="229.0" />
+      <TextField fx:id="player4Text" layoutX="310.0" layoutY="273.0" />
+      <TextField fx:id="oldGameFileText" layoutX="229.0" layoutY="325.0" promptText="Name of saved game file" />
+      <Button layoutX="389.0" layoutY="325.0" mnemonicParsing="false" onAction="#loadOldGameFile" text="Load Old File" />
       <Button fx:id="startGameButton" layoutX="198.0" layoutY="371.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="49.0" prefWidth="175.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Start Game" textFill="#b52020">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -35,23 +51,6 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Button>
-      <Text layoutX="238.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turns (5-30)">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Text>
-      <TextField fx:id="turns" layoutX="389.0" layoutY="60.0" prefHeight="61.0" prefWidth="67.0">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </TextField>
-      <Pane fx:id="subScene" layoutX="198.0" layoutY="74.0" prefHeight="321.0" prefWidth="399.0" visible="false" />
-      <Button layoutX="389.0" layoutY="325.0" mnemonicParsing="false" onAction="#loadOldGameFile" text="Load Old File" />
-      <TextField fx:id="oldGameFileText" layoutX="229.0" layoutY="325.0" promptText="Name of saved game file" />
-      <TextField fx:id="player2Text" layoutX="310.0" layoutY="185.0" />
-      <TextField fx:id="player3Text" layoutX="310.0" layoutY="229.0" />
-      <TextField fx:id="player4Text" layoutX="310.0" layoutY="273.0" />
-      <TextField fx:id="player1Text" layoutX="310.0" layoutY="141.0" />
       <Text layoutX="251.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -72,6 +71,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
+      <Pane fx:id="subScene" layoutX="198.0" layoutY="74.0" prefHeight="321.0" prefWidth="399.0" visible="false" />
       <FontAwesomeIconView fx:id="infoIcon" fill="BLUE" glyphName="INFO" layoutX="454.0" layoutY="315.0" size="20" wrappingWidth="10.705072402954102" />
       <TextArea fx:id="infoText" layoutX="465.0" layoutY="273.0" prefHeight="41.0" prefWidth="200.0" promptText="You can play between 5-30 rounds and have to have at least 2 players" style="visibility: false;" />
    </children>

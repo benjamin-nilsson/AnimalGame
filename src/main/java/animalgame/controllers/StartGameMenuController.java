@@ -73,20 +73,22 @@ public class StartGameMenuController implements Initializable {
         // is it a problem if more than one player have the same name?
         // changed Game to this.game
 
+
+        var numberOfTurns = Integer.parseInt(turns.getText());
+        if (numberOfTurns < 5 || numberOfTurns > 30) {
+            infoText.setVisible(true);
+            return;
+        }
+
         this.game.addPlayer(new Player(player1Text.getText()));
         this.game.addPlayer(new Player(player2Text.getText()));
+
         if (!player3Text.getText().isEmpty()) {
            this.game.addPlayer(new Player(player3Text.getText()));
         }
 
         if (!player4Text.getText().isEmpty()) {
             this.game.addPlayer(new Player(player4Text.getText()));
-        }
-
-        var numberOfTurns = Integer.parseInt(turns.getText());
-        if (numberOfTurns < 5 || numberOfTurns > 30) {
-            infoText.setVisible(true);
-            return;
         }
 
         if (!startGameButton.isDisabled()) {
