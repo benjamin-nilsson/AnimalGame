@@ -77,16 +77,16 @@ public class Player implements Serializable {
      * @return String statusReport
      */
     public String reportStatusAnimals() {
-        String statusReport = "The animals you own are:\n";
+        StringBuilder statusReport = new StringBuilder();
+        statusReport.append("The animals you own are:\n");
         if(this.getMyAnimals().size() > 0){
             for (Animal animal:this.getMyAnimals()) {
-                statusReport =  statusReport + animal.getName() + ", a " + animal.getGender();
-                statusReport += " " + animal.getSpecies() + " of age " + animal.getAge() + " with a health of " +
-                       animal.getHealth() + " and a value of " + animal.getValue() + "AB.\n";
+                statusReport.append(animal.getName() + ", a " + animal.getGender());
+                statusReport.append(" " + animal.getSpecies() + " of age " + animal.getAge() + " with a health of " +
+                        animal.getHealth() + " and a value of " + animal.getValue() + "AB.\n");
             }
         }
-
-        return statusReport;
+        return statusReport.toString();
     }
 
     /**

@@ -66,16 +66,6 @@ public class Game implements Serializable {
         myPlayerList.add(player);
     }
 
-    //Not sure this is such a great idea. We probably still want a player that's
-    //out of the game to be in the list for final scores.
-    /**
-     * Deletes the sent player object argument from the games list of players.
-     * @param player a Player object that will be used to play the game.
-     */
-    public void deletePlayer(Player player) {
-        this.myPlayerList.remove(player);
-    }
-
     /**
      * checks if all turns have been played, if so ends the game
      * sets currentPlayerIndex to next in line
@@ -94,20 +84,16 @@ public class Game implements Serializable {
             }
         } else {
             // Not last player in the list
-            // increase the currentPlayerIndex
-            this.currentPlayerIndex++;
+            // increase the currentPlayerIndex OR
+            // If the current player has no money and no animals remove it
+            if (this.getCurrentPlayer().getMyMoney() < 8 && this.getCurrentPlayer().getMyAnimals().size() == 0) {
+                playerLost(this.getCurrentPlayer());
+            } else {
+                this.currentPlayerIndex++;
+            }
         }
         // Then go to next scene
         this.nextScene("/scenes/PlayerTurnMenuScene.fxml");
-    }
-
-    /**
-     * Adds a player to a list of players which keeps track of the players placement
-     * in reverse order.
-     * @param currentPlayer the player whose turn it is.
-     */
-    public void addPlayerToResultOrder(Player currentPlayer) {
-        resultOrder.add(currentPlayer);
     }
 
     /**
@@ -183,11 +169,12 @@ public class Game implements Serializable {
     }
 
     /**
-     * Sets a list containing players and their placement for the game in reverse order.
-     * @param resultOrder a list of Player objects according to their placement in reverse order.
+     * removes a player from myPlayerList and adds it to resultOrder.
+     * @param player that is out of the game.
      */
-    public void setResultOrder(ArrayList<Player> resultOrder) {
-        this.resultOrder = resultOrder;
+    public void playerLost(Player player){
+        this.resultOrder.add(player);
+        this.myPlayerList.remove(player);
     }
 
     /**
