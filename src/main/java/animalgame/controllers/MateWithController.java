@@ -6,6 +6,8 @@ import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -129,8 +131,11 @@ public class MateWithController implements Initializable {
             text.setWrappingWidth(224.46356201171875);
             TextField textField = new TextField();
             textField.setPromptText("Name of child");
-            textField.setLayoutX(72);
+            textField.setLayoutX(103);
             textField.setLayoutY(100);
+            Text gender = new Text(currentPlayer.getMyAnimals().get(i).getGender().toString());
+            gender.setLayoutX(47);
+            gender.setLayoutY(117);
             Button button = new Button("Ok");
             button.setLayoutX(226);
             button.setLayoutY(161);
@@ -147,7 +152,7 @@ public class MateWithController implements Initializable {
                 });
             }
             // add the created text, textField, and button to the created pane
-            pane.getChildren().addAll(text, textField, button);
+            pane.getChildren().addAll(text, gender, textField, button);
         }
 
     }
@@ -160,8 +165,8 @@ public class MateWithController implements Initializable {
     private void unsuccessfulMating() {
             var alert = new Alert(Alert.AlertType.NONE, "Mating was unsuccessful!", ButtonType.OK);
             alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK);
-            openTurnScene();
+            if (alert.getResult() == ButtonType.OK)
+                openTurnScene();
     }
 
     /**
