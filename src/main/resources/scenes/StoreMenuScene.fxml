@@ -55,27 +55,27 @@
                            <children>
                               <ImageView fx:id="pigImage" fitHeight="110.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/95884243-cartoon-pig-play-in-mud.jpg" />
+                                    <Image url="@../images/pig.png" />
                                  </image>
                               </ImageView>
                               <ImageView fx:id="cowImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                                  <image>
-                                    <Image url="@../images/cow.jpg" />
+                                    <Image url="@../images/cow.png" />
                                  </image>
                               </ImageView>
                               <ImageView fx:id="dogImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                                  <image>
-                                    <Image url="@../images/dog.jpg" />
+                                    <Image url="@../images/dog.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="horseImage" fitHeight="96.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                              <ImageView fx:id="horseImage" fitHeight="101.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                                  <image>
-                                    <Image url="@../images/Horse.jpg" />
+                                    <Image url="@../images/horse.png" />
                                  </image>
                               </ImageView>
                               <ImageView fx:id="sheepImage" fitHeight="99.0" fitWidth="103.0" pickOnBounds="true" GridPane.columnIndex="4">
                                  <image>
-                                    <Image url="@../images/sheep.jpg" />
+                                    <Image url="@../images/sheep.png" />
                                  </image>
                               </ImageView>
                               <Text fx:id="costPigText" strokeType="OUTSIDE" strokeWidth="0.0" text="200AB" textAlignment="CENTER" wrappingWidth="66.0" GridPane.rowIndex="1">
