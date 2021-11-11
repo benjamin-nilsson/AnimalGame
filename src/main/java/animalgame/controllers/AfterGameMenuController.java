@@ -2,7 +2,6 @@ package animalgame.controllers;
 
 import animalgame.game.Game;
 import animalgame.game.Gui;
-import animalgame.game.SceneCreator;
 import animalgame.game.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -63,14 +62,6 @@ public class AfterGameMenuController implements Initializable {
             place++;
             layoutY += 45;
         }
-    }
-
-    /**
-     * Resets all the game data and launches the StartGameMenuScene.
-     */
-    public void openStartMenu() throws Exception {
-        // todo: reset all fields.
-        SceneCreator.launchScene("/scenes/StartGameMenuScene.fxml");
     }
 
     /**

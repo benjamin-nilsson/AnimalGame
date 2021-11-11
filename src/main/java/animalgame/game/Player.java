@@ -29,26 +29,29 @@ public class Player implements Serializable {
      * @return String statusReport
      */
     public String reportStatus(){
-        String statusReport = "You have: ";
-        for (Food food:this.getMyFood()) {
-            statusReport = statusReport + food.getMyWeight() + " kg of " + food.getMyName();
-            if(this.getMyFood().indexOf(food) < this.getMyFood().size()-1){
-                statusReport += ", ";
-            } else {
-                statusReport += ".\n";
+        StringBuilder statusReport = new StringBuilder();
+        if (!this.myFood.isEmpty()) {
+            statusReport.append("You have: \n");
+            for (Food food:this.getMyFood()) {
+                statusReport.append(food.getMyWeight()).append(" kg of ").append(food.getMyName() + "\n");
+            /*    if(this.getMyFood().indexOf(food) < this.getMyFood().size()-1){
+                    statusReport.append(", ");
+                } else {
+                    statusReport.append(".\n");
+                }*/
             }
         }
 
         if(this.getMyAnimals().size() > 0){
-            statusReport += "The animals you own are:\n";
+            statusReport.append("The animals you own are:\n");
             for (Animal animal:this.getMyAnimals()) {
-               statusReport =  statusReport + animal.getName() + ", a " + animal.getGender();
-               statusReport += " " + animal.getSpecies() + " of age " + animal.getAge();
-               statusReport += " with a health of " + animal.getHealth() + ".\n";
+               statusReport.append(animal.getName() + ", a " + animal.getGender() +
+               " " + animal.getSpecies() + " of age " + animal.getAge() +
+               " with a health of " + animal.getHealth() + ".\n");
             }
         }
 
-        return statusReport;
+        return statusReport.toString();
     }
 
     /**

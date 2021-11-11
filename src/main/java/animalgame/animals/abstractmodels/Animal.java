@@ -66,7 +66,7 @@ public abstract class Animal implements Serializable {
         String healthUpdate = this.name + " lost ";
         int healthLoss = (int) (20 * Math.random() + 11);
         this.health -= healthLoss;
-        healthUpdate += healthLoss + ",and is now at " + this.health + " health.";
+        healthUpdate += healthLoss + " and is now at " + this.health + " health.";
         if (this.health < 1) {
             healthUpdate = this.name + " died from starvation!";
         }
