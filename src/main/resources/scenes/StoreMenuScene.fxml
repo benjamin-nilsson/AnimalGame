@@ -55,7 +55,7 @@
                             <RowConstraints maxHeight="159.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ImageView fx:id="pigImage" fitHeight="110.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="pigImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/Pig.png" />
                                  </image>
@@ -65,17 +65,17 @@
                                     <Image url="@../images/Cow.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="dogImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                              <ImageView fx:id="dogImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                                  <image>
                                     <Image url="@../images/Dog.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="horseImage" fitHeight="101.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                              <ImageView fx:id="horseImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                                  <image>
                                     <Image url="@../images/Horse.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="sheepImage" fitHeight="99.0" fitWidth="103.0" pickOnBounds="true" GridPane.columnIndex="4">
+                              <ImageView fx:id="sheepImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="4">
                                  <image>
                                     <Image url="@../images/Sheep.png" />
                                  </image>
@@ -188,7 +188,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ImageView fx:id="hayImage1" fitHeight="88.0" fitWidth="108.0" pickOnBounds="true" GridPane.columnIndex="1">
+                                          <ImageView fx:id="hayImage1" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="1">
                                              <image>
                                                 <Image url="@../images/BaledHay.png" />
                                              </image>
@@ -201,7 +201,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ImageView fx:id="linenImage1" fitHeight="89.0" fitWidth="109.0" pickOnBounds="true" GridPane.columnIndex="2">
+                                          <ImageView fx:id="linenImage1" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="2">
                                              <image>
                                                 <Image url="@../images/Frolic.png" />
                                              </image>
@@ -272,7 +272,7 @@
                                                 <Insets left="80.0" />
                                              </GridPane.margin>
                                           </FontAwesomeIconView>
-                                          <ImageView fx:id="weedImage12" fitHeight="86.0" fitWidth="102.0" pickOnBounds="true">
+                                          <ImageView fx:id="weedImage12" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true">
                                              <image>
                                                 <Image url="@../images/WellnessDryDogFood.png" />
                                              </image>
@@ -295,7 +295,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ImageView fx:id="grassImage11" fitHeight="83.0" fitWidth="107.0" pickOnBounds="true" GridPane.columnIndex="1">
+                                          <ImageView fx:id="grassImage11" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="1">
                                              <image>
                                                 <Image url="@../images/GrassAndWeeds.png" />
                                              </image>
@@ -318,7 +318,7 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ImageView fx:id="weedImage11" fitHeight="85.0" fitWidth="104.0" pickOnBounds="true" GridPane.columnIndex="2">
+                                          <ImageView fx:id="weedImage11" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="2">
                                              <image>
                                                 <Image url="@../images/MixedGrain.png" />
                                              </image>
