@@ -5,6 +5,7 @@ import animalgame.animals.abstractmodels.Animal;
 import animalgame.enums.Gender;
 import animalgame.food.*;
 import animalgame.game.*;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.ObservableList;
@@ -15,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 //Can we please split this scene and controller up? There is absolutely no point in having different tabs.
@@ -58,6 +60,10 @@ public class StoreController implements Initializable {
 
     @FXML
     private ComboBox<String> allAnimalsDropDownList;
+
+    @FXML
+    private TextArea animalsTextArea;
+
     private Game game;
 
     @Override
@@ -68,6 +74,17 @@ public class StoreController implements Initializable {
         selectTab(currentPlayer);
         setMoney(currentPlayer);
         buyFoodOptions(currentPlayer);
+
+        animalsTextArea.setText("Cow:\n" +
+                "Corn and SoyBeans, Baled Hay \n\n" +
+                "Dog:\n" +
+                "Frolic, Dry Dog Food \n\n" +
+                "Horse: \n" +
+                "Baled Hay, Mixed Grain \n\n" +
+                "Pig: \n" +
+                "Corn and Soybeans, Mixed Grain \n\n" +
+                "Sheep: \n" +
+                "Baled Hay, Grass and Weeds");
     }
 
     /**
