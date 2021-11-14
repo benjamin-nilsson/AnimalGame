@@ -6,7 +6,13 @@ import animalgame.game.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+
+import java.io.File;
 import java.net.URL;
 import java.util.*;
 
@@ -20,13 +26,27 @@ public class AfterGameMenuController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
 
+    @FXML
+    private MediaView mediaView;
+
     private Game game;
+
+    private Media media;
+    private File file;
+    private MediaPlayer mediaPlayer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.game = Gui.getGameObject();
         sortRemainingPlayersAndAddToResultOrder();
         displayPlayersPlacement();
+
+
+        file = new File("C:\\Users\\b3nni\\AnimalGame\\src\\main\\resources\\images\\fireworks.mp4");
+        media = new Media(file.toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaPlayer.play();
     }
 
     /**
@@ -52,8 +72,20 @@ public class AfterGameMenuController implements Initializable {
             Text text = new Text();
             text.setLayoutX(339);
             text.setLayoutY(layoutY);
+            if (place == 1) {
+                text.setFill(Color.GOLD);
+                text.setStyle("-fx-font-size: 15px; "
+                                + "-fx-font-weight: bold; "
+                                + "-fx-text-fill: #ffffff;");
+            }
+            else if (place == 2){
+                text.setFill(Color.SILVER);
+            }
+            else if (place == 3){
+                text.setFill(Color.valueOf("#cd7f32"));
+            }
             text.setStyle("-fx-font-size: 15px; "
-                    + "-fx-font-weight: bold;");
+                        + "-fx-font-weight: bold;");
             text.setText(place + ". " + this.game.getResultOrder().get(i -1).getMyName()
                     + " (" + this.game.getResultOrder().get(i - 1).getMyMoney() + " AB)");
 
