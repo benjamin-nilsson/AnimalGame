@@ -66,17 +66,14 @@ public class AfterGameMenuController implements Initializable {
      */
     private void displayPlayersPlacement() {
         int place = 1;
-        int layoutY = 100;
+        int layoutY = 140;
         // as the losers are added first in the list when they lose we go through the list backwards.
         for (int i = this.game.getResultOrder().size(); i > 0; i--) {
             Text text = new Text();
-            text.setLayoutX(339);
+            text.setLayoutX(300);
             text.setLayoutY(layoutY);
             if (place == 1) {
                 text.setFill(Color.GOLD);
-                text.setStyle("-fx-font-size: 15px; "
-                                + "-fx-font-weight: bold; "
-                                + "-fx-text-fill: #ffffff;");
             }
             else if (place == 2){
                 text.setFill(Color.SILVER);
@@ -84,7 +81,10 @@ public class AfterGameMenuController implements Initializable {
             else if (place == 3){
                 text.setFill(Color.valueOf("#cd7f32"));
             }
-            text.setStyle("-fx-font-size: 15px; "
+            else if (place == 4) {
+                text.setFill(Color.valueOf("#ffffff"));
+            }
+            text.setStyle("-fx-font-size: 25px; "
                         + "-fx-font-weight: bold;");
             text.setText(place + ". " + this.game.getResultOrder().get(i -1).getMyName()
                     + " (" + this.game.getResultOrder().get(i - 1).getMyMoney() + " AB)");
@@ -92,7 +92,7 @@ public class AfterGameMenuController implements Initializable {
             anchorPane.getChildren().add(text);
 
             place++;
-            layoutY += 45;
+            layoutY += 55;
         }
     }
 
