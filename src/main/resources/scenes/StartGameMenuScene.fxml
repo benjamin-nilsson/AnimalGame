@@ -12,21 +12,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalgame.controllers.StartGameMenuController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="768.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalgame.controllers.StartGameMenuController">
    <children>
       <ImageView fx:id="gamePane" fitHeight="450.0" fitWidth="768.0" layoutY="-2.0" pickOnBounds="true">
          <image>
             <Image url="@../images/AnimalFarm.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="238.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turns (5-30)">
+      <Text fill="WHITE" layoutX="333.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Turns (5-30)">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="turns" layoutX="389.0" layoutY="60.0" prefHeight="61.0" prefWidth="67.0">
+      <TextField fx:id="turns" layoutX="419.0" layoutY="108.0" prefHeight="30.0" prefWidth="40.0">
          <font>
-            <Font size="25.0" />
+            <Font size="14.0" />
          </font>
       </TextField>
       <TextField fx:id="player1Text" layoutX="310.0" layoutY="141.0" />
@@ -51,22 +51,22 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Button>
-      <Text layoutX="251.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1">
+      <Text fill="WHITE" layoutX="251.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="251.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2">
+      <Text fill="WHITE" layoutX="251.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="251.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3">
+      <Text fill="WHITE" layoutX="251.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="251.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4">
+      <Text fill="WHITE" layoutX="251.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
