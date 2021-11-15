@@ -42,7 +42,7 @@ public class AfterGameMenuController implements Initializable {
         displayPlayersPlacement();
 
 
-        file = new File("C:\\Users\\b3nni\\AnimalGame\\src\\main\\resources\\images\\fireworks.mp4");
+        file = new File(this.getClass().getResource("/images/fireworks.mp4").getFile());
         media = new Media(file.toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
