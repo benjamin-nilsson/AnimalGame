@@ -79,7 +79,10 @@ public class Game implements Serializable {
         if (this.currentPlayerIndex == this.myPlayerList.size() - 1) {
             // Last player in the list
             if (this.currentTurn == this.turns) {
-                // Last turn
+                // Last turn - sell all animals and go to aftergame
+                for (Player player :myPlayerList) {
+                    Store.sellAllAnimals(player);
+                }
                 this.nextScene("/scenes/AfterGameMenuScene.fxml");
                 return;
             } else {
