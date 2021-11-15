@@ -53,29 +53,29 @@
                             <RowConstraints maxHeight="159.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ImageView fx:id="pigImage" fitHeight="110.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="pigImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/95884243-cartoon-pig-play-in-mud.jpg" />
+                                    <Image url="@../images/Pig.png" />
                                  </image>
                               </ImageView>
                               <ImageView fx:id="cowImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                                  <image>
-                                    <Image url="@../images/cow.jpg" />
+                                    <Image url="@../images/Cow.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="dogImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                              <ImageView fx:id="dogImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                                  <image>
-                                    <Image url="@../images/dog.jpg" />
+                                    <Image url="@../images/Dog.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="horseImage" fitHeight="96.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                              <ImageView fx:id="horseImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                                  <image>
-                                    <Image url="@../images/Horse.jpg" />
+                                    <Image url="@../images/Horse.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="sheepImage" fitHeight="99.0" fitWidth="103.0" pickOnBounds="true" GridPane.columnIndex="4">
+                              <ImageView fx:id="sheepImage" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="4">
                                  <image>
-                                    <Image url="@../images/sheep.jpg" />
+                                    <Image url="@../images/Sheep.png" />
                                  </image>
                               </ImageView>
                               <Text fx:id="costPigText" strokeType="OUTSIDE" strokeWidth="0.0" text="200AB" textAlignment="CENTER" wrappingWidth="66.0" GridPane.rowIndex="1">
@@ -154,40 +154,31 @@
           </Tab>
           <Tab fx:id="buyFoodTab" text="Store | Buy Food">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="383.0" prefWidth="572.0">
                      <children>
-                        <ScrollPane layoutX="-2.0" prefHeight="373.0" prefWidth="778.0">
+                        <ScrollPane layoutX="-2.0" prefHeight="385.0" prefWidth="557.0">
                           <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="759.0">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="517.0" prefWidth="542.0">
                                  <children>
-                                    <Button fx:id="nextPlayerOrTurnButton11" layoutX="604.0" layoutY="387.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Next Player" textFill="#b52020">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </Button>
-                                    <GridPane layoutX="50.0" layoutY="16.0" prefHeight="157.0" prefWidth="659.0">
+                                    <GridPane layoutX="40.0" layoutY="14.0" prefHeight="192.0" prefWidth="497.0">
                                        <columnConstraints>
-                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                        </columnConstraints>
                                        <rowConstraints>
-                                          <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="95.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="68.0" minHeight="0.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="38.0" minHeight="0.0" prefHeight="32.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="104.0" minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="20.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="68.0" minHeight="0.0" prefHeight="24.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fx:id="meatImage1" fitHeight="119.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="meatImage1" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../images/meat.png" />
+                                                <Image url="@../images/CornAndSoyBeans.png" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyCornAndSoyButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                          <Button fx:id="buyCornAndSoyButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="3">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -195,12 +186,12 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ImageView fx:id="hayImage1" fitHeight="88.0" fitWidth="108.0" pickOnBounds="true" GridPane.columnIndex="1">
+                                          <ImageView fx:id="hayImage1" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="1">
                                              <image>
-                                                <Image url="@../images/hay.png" />
+                                                <Image url="@../images/BaledHay.png" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyHayButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                          <Button fx:id="buyHayButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -208,12 +199,12 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ImageView fx:id="linenImage1" fitHeight="89.0" fitWidth="109.0" pickOnBounds="true" GridPane.columnIndex="2">
+                                          <ImageView fx:id="linenImage1" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="2">
                                              <image>
-                                                <Image url="@../images/lining.jpg" />
+                                                <Image url="@../images/Frolic.png" />
                                              </image>
                                           </ImageView>
-                                          <Button fx:id="buyFrolicButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                          <Button fx:id="buyFrolicButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -221,79 +212,52 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ImageView fx:id="grassImage1" fitHeight="83.0" fitWidth="107.0" pickOnBounds="true" GridPane.columnIndex="3">
-                                             <image>
-                                                <Image url="@../images/grass.jpg" />
-                                             </image>
-                                          </ImageView>
-                                          <Button fx:id="buyGrassAndWeedsButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                          </Button>
-                                          <ImageView fx:id="weedImage1" fitHeight="85.0" fitWidth="104.0" pickOnBounds="true" GridPane.columnIndex="4">
-                                             <image>
-                                                <Image url="@../images/weed.jpg" />
-                                             </image>
-                                          </ImageView>
-                                          <Button fx:id="buyMixedGrainButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                          </Button>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10kg   30AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10kg   30AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="12kg   24AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="12kg   24AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5kg   20AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5kg   20AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="100kg   100AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Corn and Soybeans" GridPane.rowIndex="1">
                                              <font>
-                                                <Font name="System Bold" size="15.0" />
+                                                <Font name="System Bold" size="13.0" />
                                              </font>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="20kg   60AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Baled Hay" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                              <font>
-                                                <Font name="System Bold" size="15.0" />
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Frolic" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
                                              </font>
                                           </Text>
                                        </children>
                                     </GridPane>
-                                    <GridPane layoutX="53.0" layoutY="196.0" prefHeight="163.0" prefWidth="659.0">
+                                    <GridPane layoutX="40.0" layoutY="213.0" prefHeight="192.0" prefWidth="494.0">
                                        <columnConstraints>
-                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                        </columnConstraints>
                                        <rowConstraints>
-                                          <RowConstraints maxHeight="222.0" minHeight="90.0" prefHeight="210.0" valignment="CENTER" vgrow="NEVER" />
-                                          <RowConstraints maxHeight="172.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="159.0" minHeight="30.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="104.0" minHeight="10.0" prefHeight="100.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="20.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="68.0" minHeight="0.0" prefHeight="24.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="54.0" minHeight="0.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <ImageView fx:id="weedImage12" fitHeight="86.0" fitWidth="102.0" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@../images/weed.jpg" />
-                                             </image>
-                                          </ImageView>
-                                          <Button fx:id="buyDogFoodButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="2">
+                                          <Button fx:id="buyCornAndSoyButton1" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="3">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -301,17 +265,90 @@
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2kg   8AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="1">
+                                          <ImageView fx:id="weedImage12" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../images/WellnessDryDogFood.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2kg   8AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.rowIndex="2">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dry Dog Food" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Button fx:id="buyDogFoodButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.rowIndex="3">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <ImageView fx:id="grassImage11" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="1">
+                                             <image>
+                                                <Image url="@../images/GrassAndWeeds.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grass and Weeds" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="100kg   100AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <Button fx:id="buyGrassAndWeedsButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
+                                          <ImageView fx:id="weedImage11" fitHeight="100.0" fitWidth="110.0" pickOnBounds="true" GridPane.columnIndex="2">
+                                             <image>
+                                                <Image url="@../images/MixedGrain.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mixed Grain" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="20kg   60AB" textAlignment="CENTER" wrappingWidth="120.6708984375" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <Button fx:id="buyMixedGrainButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="49.0" style="-fx-background-color: #a41212; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Buy" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Button>
                                        </children>
                                     </GridPane>
                                  </children>
                               </AnchorPane>
                           </content>
                         </ScrollPane>
+                        <TextArea fx:id="animalsTextArea" layoutX="563.0" layoutY="14.0" prefHeight="311.0" prefWidth="201.0" style="-fx-border-color: #a41212; -fx-border-radius: 5px;" />
+                        <Button fx:id="nextPlayerOrTurnButton11" layoutX="658.0" layoutY="338.0" mnemonicParsing="false" onAction="#openTurnScene" prefHeight="31.0" prefWidth="105.0" style="-fx-background-color: #000000; -fx-border-width: 2px; -fx-border-color: #b52020;" text="Next Player" textFill="#b52020">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
             </content>

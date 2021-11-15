@@ -157,8 +157,6 @@ public class MateWithController implements Initializable {
 
     }
 
-
-
     /**
      * Displays an alert that the mating was unsuccessful.
      */

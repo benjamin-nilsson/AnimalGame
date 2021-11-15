@@ -56,7 +56,7 @@ public class PlayerTurnController implements Initializable {
      * @return true if the player has either at least one animal or money is not zero.
      */
     private boolean stillInGame(Player currentPlayer) {
-        return currentPlayer.getMyAnimals().size() > 0 || currentPlayer.getMyMoney() > 0;
+        return currentPlayer.getMyAnimals().size() > 0 || currentPlayer.getMyMoney() > 7;
     }
 
     /**

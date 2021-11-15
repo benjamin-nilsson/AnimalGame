@@ -71,9 +71,15 @@ public class Game implements Serializable {
      * sets currentPlayerIndex to next in line
      */
     public void nextPlayer() throws Exception {
+        // If this player is out of money and as no animals it has lost.
+        if (this.getCurrentPlayer().getMyMoney() < 8 && this.getCurrentPlayer().getMyAnimals().size() == 0) {
+            playerLost(this.getCurrentPlayer());
+            this.currentPlayerIndex--;
+        }
         if (this.currentPlayerIndex == this.myPlayerList.size() - 1) {
-            // Last player in the list, last turn:
+            // Last player in the list
             if (this.currentTurn == this.turns) {
+                // Last turn
                 this.nextScene("/scenes/AfterGameMenuScene.fxml");
                 return;
             } else {
@@ -83,15 +89,10 @@ public class Game implements Serializable {
                 this.currentPlayerIndex = 0;
             }
         } else {
-            // Not last player in the list
-            // increase the currentPlayerIndex OR
-            // If the current player has no money and no animals remove it
-            if (this.getCurrentPlayer().getMyMoney() < 8 && this.getCurrentPlayer().getMyAnimals().size() == 0) {
-                playerLost(this.getCurrentPlayer());
-            } else {
+                // Not last player
                 this.currentPlayerIndex++;
             }
-        }
+
         // Then go to next scene
         this.nextScene("/scenes/PlayerTurnMenuScene.fxml");
     }
